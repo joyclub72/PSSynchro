@@ -1,0 +1,28 @@
+
+
+Version:	3.9
+CmdLine:	F:\esercizi java\PSSynchro\PSSynchro.exe --l4j-debug
+WOW64:		yes
+Working dir:	F:\esercizi java\PSSynchro\.
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+32-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.5
+Ignore:		1.5
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.5.0_16
+Ignore:		1.5.0_016
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_121
+Check launcher:	C:\Program Files (x86)\Java\jre1.8.0_121\bin\javaw.exe (OK)
+Match:		1.8.0_121
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_91
+Ignore:		1.8.0_091
+32-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Runtime used:	1.8.0_121 (32-bit)
+Launcher:	C:\Program Files (x86)\Java\jre1.8.0_121\bin\javaw.exe
+Launcher args:	-jar "F:\esercizi java\PSSynchro\PSSynchro.exe"
+Args length:	47/32768 chars
+Exit code:	0
