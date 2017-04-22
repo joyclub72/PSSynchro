@@ -509,47 +509,58 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_configActionPerformed
 
     private void runOnceGiacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceGiacActionPerformed
-        T.run("argiacenze");
+        //T.run("argiacenze");
+        timer.schedule(new TaskSchedulato("argiacenze"), 10);
     }//GEN-LAST:event_runOnceGiacActionPerformed
 
     private void runOnceCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCliActionPerformed
-        T.run("arclienti");
+        //T.run("arclienti");
+        timer.schedule(new TaskSchedulato("arclienti"), 10);
     }//GEN-LAST:event_runOnceCliActionPerformed
 
     private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
-        T.run("arfornitori");
+        //T.run("arfornitori");
+        timer.schedule(new TaskSchedulato("arfornitori"), 10);
     }//GEN-LAST:event_runOnceForActionPerformed
 
     private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
-        T.run("ararticoli");
+        //T.run("ararticoli");
+        timer.schedule(new TaskSchedulato("ararticoli"), 10);
     }//GEN-LAST:event_runOnceArtActionPerformed
 
     private void runOnceMarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMarActionPerformed
-        T.run("armarche");
+        //T.run("armarche");
+        timer.schedule(new TaskSchedulato("armarche"), 10);
     }//GEN-LAST:event_runOnceMarActionPerformed
 
     private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
-        T.run("arimmagini");
+        //T.run("arimmagini");
+        timer.schedule(new TaskSchedulato("arimmagini"), 10);
     }//GEN-LAST:event_runOnceImmActionPerformed
 
     private void runOnceAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceAllActionPerformed
-        T.run("arallegati");
+        //T.run("arallegati");
+        timer.schedule(new TaskSchedulato("arallegati"), 10);
     }//GEN-LAST:event_runOnceAllActionPerformed
 
     private void runOnceScaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceScaActionPerformed
-        T.run("arscadenzario");
+        //T.run("arscadenzario");
+        timer.schedule(new TaskSchedulato("arscadenzario"), 10);
     }//GEN-LAST:event_runOnceScaActionPerformed
 
     private void runOnceStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceStaActionPerformed
-        T.run("arstatistiche");
+        //T.run("arstatistiche");
+        timer.schedule(new TaskSchedulato("arstatistiche"), 10);
     }//GEN-LAST:event_runOnceStaActionPerformed
 
     private void runOnceOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceOrdActionPerformed
-        T.run("arordini");
+        //T.run("arordini");
+        timer.schedule(new TaskSchedulato("arordini"), 10);
     }//GEN-LAST:event_runOnceOrdActionPerformed
 
     private void runOnceLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLinActionPerformed
-        T.run("arlingue");
+        //T.run("arlingue");
+        timer.schedule(new TaskSchedulato("arlingue"), 10);
     }//GEN-LAST:event_runOnceLinActionPerformed
 
     private void clearAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAreaActionPerformed
@@ -557,7 +568,8 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clearAreaActionPerformed
 
     private void runOnceMagEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMagEstActionPerformed
-        T.run("magazzinoesterno");
+        //T.run("magazzinoesterno");
+        timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
     }//GEN-LAST:event_runOnceMagEstActionPerformed
 
     /**
@@ -676,6 +688,7 @@ public class MainForm extends javax.swing.JFrame {
             if (mostraStream.isSelected()) {
                 String inputLine;
                 try {
+                    System.out.println(stringa);
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
                     }
@@ -696,7 +709,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     
-//Candidato all'eliminazione, inglobato in TaskSchedulato
+/*Candidato all'eliminazione, inglobato in TaskSchedulato
     class TaskManuale {
 
         public void run(final String stringa) {
@@ -768,7 +781,7 @@ public class MainForm extends javax.swing.JFrame {
 
     }
     TaskManuale T = new TaskManuale();
-//Fine - Candidato all'eliminazione, inglobato in TaskSchedulato    
+Fine - Candidato all'eliminazione, inglobato in TaskSchedulato   */ 
     
     class TaskClear extends TimerTask {
         @Override
