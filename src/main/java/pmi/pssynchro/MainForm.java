@@ -672,17 +672,21 @@ public class MainForm extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
             }
-            String inputLine;
-            try {
-                while ((inputLine = in.readLine()) != null) {
-                    System.out.println(inputLine);
-                }
-            } catch (IOException ex) {
-                Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
+            //potrebbe bloccare la form
+            if (mostraStream.isSelected()) {
+                String inputLine;
+                try {
+                    while ((inputLine = in.readLine()) != null) {
+                        System.out.println(inputLine);
+                    }
+                } catch (IOException ex) {
+                    Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                 dataErrore = new Date();
                 System.out.println(sdf.format(dataErrore));
-                System.out.println("Errore di connessione: " + dataErrore);
+                System.out.println("Errore di connessione: " + dataErrore);                    
+                }
             }
+            //potrebbe bloccare la form - Fine
             try {
                 in.close();
             } catch (IOException ex) {
@@ -692,6 +696,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     
+//Candidato all'eliminazione, inglobato in TaskSchedulato
     class TaskManuale {
 
         public void run(final String stringa) {
@@ -738,7 +743,6 @@ public class MainForm extends javax.swing.JFrame {
                         new InputStreamReader(
                                 yc.getInputStream()));
             } catch (IOException ex) {
-                //System.out.println("x");
                 Logger.getLogger(TaskManuale.class.getName()).log(Level.SEVERE, null, ex);
             }
             //potrebbe bloccare la form
@@ -757,7 +761,6 @@ public class MainForm extends javax.swing.JFrame {
                 System.out.println("OK");
                 in.close();
             } catch (IOException ex) {
-                //System.out.println("y");
                 Logger.getLogger(TaskManuale.class.getName()).log(Level.SEVERE, null, ex);
             }
 
@@ -765,6 +768,7 @@ public class MainForm extends javax.swing.JFrame {
 
     }
     TaskManuale T = new TaskManuale();
+//Fine - Candidato all'eliminazione, inglobato in TaskSchedulato    
     
     class TaskClear extends TimerTask {
         @Override
