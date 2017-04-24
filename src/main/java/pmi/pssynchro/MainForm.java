@@ -23,7 +23,7 @@ import javax.swing.SwingUtilities;
 public class MainForm extends javax.swing.JFrame {
 
     boolean stopped = false;
-    Timer timer = new Timer();
+    public static Timer timer;
     String sUrl = Config.getString("URL");
     int magRitardo = Integer.parseInt((Config.getString("MAGAZZINO") + "000"))*60;    //ritardo aggiornamento magazzino esterno
     int giacRitardo = Integer.parseInt((Config.getString("GIACENZA") + "000"))*60;
@@ -510,56 +510,67 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceGiacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceGiacActionPerformed
         //T.run("argiacenze");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("argiacenze"), 10);
     }//GEN-LAST:event_runOnceGiacActionPerformed
 
     private void runOnceCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCliActionPerformed
         //T.run("arclienti");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arclienti"), 10);
     }//GEN-LAST:event_runOnceCliActionPerformed
 
     private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
         //T.run("arfornitori");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arfornitori"), 10);
     }//GEN-LAST:event_runOnceForActionPerformed
 
     private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
         //T.run("ararticoli");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("ararticoli"), 10);
     }//GEN-LAST:event_runOnceArtActionPerformed
 
     private void runOnceMarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMarActionPerformed
         //T.run("armarche");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("armarche"), 10);
     }//GEN-LAST:event_runOnceMarActionPerformed
 
     private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
         //T.run("arimmagini");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arimmagini"), 10);
     }//GEN-LAST:event_runOnceImmActionPerformed
 
     private void runOnceAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceAllActionPerformed
         //T.run("arallegati");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arallegati"), 10);
     }//GEN-LAST:event_runOnceAllActionPerformed
 
     private void runOnceScaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceScaActionPerformed
         //T.run("arscadenzario");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arscadenzario"), 10);
     }//GEN-LAST:event_runOnceScaActionPerformed
 
     private void runOnceStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceStaActionPerformed
         //T.run("arstatistiche");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arstatistiche"), 10);
     }//GEN-LAST:event_runOnceStaActionPerformed
 
     private void runOnceOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceOrdActionPerformed
         //T.run("arordini");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arordini"), 10);
     }//GEN-LAST:event_runOnceOrdActionPerformed
 
     private void runOnceLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLinActionPerformed
         //T.run("arlingue");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("arlingue"), 10);
     }//GEN-LAST:event_runOnceLinActionPerformed
 
@@ -569,6 +580,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceMagEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMagEstActionPerformed
         //T.run("magazzinoesterno");
+        timer = new Timer();
         timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
     }//GEN-LAST:event_runOnceMagEstActionPerformed
 
