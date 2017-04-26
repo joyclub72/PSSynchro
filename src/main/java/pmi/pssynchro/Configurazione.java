@@ -79,6 +79,8 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -253,6 +255,12 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel2.setForeground(java.awt.Color.gray);
         jLabel2.setText("Dati accesso SQL");
 
+        jLabel3.setMaximumSize(new java.awt.Dimension(128, 128));
+        jLabel3.setMinimumSize(new java.awt.Dimension(128, 128));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/info.png"))); // NOI18N
+        jLabel4.setToolTipText("<html>\n<b>Conversione in minuti:</b><br>\n1 ora = <b>60</b><br>\n1 giorno = <b>1440</b><br>\n1 settimana = <b>10080</b><br>\n1 mese = <b>43800</b><br>\n");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -284,6 +292,10 @@ public class Configurazione extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel4)
+                                        .addGap(14, 14, 14)
                                         .addComponent(Salva)
                                         .addGap(18, 18, 18)
                                         .addComponent(Chiudi))
@@ -446,11 +458,16 @@ public class Configurazione extends javax.swing.JFrame {
                             .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabelUser))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Salva)
-                    .addComponent(Chiudi))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Salva)
+                        .addComponent(Chiudi)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4))
                 .addGap(20, 20, 20))
         );
+
+        jLabel4.getAccessibleContext().setAccessibleDescription("info");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -556,6 +573,8 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JButton Salva;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabelAll;
     private javax.swing.JLabel jLabelArt;
     private javax.swing.JLabel jLabelCli;
