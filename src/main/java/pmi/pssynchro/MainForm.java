@@ -647,6 +647,7 @@ public class MainForm extends javax.swing.JFrame {
 
     class TaskSchedulato extends TimerTask {
         String stringa;
+        boolean inVoid=false;
         public TaskSchedulato(String stringa){
             this.stringa=stringa;
         }
@@ -655,7 +656,7 @@ public class MainForm extends javax.swing.JFrame {
             redirectSystemStreams();
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             URL sito = null;
-                        
+            System.out.println("Procedura: " + stringa);            
             // Carico le informazioni di collegamento a SQL            
             String server=Config.getString("SERVER");
             server="jdbc:sqlserver://"+server;
@@ -690,22 +691,25 @@ public class MainForm extends javax.swing.JFrame {
             }
             BufferedReader in = null;
             try {
-                in = new BufferedReader(
-                        new InputStreamReader(
-                                yc.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
             } catch (IOException ex) {
-                Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
+                dataErrore = new Date();
+                //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(sdf.format(dataErrore)+": Errore in ricezione dati: verificare che il "+
+                        "server sia avviato o che l'indirizzo sia corretto");
+                inVoid=true;
             }
             //potrebbe bloccare la form
             if (mostraStream.isSelected()) {
                 String inputLine;
                 try {
-                    System.out.println(stringa);
+                    if (!inVoid) {
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
                     }
+                    }
                 } catch (IOException ex) {
-                    Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
+                    //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                 dataErrore = new Date();
                 System.out.println(sdf.format(dataErrore));
                 System.out.println("Errore di connessione: " + dataErrore);                    
@@ -713,9 +717,11 @@ public class MainForm extends javax.swing.JFrame {
             }
             //potrebbe bloccare la form - Fine
             try {
+                if (!inVoid)
                 in.close();
             } catch (IOException ex) {
-                Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("errore in chiusura");
             }
         }
     }
