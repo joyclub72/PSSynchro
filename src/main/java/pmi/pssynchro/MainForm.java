@@ -459,7 +459,7 @@ public class MainForm extends javax.swing.JFrame {
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         this.start.setBackground(Color.green);
         this.stop.setBackground(Color.lightGray);
-        if (!stopped) {
+        if (stopped) {
             timer.cancel();
         }
         stopped = false;
