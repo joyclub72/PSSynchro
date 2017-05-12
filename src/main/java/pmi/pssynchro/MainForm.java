@@ -509,67 +509,56 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_configActionPerformed
 
     private void runOnceGiacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceGiacActionPerformed
-        //T.run("argiacenze");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("argiacenze"), 10);
     }//GEN-LAST:event_runOnceGiacActionPerformed
 
     private void runOnceCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCliActionPerformed
-        //T.run("arclienti");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arclienti"), 10);
     }//GEN-LAST:event_runOnceCliActionPerformed
 
     private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
-        //T.run("arfornitori");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arfornitori"), 10);
     }//GEN-LAST:event_runOnceForActionPerformed
 
     private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
-        //T.run("ararticoli");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("ararticoli"), 10);
     }//GEN-LAST:event_runOnceArtActionPerformed
 
     private void runOnceMarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMarActionPerformed
-        //T.run("armarche");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("armarche"), 10);
     }//GEN-LAST:event_runOnceMarActionPerformed
 
     private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
-        //T.run("arimmagini");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arimmagini"), 10);
     }//GEN-LAST:event_runOnceImmActionPerformed
 
     private void runOnceAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceAllActionPerformed
-        //T.run("arallegati");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arallegati"), 10);
     }//GEN-LAST:event_runOnceAllActionPerformed
 
     private void runOnceScaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceScaActionPerformed
-        //T.run("arscadenzario");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arscadenzario"), 10);
     }//GEN-LAST:event_runOnceScaActionPerformed
 
     private void runOnceStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceStaActionPerformed
-        //T.run("arstatistiche");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arstatistiche"), 10);
     }//GEN-LAST:event_runOnceStaActionPerformed
 
     private void runOnceOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceOrdActionPerformed
-        //T.run("arordini");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arordini"), 10);
     }//GEN-LAST:event_runOnceOrdActionPerformed
 
     private void runOnceLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLinActionPerformed
-        //T.run("arlingue");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arlingue"), 10);
     }//GEN-LAST:event_runOnceLinActionPerformed
@@ -579,7 +568,6 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clearAreaActionPerformed
 
     private void runOnceMagEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMagEstActionPerformed
-        //T.run("magazzinoesterno");
         timer = new Timer();
         timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
     }//GEN-LAST:event_runOnceMagEstActionPerformed
@@ -727,80 +715,7 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     
-/*Candidato all'eliminazione, inglobato in TaskSchedulato
-    class TaskManuale {
-
-        public void run(final String stringa) {
-            redirectSystemStreams();
-            DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-            URL sito = null;
-            
-            // Carico le informazioni di collegamento a SQL            
-            String server=Config.getString("SERVER");
-            server="jdbc:sqlserver://"+server;
-            String database=Config.getString("DATABASE");
-            server = server+";mydb="+database;
-            String username=Config.getString("USERNAME");
-            String password=Config.getString("PASSWORD");
-            //Aggiorno le categorie web            
-            if (stringa.equals("ararticoli")) {
-                UpdateCategoriePs connServer = new UpdateCategoriePs();
-                connServer.dbConnect(server, username, password, database);
-            }
-            //
-            // Carico i dati del magazzino esterno 
-            if (stringa.equals("magazzinoesterno")) {            
-            UpdateMagazzinoEsternoPS connServerMag = new UpdateMagazzinoEsternoPS();
-            connServerMag.dbConnect(server, username, password, database); 
-            return;
-            }
-            //
-            
-            try {
-                sito = new URL(Config.getString("URL") + "?aggiornamento=" + stringa);
-                System.out.println(sito);
-            } catch (MalformedURLException ex) {
-                System.out.println("Indirizzo del sito mal formato o inesistente");
-            }
-            URLConnection yc = null;
-            try {
-                yc = sito.openConnection();
-            } catch (IOException ex) {
-                System.out.println("Errore di connessione _ ");
-            }
-            BufferedReader in = null;
-            try {
-                in = new BufferedReader(
-                        new InputStreamReader(
-                                yc.getInputStream()));
-            } catch (IOException ex) {
-                Logger.getLogger(TaskManuale.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            //potrebbe bloccare la form
-            if (mostraStream.isSelected()) {
-                String inputLine;
-                try {
-                    while ((inputLine = in.readLine()) != null) {
-                        System.out.println(inputLine);
-                    }
-                } catch (IOException ex) {
-                    Logger.getLogger(TaskManuale.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            //potrebbe bloccare la form - Fine
-            try {
-                System.out.println("OK");
-                in.close();
-            } catch (IOException ex) {
-                Logger.getLogger(TaskManuale.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        }
-
-    }
-    TaskManuale T = new TaskManuale();
-Fine - Candidato all'eliminazione, inglobato in TaskSchedulato   */ 
-    
+   
     class TaskClear extends TimerTask {
         @Override
         public void run() {
