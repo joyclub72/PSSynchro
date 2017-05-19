@@ -354,7 +354,7 @@ public class MainForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(clearArea)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -635,7 +635,6 @@ public class MainForm extends javax.swing.JFrame {
 
     class TaskSchedulato extends TimerTask {
         String stringa;
-        boolean inVoid=false;
         public TaskSchedulato(String stringa){
             this.stringa=stringa;
         }
@@ -685,16 +684,15 @@ public class MainForm extends javax.swing.JFrame {
                 //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(sdf.format(dataErrore)+": Errore in ricezione dati: verificare che il "+
                         "server sia avviato o che l'indirizzo sia corretto");
-                inVoid=true;
+                //inVoid=true;
+                return;
             }
             //potrebbe bloccare la form
             if (mostraStream.isSelected()) {
                 String inputLine;
                 try {
-                    if (!inVoid) {
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
-                    }
                     }
                 } catch (IOException ex) {
                     //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
@@ -705,7 +703,6 @@ public class MainForm extends javax.swing.JFrame {
             }
             //potrebbe bloccare la form - Fine
             try {
-                if (!inVoid)
                 in.close();
             } catch (IOException ex) {
                 //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
