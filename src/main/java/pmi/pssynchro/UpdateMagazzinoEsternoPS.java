@@ -1,10 +1,12 @@
 package pmi.pssynchro;
 
+import java.net.MalformedURLException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 //import java.sql.ResultSet;
 import java.sql.Statement;
 import java.net.URL;
+import java.sql.SQLException;
 
 public class UpdateMagazzinoEsternoPS {
 
@@ -29,8 +31,13 @@ public class UpdateMagazzinoEsternoPS {
             } else {
                 System.out.println("Update categorie su SQL FALLITO! (" + rs + ")");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (MalformedURLException e) {
+            System.out.println(e.toString());
+            System.out.println("La struttura delle categorie web non è stata aggiornata");
+        } catch (ClassNotFoundException e) {
+            System.out.println(e.toString());
+            System.out.println("La struttura delle categorie web non è stata aggiornata");
+        } catch (SQLException e) {
             System.out.println(e.toString());
             System.out.println("La struttura delle categorie web non è stata aggiornata");
         }
