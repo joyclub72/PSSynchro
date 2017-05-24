@@ -1,6 +1,5 @@
 package pmi.pssynchro;
 
-
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -25,19 +24,20 @@ public class MainForm extends javax.swing.JFrame {
     boolean stopped = false;
     public static Timer timer;
     String sUrl = Config.getString("URL");
-    int magRitardo = Integer.parseInt((Config.getString("MAGAZZINO") + "000"))*60;    //ritardo aggiornamento magazzino esterno
-    int giacRitardo = Integer.parseInt((Config.getString("GIACENZA") + "000"))*60;
-    int cliRitardo = Integer.parseInt((Config.getString("CLIENTI") + "000"))*60;
-    int artRitardo = Integer.parseInt((Config.getString("ARTICOLI") + "000"))*60;
-    int forRitardo = Integer.parseInt((Config.getString("FORNITORI") + "000"))*60;
-    int immRitardo = Integer.parseInt((Config.getString("IMMAGINI") + "000"))*60;
-    int allRitardo = Integer.parseInt((Config.getString("ALLEGATI") + "000"))*60;
-    int scaRitardo = Integer.parseInt((Config.getString("SCADENZARIO") + "000"))*60;
-    int staRitardo = Integer.parseInt((Config.getString("STATISTICHE") + "000"))*60;
-    int marRitardo = Integer.parseInt((Config.getString("MARCHE") + "000"))*60;
-    int ordRitardo = Integer.parseInt((Config.getString("ORDINI") + "000"))*60;
-    int linRitardo = Integer.parseInt((Config.getString("LINGUE") + "000"))*60;
-    int clearEvery = Integer.parseInt((Config.getString("PULIZIAAREA") + "000"))*60;
+    int magRitardo = Integer.parseInt((Config.getString("MAGAZZINO") + "000")) * 60;    //ritardo aggiornamento magazzino esterno
+    int giacRitardo = Integer.parseInt((Config.getString("GIACENZA") + "000")) * 60;
+    int cliRitardo = Integer.parseInt((Config.getString("CLIENTI") + "000")) * 60;
+    int artRitardo = Integer.parseInt((Config.getString("ARTICOLI") + "000")) * 60;
+    int forRitardo = Integer.parseInt((Config.getString("FORNITORI") + "000")) * 60;
+    int immRitardo = Integer.parseInt((Config.getString("IMMAGINI") + "000")) * 60;
+    int allRitardo = Integer.parseInt((Config.getString("ALLEGATI") + "000")) * 60;
+    int scaRitardo = Integer.parseInt((Config.getString("SCADENZARIO") + "000")) * 60;
+    int staRitardo = Integer.parseInt((Config.getString("STATISTICHE") + "000")) * 60;
+    int marRitardo = Integer.parseInt((Config.getString("MARCHE") + "000")) * 60;
+    int ordRitardo = Integer.parseInt((Config.getString("ORDINI") + "000")) * 60;
+    int linRitardo = Integer.parseInt((Config.getString("LINGUE") + "000")) * 60;
+    int lisRitardo = Integer.parseInt((Config.getString("LISTINI") + "000")) * 60;
+    int clearEvery = Integer.parseInt((Config.getString("PULIZIAAREA") + "000")) * 60;
     Date dataErrore;
 
     /**
@@ -80,6 +80,7 @@ public class MainForm extends javax.swing.JFrame {
         runOnceAll = new javax.swing.JButton();
         esci = new javax.swing.JButton();
         runOnceMagEst = new javax.swing.JButton();
+        runOnceLis = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PrestaShopSync");
@@ -264,6 +265,14 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        runOnceLis.setBackground(java.awt.Color.white);
+        runOnceLis.setText("Listini");
+        runOnceLis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceLisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -272,72 +281,79 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(runOnceArt, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceMar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(runOnceOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(runOnceLin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(runOnceArt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(runOnceMar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(start)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(stop)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sysTray)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(esci)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceLin, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(start)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(stop)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(sysTray)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(esci)))
-                .addGap(5, 5, 5)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(mostraStream, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(mostraStream, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                            .addComponent(runOnceFor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(config, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                            .addComponent(runOnceLis, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(config, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(218, 218, 218))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(config, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(stop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sysTray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(esci, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(stato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(stop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(sysTray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(esci, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(mostraStream))
+                            .addComponent(stato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(mostraStream)))
-                .addGap(18, 18, 18)
+                        .addComponent(config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(10, 10, 10)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(runOnceMar)
                     .addComponent(runOnceSta)
                     .addComponent(runOnceFor)
                     .addComponent(runOnceAll)
                     .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(runOnceArt))
+                    .addComponent(runOnceArt)
+                    .addComponent(runOnceLis))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(runOnceLin)
@@ -356,8 +372,10 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clearArea)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(clearArea)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
         );
@@ -375,7 +393,6 @@ public class MainForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
 // Gestione della riduzione a System tray
     private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sysTrayActionPerformed
@@ -465,35 +482,43 @@ public class MainForm extends javax.swing.JFrame {
         stopped = false;
         stato.setText("Avviato");
         timer = new Timer();
-        if(giacRitardo>0)
+        if (giacRitardo > 0) {
             timer.schedule(new TaskSchedulato("argiacenze"), giacRitardo, giacRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(cliRitardo>0)
+        }
+        if (cliRitardo > 0) {
             timer.schedule(new TaskSchedulato("arclienti"), cliRitardo, cliRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(artRitardo>0)
+        }
+        if (artRitardo > 0) {
             timer.schedule(new TaskSchedulato("ararticoli"), artRitardo, artRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(forRitardo>0)
+        }
+        if (forRitardo > 0) {
             timer.schedule(new TaskSchedulato("arfornitori"), forRitardo, forRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(scaRitardo>0)
+        }
+        if (scaRitardo > 0) {
             timer.schedule(new TaskSchedulato("arscadenze"), scaRitardo, scaRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(staRitardo>0)
+        }
+        if (staRitardo > 0) {
             timer.schedule(new TaskSchedulato("arstatistiche"), staRitardo, staRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(ordRitardo>0)
+        }
+        if (ordRitardo > 0) {
             timer.schedule(new TaskSchedulato("arordini"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
-        //timer.schedule(new TaskSchedulato("argiacenze"), allRitardo, allRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(marRitardo>0)
+        }        //timer.schedule(new TaskSchedulato("argiacenze"), allRitardo, allRitardo);//parti dopo x secondi e itera ogni x secondi
+        if (marRitardo > 0) {
             timer.schedule(new TaskSchedulato("armarche"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
-        //timer.schedule(new TaskSchedulato("argiacenze"), immRitardo, immRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(linRitardo>0)
+        }        //timer.schedule(new TaskSchedulato("argiacenze"), immRitardo, immRitardo);//parti dopo x secondi e itera ogni x secondi
+        if (linRitardo > 0) {
             timer.schedule(new TaskSchedulato("arlingue"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
-        if(magRitardo>0)
+        }
+        if (lisRitardo > 0) {
+            timer.schedule(new TaskSchedulato("arlistini"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
+        }        
+        if (magRitardo > 0) {
             timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi        
-        if(clearEvery>0)
-            timer.schedule(new TaskClear(), clearEvery, clearEvery);//parti dopo x secondi e itera ogni x secondi        
+        }
+        if (clearEvery > 0) {
+            timer.schedule(new TaskClear(), clearEvery, clearEvery);//parti dopo x secondi e itera ogni x secondi
+        }
     }//GEN-LAST:event_startActionPerformed
-
-    private void esciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_esciActionPerformed
 
     private void stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopActionPerformed
         this.stop.setBackground(Color.green);
@@ -572,6 +597,15 @@ public class MainForm extends javax.swing.JFrame {
         timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
     }//GEN-LAST:event_runOnceMagEstActionPerformed
 
+    private void runOnceLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLisActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arlistini"), 10);
+    }//GEN-LAST:event_runOnceLisActionPerformed
+
+    private void esciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_esciActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -622,6 +656,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton runOnceGiac;
     private javax.swing.JButton runOnceImm;
     private javax.swing.JButton runOnceLin;
+    private javax.swing.JButton runOnceLis;
     private javax.swing.JButton runOnceMagEst;
     private javax.swing.JButton runOnceMar;
     private javax.swing.JButton runOnceOrd;
@@ -634,23 +669,28 @@ public class MainForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     class TaskSchedulato extends TimerTask {
+
         String stringa;
-        public TaskSchedulato(String stringa){
-            this.stringa=stringa;
+
+        public TaskSchedulato(String stringa) {
+            this.stringa = stringa;
         }
+
         @Override
         public void run() {
+            Buttons buttons = new Buttons();
+            buttons.disable(); //disabilito i buttons
             redirectSystemStreams();
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             URL sito = null;
-            System.out.println("Procedura: " + stringa);            
+            System.out.println("Procedura: " + stringa);
             // Carico le informazioni di collegamento a SQL            
-            String server=Config.getString("SERVER");
-            server="jdbc:sqlserver://"+server;
-            String database=Config.getString("DATABASE");
-            server = server+";mydb="+database;
-            String username=Config.getString("USERNAME");
-            String password=Config.getString("PASSWORD");
+            String server = Config.getString("SERVER");
+            server = "jdbc:sqlserver://" + server;
+            String database = Config.getString("DATABASE");
+            server = server + ";mydb=" + database;
+            String username = Config.getString("USERNAME");
+            String password = Config.getString("PASSWORD");
             //Aggiorno le categorie web            
             if (stringa.equals("ararticoli")) {
                 UpdateCategoriePs connServer = new UpdateCategoriePs();
@@ -658,15 +698,16 @@ public class MainForm extends javax.swing.JFrame {
             }
             //
             // Carico i dati del magazzino esterno 
-            if (stringa.equals("magazzinoesterno")) {            
-            UpdateMagazzinoEsternoPS connServerMag = new UpdateMagazzinoEsternoPS();
-            connServerMag.dbConnect(server, username, password, database); 
-            return;
+            if (stringa.equals("magazzinoesterno")) {
+                UpdateMagazzinoEsternoPS connServerMag = new UpdateMagazzinoEsternoPS();
+                connServerMag.dbConnect(server, username, password, database);
+                buttons.enable(); //riabilito i buttons
+                return;
             }
             //
-            
+
             try {
-                sito = new URL(sUrl + "?aggiornamento="+stringa);
+                sito = new URL(sUrl + "?aggiornamento=" + stringa);
             } catch (MalformedURLException ex) {
                 System.out.println("Indirizzo del sito mal formato o inesistente");
             }
@@ -682,9 +723,10 @@ public class MainForm extends javax.swing.JFrame {
             } catch (IOException ex) {
                 dataErrore = new Date();
                 //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println(sdf.format(dataErrore)+": Errore in ricezione dati: verificare che il "+
-                        "server sia avviato o che l'indirizzo sia corretto");
+                System.out.println(sdf.format(dataErrore) + ": Errore in ricezione dati: verificare che il "
+                        + "server sia avviato o che l'indirizzo sia corretto");
                 //inVoid=true;
+                buttons.enable(); //riabilito i buttons
                 return;
             }
             //potrebbe bloccare la form
@@ -696,9 +738,9 @@ public class MainForm extends javax.swing.JFrame {
                     }
                 } catch (IOException ex) {
                     //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
-                dataErrore = new Date();
-                System.out.println(sdf.format(dataErrore));
-                System.out.println("Errore di connessione: " + dataErrore);                    
+                    dataErrore = new Date();
+                    System.out.println(sdf.format(dataErrore));
+                    System.out.println("Errore di connessione: " + dataErrore);
                 }
             }
             //potrebbe bloccare la form - Fine
@@ -708,16 +750,52 @@ public class MainForm extends javax.swing.JFrame {
                 //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("errore in chiusura");
             }
+            buttons.enable(); //riabilito i buttons
         }
     }
 
-    
-   
     class TaskClear extends TimerTask {
+
         @Override
         public void run() {
-        esito.setText("");
+            esito.setText("");
         }
-    }    
-        
+    }
+
+    class Buttons {
+
+        public void disable() {
+            runOnceAll.setEnabled(false);
+            runOnceArt.setEnabled(false);
+            runOnceCli.setEnabled(false);
+            runOnceFor.setEnabled(false);
+            runOnceGiac.setEnabled(false);
+            runOnceImm.setEnabled(false);
+            runOnceLin.setEnabled(false);
+            runOnceLis.setEnabled(false);
+            runOnceMagEst.setEnabled(false);
+            runOnceMar.setEnabled(false);
+            runOnceOrd.setEnabled(false);
+            runOnceSca.setEnabled(false);
+            runOnceSta.setEnabled(false);
+        }
+
+        public void enable() {
+            runOnceAll.setEnabled(true);
+            runOnceArt.setEnabled(true);
+            runOnceCli.setEnabled(true);
+            runOnceFor.setEnabled(true);
+            runOnceGiac.setEnabled(true);
+            runOnceImm.setEnabled(true);
+            runOnceLin.setEnabled(true);
+            runOnceLis.setEnabled(true);
+            runOnceMagEst.setEnabled(true);
+            runOnceMar.setEnabled(true);
+            runOnceOrd.setEnabled(true);
+            runOnceSca.setEnabled(true);
+            runOnceSta.setEnabled(true);
+        }
+
+    }
+
 }

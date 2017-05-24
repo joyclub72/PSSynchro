@@ -81,6 +81,8 @@ public class Configurazione extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jTextFieldLis = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -131,6 +133,11 @@ public class Configurazione extends javax.swing.JFrame {
 
         jTextFieldImm.setText(Config.getString("IMMAGINI"));
         jTextFieldImm.setToolTipText("Frequenza aggiornamento in minuti");
+        jTextFieldImm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldImmActionPerformed(evt);
+            }
+        });
 
         jLabelSca.setText("Scadenzario");
 
@@ -261,6 +268,16 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/info.png"))); // NOI18N
         jLabel4.setToolTipText("<html>\n<b>Conversione in minuti:</b><br>\n1 ora = <b>60</b><br>\n1 giorno = <b>1440</b><br>\n1 settimana = <b>10080</b><br>\n1 mese = <b>43800</b><br>\n");
 
+        jLabel5.setText("Listini");
+
+        jTextFieldLis.setText(Config.getString("LISTINI"));
+        jTextFieldLis.setToolTipText("Frequenza aggiornamento in minuti");
+        jTextFieldLis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldLisActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -279,7 +296,8 @@ public class Configurazione extends javax.swing.JFrame {
                                     .addComponent(jLabelFor)
                                     .addComponent(jLabelArt)
                                     .addComponent(jLabelMar)
-                                    .addComponent(jLabelImm))
+                                    .addComponent(jLabelImm)
+                                    .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,7 +306,8 @@ public class Configurazione extends javax.swing.JFrame {
                                     .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -420,14 +439,22 @@ public class Configurazione extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextFieldClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelLin1)))
-                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUrlMag)
-                    .addComponent(jTextFieldUrlMag, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldUrlMag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldMag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -498,7 +525,8 @@ public class Configurazione extends javax.swing.JFrame {
         Config.setProperty("PULIZIAAREA", jTextFieldClean.getText());
         Config.setProperty("URLMAGAZZINO", jTextFieldUrlMag.getText());
         Config.setProperty("CODICEMAGAZZINO", jTextFieldCodMag.getText());
-        Config.setProperty("MAGAZZINO", jTextFieldMag.getText());        
+        Config.setProperty("MAGAZZINO", jTextFieldMag.getText());   
+        Config.setProperty("LISTINI", jTextFieldLis.getText());
     }//GEN-LAST:event_SalvaActionPerformed
 
     private void ChiudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChiudiActionPerformed
@@ -532,6 +560,14 @@ public class Configurazione extends javax.swing.JFrame {
     private void jTextFieldCodMagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodMagActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodMagActionPerformed
+
+    private void jTextFieldImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldImmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldImmActionPerformed
+
+    private void jTextFieldLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldLisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -575,6 +611,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAll;
     private javax.swing.JLabel jLabelArt;
     private javax.swing.JLabel jLabelCli;
@@ -607,6 +644,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldGiac;
     private javax.swing.JTextField jTextFieldImm;
     private javax.swing.JTextField jTextFieldLin;
+    private javax.swing.JTextField jTextFieldLis;
     private javax.swing.JTextField jTextFieldMag;
     private javax.swing.JTextField jTextFieldMar;
     private javax.swing.JTextField jTextFieldOrd;
