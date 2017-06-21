@@ -81,6 +81,7 @@ public class MainForm extends javax.swing.JFrame {
         esci = new javax.swing.JButton();
         runOnceMagEst = new javax.swing.JButton();
         runOnceLis = new javax.swing.JButton();
+        soloArticoliNuovi = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PrestaShopSync");
@@ -273,6 +274,9 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        soloArticoliNuovi.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        soloArticoliNuovi.setText("Solo articoli nuovi");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -312,7 +316,8 @@ public class MainForm extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(soloArticoliNuovi, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -340,6 +345,8 @@ public class MainForm extends javax.swing.JFrame {
                                 .addComponent(esci, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(soloArticoliNuovi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(mostraStream))
                             .addComponent(stato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18))
@@ -662,6 +669,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton runOnceOrd;
     private javax.swing.JButton runOnceSca;
     private javax.swing.JButton runOnceSta;
+    private javax.swing.JRadioButton soloArticoliNuovi;
     public javax.swing.JButton start;
     private javax.swing.JLabel stato;
     private javax.swing.JButton stop;
@@ -671,9 +679,14 @@ public class MainForm extends javax.swing.JFrame {
     class TaskSchedulato extends TimerTask {
 
         String stringa;
+        String all;
 
         public TaskSchedulato(String stringa) {
             this.stringa = stringa;
+            if (soloArticoliNuovi.isSelected())
+                all="&all=1";
+            else
+                all="&all=0";
         }
 
         @Override
@@ -707,7 +720,7 @@ public class MainForm extends javax.swing.JFrame {
             //
 
             try {
-                sito = new URL(sUrl + "?aggiornamento=" + stringa);
+                sito = new URL(sUrl + "?aggiornamento=" + stringa+all);
             } catch (MalformedURLException ex) {
                 System.out.println("Indirizzo del sito mal formato o inesistente");
             }
