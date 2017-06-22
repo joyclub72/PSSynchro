@@ -9,10 +9,7 @@ public class Config {
 
     //FILE PROPERTIES
     private static  String fileProperties="config.properties";
-    
-      /**
-      *    COTRUTTORE PRIVATO
-      */
+
       private Config() {
         
       }

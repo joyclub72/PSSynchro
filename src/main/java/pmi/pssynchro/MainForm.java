@@ -38,6 +38,7 @@ public class MainForm extends javax.swing.JFrame {
     int linRitardo = Integer.parseInt((Config.getString("LINGUE") + "000")) * 60;
     int lisRitardo = Integer.parseInt((Config.getString("LISTINI") + "000")) * 60;
     int clearEvery = Integer.parseInt((Config.getString("PULIZIAAREA") + "000")) * 60;
+    String catPs = Config.getString("CATEGORIEPS");
     Date dataErrore;
 
     /**
@@ -704,8 +705,9 @@ public class MainForm extends javax.swing.JFrame {
             server = server + ";mydb=" + database;
             String username = Config.getString("USERNAME");
             String password = Config.getString("PASSWORD");
+            
             //Aggiorno le categorie web            
-            if (stringa.equals("ararticoli")) {
+            if (stringa.equals("ararticoli") && catPs.equals("1")) {
                 UpdateCategoriePs connServer = new UpdateCategoriePs();
                 connServer.dbConnect(server, username, password, database);
             }

@@ -4,12 +4,6 @@ package pmi.pssynchro;
 //import java.io.IOException;
 //import javax.swing.SwingUtilities;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author nicola
@@ -83,6 +77,8 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldLis = new javax.swing.JTextField();
+        jLabelCatPs = new javax.swing.JLabel();
+        chkCatPs = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -278,6 +274,14 @@ public class Configurazione extends javax.swing.JFrame {
             }
         });
 
+        jLabelCatPs.setText("Categorie PS");
+
+        if (Config.getString("CATEGORIEPS").equals("1"))
+        chkCatPs.setSelected(true);
+        else
+        chkCatPs.setSelected(false);
+        chkCatPs.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -326,15 +330,17 @@ public class Configurazione extends javax.swing.JFrame {
                                             .addComponent(jLabelSta)
                                             .addComponent(jLabelOrd)
                                             .addComponent(jLabelLin)
-                                            .addComponent(jLabelLin1))
-                                        .addGap(18, 18, 18)
+                                            .addComponent(jLabelLin1)
+                                            .addComponent(jLabelCatPs))
+                                        .addGap(36, 36, 36)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextFieldClean, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldAll, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldSca, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldStat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(chkCatPs))))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabelMag)
@@ -442,7 +448,10 @@ public class Configurazione extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelCatPs)
+                            .addComponent(chkCatPs))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -527,6 +536,12 @@ public class Configurazione extends javax.swing.JFrame {
         Config.setProperty("CODICEMAGAZZINO", jTextFieldCodMag.getText());
         Config.setProperty("MAGAZZINO", jTextFieldMag.getText());   
         Config.setProperty("LISTINI", jTextFieldLis.getText());
+        String catPs = new String();
+        if(chkCatPs.isSelected()) 
+            catPs = "1";
+        else
+            catPs = "0";
+        Config.setProperty("CATEGORIEPS", catPs);
     }//GEN-LAST:event_SalvaActionPerformed
 
     private void ChiudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChiudiActionPerformed
@@ -607,6 +622,7 @@ public class Configurazione extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Chiudi;
     private javax.swing.JButton Salva;
+    private javax.swing.JCheckBox chkCatPs;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -614,6 +630,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabelAll;
     private javax.swing.JLabel jLabelArt;
+    private javax.swing.JLabel jLabelCatPs;
     private javax.swing.JLabel jLabelCli;
     private javax.swing.JLabel jLabelDb;
     private javax.swing.JLabel jLabelFor;

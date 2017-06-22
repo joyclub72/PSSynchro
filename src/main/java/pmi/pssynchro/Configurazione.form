@@ -74,8 +74,9 @@
                                           <Component id="jLabelOrd" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelLin" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabelLin1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelCatPs" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jTextFieldClean" min="-2" pref="80" max="-2" attributes="0"/>
                                           <Component id="jTextFieldAll" min="-2" pref="80" max="-2" attributes="0"/>
@@ -83,6 +84,7 @@
                                           <Component id="jTextFieldStat" min="-2" pref="80" max="-2" attributes="0"/>
                                           <Component id="jTextFieldOrd" min="-2" pref="80" max="-2" attributes="0"/>
                                           <Component id="jTextFieldLin" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="chkCatPs" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -231,7 +233,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jTextFieldLis" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldLis" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCatPs" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkCatPs" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -677,6 +683,19 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLisActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCatPs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Categorie PS"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="chkCatPs">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="if (Config.getString(&quot;CATEGORIEPS&quot;).equals(&quot;1&quot;))&#xa;    chkCatPs.setSelected(true);&#xa;else&#xa;    chkCatPs.setSelected(false);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
