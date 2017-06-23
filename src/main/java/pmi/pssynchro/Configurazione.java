@@ -1,20 +1,23 @@
 package pmi.pssynchro;
 
+import java.awt.Color;
 
 //import java.io.IOException;
 //import javax.swing.SwingUtilities;
-
 /**
  *
  * @author nicola
  */
 public class Configurazione extends javax.swing.JFrame {
 
+    MainForm main = new MainForm();
+
     /**
      * Creates new form Configurazione
      */
     public Configurazione() {
         initComponents();
+        this.getContentPane().setBackground(Color.getHSBColor(main.HUE, main.SATURATION, main.BRIGHTNESS));
 
     }
 
@@ -276,6 +279,7 @@ public class Configurazione extends javax.swing.JFrame {
 
         jLabelCatPs.setText("Categorie PS");
 
+        chkCatPs.setBackground(Color.getHSBColor(main.HUE,main.SATURATION,main.BRIGHTNESS));
         if (Config.getString("CATEGORIEPS").equals("1"))
         chkCatPs.setSelected(true);
         else
@@ -509,7 +513,6 @@ public class Configurazione extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
 
     private void jTextFieldAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAllActionPerformed
         // TODO add your handling code here:
@@ -535,13 +538,14 @@ public class Configurazione extends javax.swing.JFrame {
         Config.setProperty("PULIZIAAREA", jTextFieldClean.getText());
         Config.setProperty("URLMAGAZZINO", jTextFieldUrlMag.getText());
         Config.setProperty("CODICEMAGAZZINO", jTextFieldCodMag.getText());
-        Config.setProperty("MAGAZZINO", jTextFieldMag.getText());   
+        Config.setProperty("MAGAZZINO", jTextFieldMag.getText());
         Config.setProperty("LISTINI", jTextFieldLis.getText());
         String catPs = new String();
-        if(chkCatPs.isSelected()) 
+        if (chkCatPs.isSelected()) {
             catPs = "1";
-        else
+        } else {
             catPs = "0";
+        }
         Config.setProperty("CATEGORIEPS", catPs);
     }//GEN-LAST:event_SalvaActionPerformed
 

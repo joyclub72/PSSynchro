@@ -87,6 +87,7 @@ public class MainForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PrestaShopSync");
+        setMinimumSize(new java.awt.Dimension(730, 421));
 
         esito.setColumns(20);
         esito.setRows(5);
@@ -104,7 +105,6 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         jPanel1.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
-        jPanel1.setForeground(new java.awt.Color(222, 222, 222));
 
         runOnceOrd.setBackground(java.awt.Color.white);
         runOnceOrd.setText("Ordini");
