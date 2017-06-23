@@ -20,7 +20,7 @@ import java.io.PrintStream;
 import javax.swing.SwingUtilities;
 
 public class MainForm extends javax.swing.JFrame {
-
+    public final float HUE=0.59F, SATURATION=0.18F, BRIGHTNESS=0.93F;
     boolean stopped = false;
     public static Timer timer;
     String sUrl = Config.getString("URL");
@@ -46,6 +46,7 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
+                this.getContentPane().setBackground(Color.getHSBColor(HUE, SATURATION, BRIGHTNESS)); 
     }
 
     /**
@@ -102,6 +103,9 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
+        jPanel1.setForeground(new java.awt.Color(222, 222, 222));
+
         runOnceOrd.setBackground(java.awt.Color.white);
         runOnceOrd.setText("Ordini");
         runOnceOrd.addActionListener(new java.awt.event.ActionListener() {
@@ -130,6 +134,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        mostraStream.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
         mostraStream.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         mostraStream.setText("Mostra Stream");
 
@@ -275,6 +280,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        soloArticoliNuovi.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
         soloArticoliNuovi.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         soloArticoliNuovi.setText("Solo articoli nuovi");
 
