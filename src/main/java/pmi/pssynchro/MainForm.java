@@ -20,24 +20,32 @@ import java.io.PrintStream;
 import javax.swing.SwingUtilities;
 
 public class MainForm extends javax.swing.JFrame {
-    public final float HUE=0.59F, SATURATION=0.18F, BRIGHTNESS=0.93F;
+
+    public static Integer tryParse(String text) {
+        try {
+            return Integer.parseInt(text);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
+    }
+    
     boolean stopped = false;
     public static Timer timer;
     String sUrl = Config.getString("URL");
-    int magRitardo = Integer.parseInt((Config.getString("MAGAZZINO") + "000")) * 60;    //ritardo aggiornamento magazzino esterno
-    int giacRitardo = Integer.parseInt((Config.getString("GIACENZA") + "000")) * 60;
-    int cliRitardo = Integer.parseInt((Config.getString("CLIENTI") + "000")) * 60;
-    int artRitardo = Integer.parseInt((Config.getString("ARTICOLI") + "000")) * 60;
-    int forRitardo = Integer.parseInt((Config.getString("FORNITORI") + "000")) * 60;
-    int immRitardo = Integer.parseInt((Config.getString("IMMAGINI") + "000")) * 60;
-    int allRitardo = Integer.parseInt((Config.getString("ALLEGATI") + "000")) * 60;
-    int scaRitardo = Integer.parseInt((Config.getString("SCADENZARIO") + "000")) * 60;
-    int staRitardo = Integer.parseInt((Config.getString("STATISTICHE") + "000")) * 60;
-    int marRitardo = Integer.parseInt((Config.getString("MARCHE") + "000")) * 60;
-    int ordRitardo = Integer.parseInt((Config.getString("ORDINI") + "000")) * 60;
-    int linRitardo = Integer.parseInt((Config.getString("LINGUE") + "000")) * 60;
-    int lisRitardo = Integer.parseInt((Config.getString("LISTINI") + "000")) * 60;
-    int clearEvery = Integer.parseInt((Config.getString("PULIZIAAREA") + "000")) * 60;
+    int magRitardo = tryParse((Config.getString("MAGAZZINO") + "000")) * 60;    //ritardo aggiornamento magazzino esterno
+    int giacRitardo = tryParse((Config.getString("GIACENZA") + "000")) * 60;
+    int cliRitardo = tryParse((Config.getString("CLIENTI") + "000")) * 60;
+    int artRitardo = tryParse((Config.getString("ARTICOLI") + "000")) * 60;
+    int forRitardo = tryParse((Config.getString("FORNITORI") + "000")) * 60;
+    int immRitardo = tryParse((Config.getString("IMMAGINI") + "000")) * 60;
+    int allRitardo = tryParse((Config.getString("ALLEGATI") + "000")) * 60;
+    int scaRitardo = tryParse((Config.getString("SCADENZARIO") + "000")) * 60;
+    int staRitardo = tryParse((Config.getString("STATISTICHE") + "000")) * 60;
+    int marRitardo = tryParse((Config.getString("MARCHE") + "000")) * 60;
+    int ordRitardo = tryParse((Config.getString("ORDINI") + "000")) * 60;
+    int linRitardo = tryParse((Config.getString("LINGUE") + "000")) * 60;
+    int lisRitardo = tryParse((Config.getString("LISTINI") + "000")) * 60;
+    int clearEvery = tryParse((Config.getString("PULIZIAAREA") + "000")) * 60;
     String catPs = Config.getString("CATEGORIEPS");
     Date dataErrore;
 
@@ -46,7 +54,7 @@ public class MainForm extends javax.swing.JFrame {
      */
     public MainForm() {
         initComponents();
-                this.getContentPane().setBackground(Color.getHSBColor(HUE, SATURATION, BRIGHTNESS)); 
+        this.getContentPane().setBackground(Color.getHSBColor(Costanti.HUE, Costanti.SATURATION, Costanti.BRIGHTNESS));
     }
 
     /**
@@ -104,7 +112,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
+        jPanel1.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
 
         runOnceOrd.setBackground(java.awt.Color.white);
         runOnceOrd.setText("Ordini");
@@ -134,7 +142,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        mostraStream.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
+        mostraStream.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         mostraStream.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         mostraStream.setText("Mostra Stream");
 
@@ -280,7 +288,7 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        soloArticoliNuovi.setBackground(Color.getHSBColor(HUE,SATURATION,BRIGHTNESS));
+        soloArticoliNuovi.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         soloArticoliNuovi.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         soloArticoliNuovi.setText("Solo articoli nuovi");
 
@@ -525,7 +533,7 @@ public class MainForm extends javax.swing.JFrame {
         }
         if (lisRitardo > 0) {
             timer.schedule(new TaskSchedulato("arlistini"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
-        }        
+        }
         if (magRitardo > 0) {
             timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi        
         }
@@ -690,10 +698,11 @@ public class MainForm extends javax.swing.JFrame {
 
         public TaskSchedulato(String stringa) {
             this.stringa = stringa;
-            if (soloArticoliNuovi.isSelected())
-                all="&all=1";
-            else
-                all="&all=0";
+            if (Config.getString("CATEGORIEPS")=="1") {
+                all = "&all=1";
+            } else {
+                all = "&all=0";
+            }
         }
 
         @Override
@@ -711,7 +720,7 @@ public class MainForm extends javax.swing.JFrame {
             server = server + ";mydb=" + database;
             String username = Config.getString("USERNAME");
             String password = Config.getString("PASSWORD");
-            
+
             //Aggiorno le categorie web            
             if (stringa.equals("ararticoli") && catPs.equals("1")) {
                 UpdateCategoriePs connServer = new UpdateCategoriePs();
@@ -728,7 +737,7 @@ public class MainForm extends javax.swing.JFrame {
             //
 
             try {
-                sito = new URL(sUrl + "?aggiornamento=" + stringa+all);
+                sito = new URL(sUrl + "?aggiornamento=" + stringa + all);
             } catch (MalformedURLException ex) {
                 System.out.println("Indirizzo del sito mal formato o inesistente");
             }

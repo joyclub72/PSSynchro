@@ -17,7 +17,7 @@ public class Configurazione extends javax.swing.JFrame {
      */
     public Configurazione() {
         initComponents();
-        this.getContentPane().setBackground(Color.getHSBColor(main.HUE, main.SATURATION, main.BRIGHTNESS));
+        this.getContentPane().setBackground(Color.getHSBColor(Costanti.HUE, Costanti.SATURATION, Costanti.BRIGHTNESS));
 
     }
 
@@ -279,7 +279,7 @@ public class Configurazione extends javax.swing.JFrame {
 
         jLabelCatPs.setText("Categorie PS");
 
-        chkCatPs.setBackground(Color.getHSBColor(main.HUE,main.SATURATION,main.BRIGHTNESS));
+        chkCatPs.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         if (Config.getString("CATEGORIEPS").equals("1"))
         chkCatPs.setSelected(true);
         else

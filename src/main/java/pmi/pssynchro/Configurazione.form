@@ -696,7 +696,7 @@
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="chkCatPs.setBackground(Color.getHSBColor(main.HUE,main.SATURATION,main.BRIGHTNESS));&#xa;if (Config.getString(&quot;CATEGORIEPS&quot;).equals(&quot;1&quot;))&#xa;    chkCatPs.setSelected(true);&#xa;else&#xa;    chkCatPs.setSelected(false);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="chkCatPs.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));&#xa;if (Config.getString(&quot;CATEGORIEPS&quot;).equals(&quot;1&quot;))&#xa;    chkCatPs.setSelected(true);&#xa;else&#xa;    chkCatPs.setSelected(false);"/>
       </AuxValues>
     </Component>
   </SubComponents>
