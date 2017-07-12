@@ -291,6 +291,11 @@ public class MainForm extends javax.swing.JFrame {
         soloArticoliNuovi.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         soloArticoliNuovi.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         soloArticoliNuovi.setText("Solo articoli nuovi");
+        soloArticoliNuovi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soloArticoliNuoviActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -628,6 +633,10 @@ public class MainForm extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_esciActionPerformed
 
+    private void soloArticoliNuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soloArticoliNuoviActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_soloArticoliNuoviActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -695,14 +704,22 @@ public class MainForm extends javax.swing.JFrame {
 
         String stringa;
         String all;
-
+        String cPs;
         public TaskSchedulato(String stringa) {
             this.stringa = stringa;
-            if (Config.getString("CATEGORIEPS")=="1") {
+            // verifica flag aggiornamento Articoli, se tutti o solo  i nuovi
+            if (soloArticoliNuovi.isSelected()) {
                 all = "&all=1";
             } else {
                 all = "&all=0";
             }
+            // verifica flag Categorie Ps. Se attivo dico alla pagina php di non aggiornarle, altrimenti di farlo
+            if (Config.getString("CATEGORIEPS")=="1") {
+                cPs = "&cps=0";
+            } else {
+                cPs = "&cps=1";
+            }
+                
         }
 
         @Override
@@ -737,7 +754,7 @@ public class MainForm extends javax.swing.JFrame {
             //
 
             try {
-                sito = new URL(sUrl + "?aggiornamento=" + stringa + all);
+                sito = new URL(sUrl + "?aggiornamento=" + stringa + all + cPs);
             } catch (MalformedURLException ex) {
                 System.out.println("Indirizzo del sito mal formato o inesistente");
             }
