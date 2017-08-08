@@ -529,10 +529,10 @@ public class MainForm extends javax.swing.JFrame {
         }
         if (ordRitardo > 0) {
             timer.schedule(new TaskSchedulato("arordini"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
-        }        //timer.schedule(new TaskSchedulato("argiacenze"), allRitardo, allRitardo);//parti dopo x secondi e itera ogni x secondi
+        }        
         if (marRitardo > 0) {
             timer.schedule(new TaskSchedulato("armarche"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
-        }        //timer.schedule(new TaskSchedulato("argiacenze"), immRitardo, immRitardo);//parti dopo x secondi e itera ogni x secondi
+        }        
         if (linRitardo > 0) {
             timer.schedule(new TaskSchedulato("arlingue"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
         }
@@ -723,7 +723,7 @@ public class MainForm extends javax.swing.JFrame {
         }
 
         @Override
-        public void run() {
+        public synchronized void run() {
             Buttons buttons = new Buttons();
             buttons.disable(); //disabilito i buttons
             redirectSystemStreams();
@@ -764,7 +764,7 @@ public class MainForm extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println("Errore di connessione _ ");
             }
-            BufferedReader in = null;
+            BufferedReader in ;
             try {
                 in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
             } catch (IOException ex) {
