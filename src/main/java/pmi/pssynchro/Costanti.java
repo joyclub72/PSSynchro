@@ -7,6 +7,7 @@ package pmi.pssynchro;
 
 /**
  *
+ * 
  * @author Joyclub
  */
 public interface Costanti {
