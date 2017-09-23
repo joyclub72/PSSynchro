@@ -769,10 +769,8 @@ public class MainForm extends javax.swing.JFrame {
                 in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
             } catch (IOException ex) {
                 dataErrore = new Date();
-                //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println(sdf.format(dataErrore) + ": Errore in ricezione dati: verificare che il "
                         + "server sia avviato o che l'indirizzo sia corretto");
-                //inVoid=true;
                 buttons.enable(); //riabilito i buttons
                 return;
             }
@@ -784,7 +782,6 @@ public class MainForm extends javax.swing.JFrame {
                         System.out.println(inputLine);
                     }
                 } catch (IOException ex) {
-                    //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                     dataErrore = new Date();
                     System.out.println(sdf.format(dataErrore));
                     System.out.println("Errore di connessione: " + dataErrore);
@@ -794,7 +791,6 @@ public class MainForm extends javax.swing.JFrame {
             try {
                 in.close();
             } catch (IOException ex) {
-                //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
                 System.out.println("errore in chiusura");
             }
             buttons.enable(); //riabilito i buttons
