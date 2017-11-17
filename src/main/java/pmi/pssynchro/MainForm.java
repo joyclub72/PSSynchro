@@ -3,8 +3,6 @@ package pmi.pssynchro;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
 import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -98,7 +96,9 @@ public class MainForm extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(730, 421));
 
         esito.setColumns(20);
+        esito.setLineWrap(true);
         esito.setRows(5);
+        esito.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jScrollPane1.setViewportView(esito);
         esito.getAccessibleContext().setAccessibleParent(esito);
 
@@ -761,12 +761,14 @@ public class MainForm extends javax.swing.JFrame {
             URLConnection yc = null;
             try {
                 yc = sito.openConnection();
+                System.out.println(sito+" - 1");/*test*/
             } catch (IOException ex) {
                 System.out.println("Errore di connessione _ ");
             }
             BufferedReader in ;
             try {
                 in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+                System.out.println(sito+" - 2");/*test*/
             } catch (IOException ex) {
                 dataErrore = new Date();
                 //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
@@ -780,6 +782,7 @@ public class MainForm extends javax.swing.JFrame {
             if (mostraStream.isSelected()) {
                 String inputLine;
                 try {
+                    System.out.println(sito+" - 3");/*test*/
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
                     }
@@ -792,6 +795,7 @@ public class MainForm extends javax.swing.JFrame {
             }
             //potrebbe bloccare la form - Fine
             try {
+                System.out.println(sito+" - 4");/*test*/
                 in.close();
             } catch (IOException ex) {
                 //Logger.getLogger(TaskSchedulato.class.getName()).log(Level.SEVERE, null, ex);
