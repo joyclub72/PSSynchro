@@ -709,15 +709,15 @@ public class MainForm extends javax.swing.JFrame {
             this.stringa = stringa;
             // verifica flag aggiornamento Articoli, se tutti o solo  i nuovi
             if (soloArticoliNuovi.isSelected()) {
-                all = "&all=1";
-            } else {
                 all = "&all=0";
+            } else {
+                all = "&all=1";
             }
             // verifica flag Categorie Ps. Se attivo dico alla pagina php di non aggiornarle, altrimenti di farlo
             if (Config.getString("CATEGORIEPS")=="1") {
-                cPs = "&cps=0";
-            } else {
                 cPs = "&cps=1";
+            } else {
+                cPs = "&cps=0";
             }
                 
         }
@@ -761,14 +761,14 @@ public class MainForm extends javax.swing.JFrame {
             URLConnection yc = null;
             try {
                 yc = sito.openConnection();
-                System.out.println(sito+" - 1");/*test*/
+                System.out.println(sito+" - Apertura connessione");/*test*/
             } catch (IOException ex) {
                 System.out.println("Errore di connessione _ ");
             }
             BufferedReader in ;
             try {
                 in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
-                System.out.println(sito+" - 2");/*test*/
+                System.out.println(sito+" - Comunicazione");/*test*/
             } catch (IOException ex) {
                 dataErrore = new Date();
                 System.out.println(sdf.format(dataErrore) + ": Errore in ricezione dati: verificare che il "
@@ -780,7 +780,7 @@ public class MainForm extends javax.swing.JFrame {
             if (mostraStream.isSelected()) {
                 String inputLine;
                 try {
-                    System.out.println(sito+" - 3");/*test*/
+                    System.out.println(sito+" - Mostra stream");/*test*/
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
                     }
@@ -792,7 +792,7 @@ public class MainForm extends javax.swing.JFrame {
             }
             //potrebbe bloccare la form - Fine
             try {
-                System.out.println(sito+" - 4");/*test*/
+                System.out.println(sito+" - Chiusura");/*test*/
                 in.close();
             } catch (IOException ex) {
                 System.out.println("errore in chiusura");
