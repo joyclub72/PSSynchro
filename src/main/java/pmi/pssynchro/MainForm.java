@@ -80,7 +80,6 @@ public class MainForm extends javax.swing.JFrame {
         runOnceImm = new javax.swing.JButton();
         runOnceFor = new javax.swing.JButton();
         start = new javax.swing.JButton();
-        stato = new javax.swing.JLabel();
         runOnceCli = new javax.swing.JButton();
         runOnceMar = new javax.swing.JButton();
         config = new javax.swing.JButton();
@@ -90,6 +89,8 @@ public class MainForm extends javax.swing.JFrame {
         runOnceMagEst = new javax.swing.JButton();
         runOnceLis = new javax.swing.JButton();
         soloArticoliNuovi = new javax.swing.JRadioButton();
+        resetListini = new javax.swing.JRadioButton();
+        stato = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PrestaShopSync");
@@ -148,6 +149,10 @@ public class MainForm extends javax.swing.JFrame {
 
         runOnceSta.setBackground(java.awt.Color.white);
         runOnceSta.setText("Statistiche");
+        runOnceSta.setMargin(new java.awt.Insets(2, 8, 2, 8));
+        runOnceSta.setMaximumSize(new java.awt.Dimension(84, 24));
+        runOnceSta.setMinimumSize(new java.awt.Dimension(84, 24));
+        runOnceSta.setPreferredSize(new java.awt.Dimension(84, 24));
         runOnceSta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 runOnceStaActionPerformed(evt);
@@ -211,8 +216,6 @@ public class MainForm extends javax.swing.JFrame {
                 startActionPerformed(evt);
             }
         });
-
-        stato.setToolTipText("");
 
         runOnceCli.setBackground(java.awt.Color.white);
         runOnceCli.setText("Clienti");
@@ -290,10 +293,20 @@ public class MainForm extends javax.swing.JFrame {
 
         soloArticoliNuovi.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         soloArticoliNuovi.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        soloArticoliNuovi.setText("Solo articoli nuovi");
+        soloArticoliNuovi.setText("Articoli nuovi o modificati");
+        soloArticoliNuovi.setToolTipText("Aggiorna solo gli articoli nuovi o che hanno subito modifiche");
         soloArticoliNuovi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 soloArticoliNuoviActionPerformed(evt);
+            }
+        });
+
+        resetListini.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
+        resetListini.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        resetListini.setText("Reset Listini");
+        resetListini.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetListiniActionPerformed(evt);
             }
         });
 
@@ -313,69 +326,66 @@ public class MainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(runOnceArt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(runOnceMar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)
-                                .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(start)
+                                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stop)
+                                .addComponent(stop, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sysTray)
+                                .addComponent(sysTray, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(esci)))
+                                .addComponent(esci, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(mostraStream, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(soloArticoliNuovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mostraStream, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resetListini, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(config, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(soloArticoliNuovi, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(runOnceLis, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(config, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(218, 218, 218))
+                                .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(runOnceLis, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(soloArticoliNuovi)
+                        .addComponent(resetListini))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(mostraStream)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(stop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sysTray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(esci, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(soloArticoliNuovi)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(mostraStream))
-                            .addComponent(stato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(10, 10, 10)))
+                            .addComponent(stop)
+                            .addComponent(sysTray)
+                            .addComponent(esci)
+                            .addComponent(start)))
+                    .addComponent(config))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(runOnceMar)
-                    .addComponent(runOnceSta)
+                    .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(runOnceFor)
                     .addComponent(runOnceAll)
                     .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -392,6 +402,8 @@ public class MainForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        stato.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -399,12 +411,17 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 693, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(clearArea)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(clearArea)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,15 +429,16 @@ public class MainForm extends javax.swing.JFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(clearArea)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(clearArea)
+                    .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 // Gestione della riduzione a System tray
     private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sysTrayActionPerformed
         if (!SystemTray.isSupported()) {
@@ -466,7 +484,7 @@ public class MainForm extends javax.swing.JFrame {
         }
         this.setVisible(false);
     }//GEN-LAST:event_sysTrayActionPerformed
-    //____________fine Gestione SystemTray
+   //____________fine Gestione SystemTray
 
     // Redirect dei messaggi di sistema su jtextarea
     private void updateTextArea(final String text) {
@@ -500,6 +518,53 @@ public class MainForm extends javax.swing.JFrame {
     //Fine Gestione redirect messaggi di sistema (viene eseguito richiamando redirectSystemStreams(); )
 
 
+    private void clearAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAreaActionPerformed
+        esito.setText("");
+    }//GEN-LAST:event_clearAreaActionPerformed
+
+    private void soloArticoliNuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soloArticoliNuoviActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_soloArticoliNuoviActionPerformed
+
+    private void runOnceLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLisActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arlistini"), 10);
+    }//GEN-LAST:event_runOnceLisActionPerformed
+
+    private void runOnceMagEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMagEstActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
+    }//GEN-LAST:event_runOnceMagEstActionPerformed
+
+    private void esciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_esciActionPerformed
+
+    private void runOnceAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceAllActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arallegati"), 10);
+    }//GEN-LAST:event_runOnceAllActionPerformed
+
+    private void runOnceLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLinActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arlingue"), 10);
+    }//GEN-LAST:event_runOnceLinActionPerformed
+
+    private void configActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configActionPerformed
+        Configurazione form = new Configurazione();
+        form.setVisible(true);
+    }//GEN-LAST:event_configActionPerformed
+
+    private void runOnceMarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMarActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("armarche"), 10);
+    }//GEN-LAST:event_runOnceMarActionPerformed
+
+    private void runOnceCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCliActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arclienti"), 10);
+    }//GEN-LAST:event_runOnceCliActionPerformed
+
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
         this.start.setBackground(Color.green);
         this.stop.setBackground(Color.lightGray);
@@ -529,10 +594,10 @@ public class MainForm extends javax.swing.JFrame {
         }
         if (ordRitardo > 0) {
             timer.schedule(new TaskSchedulato("arordini"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
-        }        
+        }
         if (marRitardo > 0) {
             timer.schedule(new TaskSchedulato("armarche"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
-        }        
+        }
         if (linRitardo > 0) {
             timer.schedule(new TaskSchedulato("arlingue"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
         }
@@ -540,12 +605,22 @@ public class MainForm extends javax.swing.JFrame {
             timer.schedule(new TaskSchedulato("arlistini"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
         }
         if (magRitardo > 0) {
-            timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi        
+            timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi
         }
         if (clearEvery > 0) {
             timer.schedule(new TaskClear(), clearEvery, clearEvery);//parti dopo x secondi e itera ogni x secondi
         }
     }//GEN-LAST:event_startActionPerformed
+
+    private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arfornitori"), 10);
+    }//GEN-LAST:event_runOnceForActionPerformed
+
+    private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arimmagini"), 10);
+    }//GEN-LAST:event_runOnceImmActionPerformed
 
     private void stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopActionPerformed
         this.stop.setBackground(Color.green);
@@ -555,87 +630,38 @@ public class MainForm extends javax.swing.JFrame {
         timer.cancel();
     }//GEN-LAST:event_stopActionPerformed
 
-    private void configActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configActionPerformed
-        Configurazione form = new Configurazione();
-        form.setVisible(true);
-    }//GEN-LAST:event_configActionPerformed
+    private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("ararticoli"), 10);
+    }//GEN-LAST:event_runOnceArtActionPerformed
 
     private void runOnceGiacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceGiacActionPerformed
         timer = new Timer();
         timer.schedule(new TaskSchedulato("argiacenze"), 10);
     }//GEN-LAST:event_runOnceGiacActionPerformed
 
-    private void runOnceCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCliActionPerformed
+    private void runOnceStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceStaActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arclienti"), 10);
-    }//GEN-LAST:event_runOnceCliActionPerformed
-
-    private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("arfornitori"), 10);
-    }//GEN-LAST:event_runOnceForActionPerformed
-
-    private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("ararticoli"), 10);
-    }//GEN-LAST:event_runOnceArtActionPerformed
-
-    private void runOnceMarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMarActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("armarche"), 10);
-    }//GEN-LAST:event_runOnceMarActionPerformed
-
-    private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("arimmagini"), 10);
-    }//GEN-LAST:event_runOnceImmActionPerformed
-
-    private void runOnceAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceAllActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("arallegati"), 10);
-    }//GEN-LAST:event_runOnceAllActionPerformed
+        timer.schedule(new TaskSchedulato("arstatistiche"), 10);
+    }//GEN-LAST:event_runOnceStaActionPerformed
 
     private void runOnceScaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceScaActionPerformed
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arscadenzario"), 10);
     }//GEN-LAST:event_runOnceScaActionPerformed
 
-    private void runOnceStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceStaActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("arstatistiche"), 10);
-    }//GEN-LAST:event_runOnceStaActionPerformed
+//GEN-FIRST:event_sysTrayActionPerformed
+ 
+//GEN-LAST:event_sysTrayActionPerformed
 
     private void runOnceOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceOrdActionPerformed
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arordini"), 10);
     }//GEN-LAST:event_runOnceOrdActionPerformed
 
-    private void runOnceLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLinActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("arlingue"), 10);
-    }//GEN-LAST:event_runOnceLinActionPerformed
-
-    private void clearAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAreaActionPerformed
-        esito.setText("");
-    }//GEN-LAST:event_clearAreaActionPerformed
-
-    private void runOnceMagEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMagEstActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
-    }//GEN-LAST:event_runOnceMagEstActionPerformed
-
-    private void runOnceLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLisActionPerformed
-        timer = new Timer();
-        timer.schedule(new TaskSchedulato("arlistini"), 10);
-    }//GEN-LAST:event_runOnceLisActionPerformed
-
-    private void esciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_esciActionPerformed
-
-    private void soloArticoliNuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soloArticoliNuoviActionPerformed
+    private void resetListiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetListiniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_soloArticoliNuoviActionPerformed
+    }//GEN-LAST:event_resetListiniActionPerformed
 
     /**
      * @param args the command line arguments
@@ -680,6 +706,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton mostraStream;
+    private javax.swing.JRadioButton resetListini;
     private javax.swing.JButton runOnceAll;
     private javax.swing.JButton runOnceArt;
     private javax.swing.JButton runOnceCli;
@@ -704,6 +731,7 @@ public class MainForm extends javax.swing.JFrame {
 
         String stringa;
         String all;
+        String resLis;
         String cPs;
         public TaskSchedulato(String stringa) {
             this.stringa = stringa;
@@ -713,6 +741,12 @@ public class MainForm extends javax.swing.JFrame {
             } else {
                 all = "&all=1";
             }
+            // verifica flag reset listini
+            if (resetListini.isSelected()) {
+                resLis = "&resetLis=1";
+            } else {
+                resLis = "&resetLis=0";
+            }            
             // verifica flag Categorie Ps. Se attivo dico alla pagina php di non aggiornarle, altrimenti di farlo
             if (Config.getString("CATEGORIEPS")=="1") {
                 cPs = "&cps=1";
@@ -754,7 +788,7 @@ public class MainForm extends javax.swing.JFrame {
             //
 
             try {
-                sito = new URL(sUrl + "?aggiornamento=" + stringa + all + cPs);
+                sito = new URL(sUrl + "?aggiornamento=" + stringa + all + resLis + cPs);
             } catch (MalformedURLException ex) {
                 System.out.println("Indirizzo del sito mal formato o inesistente");
             }
