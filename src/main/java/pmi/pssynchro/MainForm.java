@@ -90,6 +90,7 @@ public class MainForm extends javax.swing.JFrame {
         runOnceLis = new javax.swing.JButton();
         soloArticoliNuovi = new javax.swing.JRadioButton();
         resetListini = new javax.swing.JRadioButton();
+        runOnceCodRif = new javax.swing.JButton();
         stato = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -310,6 +311,14 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        runOnceCodRif.setBackground(java.awt.Color.white);
+        runOnceCodRif.setText("Cod. Rif.");
+        runOnceCodRif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceCodRifActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -328,7 +337,9 @@ public class MainForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(runOnceCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -398,7 +409,8 @@ public class MainForm extends javax.swing.JFrame {
                     .addComponent(runOnceImm)
                     .addComponent(runOnceOrd)
                     .addComponent(runOnceSca)
-                    .addComponent(runOnceMagEst))
+                    .addComponent(runOnceMagEst)
+                    .addComponent(runOnceCodRif))
                 .addContainerGap())
         );
 
@@ -440,7 +452,7 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 // Gestione della riduzione a System tray
-    private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sysTrayActionPerformed
+    private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {                                        
         if (!SystemTray.isSupported()) {
             System.out.println("System tray non supportato ");
             return;
@@ -483,7 +495,7 @@ public class MainForm extends javax.swing.JFrame {
         } catch (AWTException awtException) {
         }
         this.setVisible(false);
-    }//GEN-LAST:event_sysTrayActionPerformed
+    }                                       
    //____________fine Gestione SystemTray
 
     // Redirect dei messaggi di sistema su jtextarea
@@ -663,6 +675,11 @@ public class MainForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_resetListiniActionPerformed
 
+    private void runOnceCodRifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCodRifActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arCodRif"), 10);
+    }//GEN-LAST:event_runOnceCodRifActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -710,6 +727,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton runOnceAll;
     private javax.swing.JButton runOnceArt;
     private javax.swing.JButton runOnceCli;
+    private javax.swing.JButton runOnceCodRif;
     private javax.swing.JButton runOnceFor;
     private javax.swing.JButton runOnceGiac;
     private javax.swing.JButton runOnceImm;

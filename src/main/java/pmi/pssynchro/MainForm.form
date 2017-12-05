@@ -140,6 +140,8 @@
                           <Component id="runOnceGiac" min="-2" pref="92" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="runOnceMagEst" min="-2" pref="92" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="runOnceCodRif" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -227,6 +229,7 @@
                       <Component id="runOnceOrd" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="runOnceSca" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="runOnceMagEst" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="runOnceCodRif" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -527,6 +530,17 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetListiniActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="runOnceCodRif">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cod. Rif."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="runOnceCodRifActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
