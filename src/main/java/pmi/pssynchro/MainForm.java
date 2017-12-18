@@ -26,7 +26,7 @@ public class MainForm extends javax.swing.JFrame {
             return 0;
         }
     }
-    
+
     boolean stopped = false;
     public static Timer timer;
     String sUrl = Config.getString("URL");
@@ -452,7 +452,8 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 // Gestione della riduzione a System tray
-    private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {                                        
+
+    private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {
         if (!SystemTray.isSupported()) {
             System.out.println("System tray non supportato ");
             return;
@@ -495,8 +496,8 @@ public class MainForm extends javax.swing.JFrame {
         } catch (AWTException awtException) {
         }
         this.setVisible(false);
-    }                                       
-   //____________fine Gestione SystemTray
+    }
+    //____________fine Gestione SystemTray
 
     // Redirect dei messaggi di sistema su jtextarea
     private void updateTextArea(final String text) {
@@ -751,6 +752,7 @@ public class MainForm extends javax.swing.JFrame {
         String all;
         String resLis;
         String cPs;
+
         public TaskSchedulato(String stringa) {
             this.stringa = stringa;
             // verifica flag aggiornamento Articoli, se tutti o solo  i nuovi
@@ -764,14 +766,14 @@ public class MainForm extends javax.swing.JFrame {
                 resLis = "&resetLis=1";
             } else {
                 resLis = "&resetLis=0";
-            }            
+            }
             // verifica flag Categorie Ps. Se attivo dico alla pagina php di non aggiornarle, altrimenti di farlo
-            if (Config.getString("CATEGORIEPS")=="1") {
+            if (catPs.equals("1")) {
                 cPs = "&cps=1";
             } else {
                 cPs = "&cps=0";
             }
-                
+
         }
 
         @Override
@@ -813,14 +815,14 @@ public class MainForm extends javax.swing.JFrame {
             URLConnection yc = null;
             try {
                 yc = sito.openConnection();
-                System.out.println(sito+" - Apertura connessione");/*test*/
+                System.out.println(sito + " - Apertura connessione");/*test*/
             } catch (IOException ex) {
                 System.out.println("Errore di connessione _ ");
             }
-            BufferedReader in ;
+            BufferedReader in;
             try {
                 in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
-                System.out.println(sito+" - Comunicazione");/*test*/
+                System.out.println(sito + " - Comunicazione");/*test*/
             } catch (IOException ex) {
                 dataErrore = new Date();
                 System.out.println(sdf.format(dataErrore) + ": Errore in ricezione dati: verificare che il "
@@ -832,7 +834,7 @@ public class MainForm extends javax.swing.JFrame {
             if (mostraStream.isSelected()) {
                 String inputLine;
                 try {
-                    System.out.println(sito+" - Mostra stream");/*test*/
+                    System.out.println(sito + " - Mostra stream");/*test*/
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
                     }
@@ -844,7 +846,7 @@ public class MainForm extends javax.swing.JFrame {
             }
             //potrebbe bloccare la form - Fine
             try {
-                System.out.println(sito+" - Chiusura");/*test*/
+                System.out.println(sito + " - Chiusura");/*test*/
                 in.close();
             } catch (IOException ex) {
                 System.out.println("errore in chiusura");
@@ -877,6 +879,7 @@ public class MainForm extends javax.swing.JFrame {
             runOnceOrd.setEnabled(false);
             runOnceSca.setEnabled(false);
             runOnceSta.setEnabled(false);
+            runOnceCodRif.setEnabled(false);
         }
 
         public void enable() {
@@ -893,6 +896,7 @@ public class MainForm extends javax.swing.JFrame {
             runOnceOrd.setEnabled(true);
             runOnceSca.setEnabled(true);
             runOnceSta.setEnabled(true);
+            runOnceCodRif.setEnabled(true);
         }
 
     }
