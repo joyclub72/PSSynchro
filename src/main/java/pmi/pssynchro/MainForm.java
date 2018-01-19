@@ -757,9 +757,9 @@ public class MainForm extends javax.swing.JFrame {
             this.stringa = stringa;
             // verifica flag aggiornamento Articoli, se tutti o solo  i nuovi
             if (soloArticoliNuovi.isSelected()) {
-                all = "&all=0";
-            } else {
                 all = "&all=1";
+            } else {
+                all = "&all=0";
             }
             // verifica flag reset listini
             if (resetListini.isSelected()) {
