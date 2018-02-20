@@ -25,7 +25,7 @@ public class UploadImmagini {
         username = "ftpsuput@pmisoftware.it";
         password = "R50=j8@2017";
         remote = "test.png";
-        local = "test.png";
+        local = "c://test.zip";
 
         ftps = new FTPSClient(protocol);
 
@@ -44,7 +44,7 @@ public class UploadImmagini {
             if (!FTPReply.isPositiveCompletion(reply)) {
                 ftps.disconnect();
                 System.err.println("FTP server refused connection.");
-                System.exit(1);
+                //System.exit(1);
             }
         } catch (IOException e) {
             if (ftps.isConnected()) {
@@ -55,8 +55,6 @@ public class UploadImmagini {
                 }
             }
             System.err.println("Could not connect to server.");
-            e.printStackTrace();
-            System.exit(1);
         }
 
         __main:
@@ -96,10 +94,8 @@ public class UploadImmagini {
         } catch (FTPConnectionClosedException e) {
             error = true;
             System.err.println("Server closed connection.");
-            e.printStackTrace();
         } catch (IOException e) {
             error = true;
-            e.printStackTrace();
         } finally {
             if (ftps.isConnected()) {
                 try {
@@ -109,7 +105,7 @@ public class UploadImmagini {
                 }
             }
         }
-        System.exit(error ? 1 : 0);
+        //System.exit(error ? 1 : 0);
     } // end main    
     
 }

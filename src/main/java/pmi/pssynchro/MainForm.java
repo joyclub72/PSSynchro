@@ -15,6 +15,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.OutputStream;
 import java.io.PrintStream;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 public class MainForm extends javax.swing.JFrame {
@@ -806,6 +809,20 @@ public class MainForm extends javax.swing.JFrame {
                 return;
             }
             //
+            
+            // Upload delle immagini 
+            if (stringa.equals("arimmagini")) {
+                try {
+                    UploadImmagini updImg = new UploadImmagini();
+                    updImg.FtpUpload();
+                    buttons.enable(); //riabilito i buttons
+                    return;
+                } catch (NoSuchAlgorithmException ex) {
+                    Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            //
+            
 
             try {
                 sito = new URL(sUrl + "?aggiornamento=" + stringa + all + resLis + cPs);
