@@ -794,6 +794,14 @@ public class MainForm extends javax.swing.JFrame {
             server = server + ";mydb=" + database;
             String username = Config.getString("USERNAME");
             String password = Config.getString("PASSWORD");
+            String ftp = Config.getString("FTP");            
+            String userFtp = Config.getString("USERNAME_FTP");
+            String pwdFtp = Config.getString("PASSWORD_FTP");
+            String percorsoRemotoFtp = Config.getString("SCAMBIO_FTP");
+            String checkImg = Config.getString("URL_CHECK_IMMAGINI");
+            String percorsoImgFtp = Config.getString("PERCORSO_IMMAGINE_FTP");
+            String nomeImgFtp = Config.getString("IMMAGINE_FTP");
+            
 
             //Aggiorno le categorie web            
             if (stringa.equals("ararticoli") && catPs.equals("1")) {
@@ -814,7 +822,7 @@ public class MainForm extends javax.swing.JFrame {
             if (stringa.equals("arimmagini")) {
                 try {
                     UploadImmagini updImg = new UploadImmagini();
-                    updImg.FtpUpload();
+                    updImg.FtpUpload(ftp, userFtp, pwdFtp, percorsoRemotoFtp, percorsoImgFtp, nomeImgFtp, all, checkImg);
                     buttons.enable(); //riabilito i buttons
                     return;
                 } catch (NoSuchAlgorithmException ex) {

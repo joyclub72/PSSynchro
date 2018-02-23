@@ -84,6 +84,22 @@ public class Configurazione extends javax.swing.JFrame {
         chkCatPs = new javax.swing.JCheckBox();
         jTextFieldCodRif = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabelFtp = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldFtp = new javax.swing.JTextField();
+        jTextFieldUsernameFtp = new javax.swing.JTextField();
+        jTextFieldPwdFtp = new javax.swing.JTextField();
+        jTextFieldCartellaFtp = new javax.swing.JTextField();
+        jTextFieldPercorsoImgFtp = new javax.swing.JTextField();
+        jTextFieldNomeImgFtp = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextFieldUrlCheckImg = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -298,6 +314,77 @@ public class Configurazione extends javax.swing.JFrame {
 
         jLabel6.setText("Cod. Rif.");
 
+        jLabelFtp.setForeground(java.awt.Color.gray);
+        jLabelFtp.setText("Ftp Immagini");
+
+        jLabel7.setText("Indirizzo");
+
+        jLabel8.setText("Username");
+
+        jLabel9.setText("Password");
+
+        jLabel10.setText("Cartella remota");
+
+        jLabel11.setText("Percorso Immagini");
+
+        jTextFieldFtp.setText(Config.getString("FTP")
+        );
+        jTextFieldFtp.setName(""); // NOI18N
+        jTextFieldFtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFtpActionPerformed(evt);
+            }
+        });
+
+        jTextFieldUsernameFtp.setText(Config.getString("USERNAME_FTP"));
+
+        jTextFieldPwdFtp.setText(Config.getString("PASSWORD_FTP"));
+        jTextFieldPwdFtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPwdFtpActionPerformed(evt);
+            }
+        });
+
+        jTextFieldCartellaFtp.setText(Config.getString("SCAMBIO_FTP")
+        );
+        jTextFieldCartellaFtp.setName(""); // NOI18N
+        jTextFieldCartellaFtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCartellaFtpActionPerformed(evt);
+            }
+        });
+
+        jTextFieldPercorsoImgFtp.setText(Config.getString("PERCORSO_IMMAGINE_FTP")
+        );
+        jTextFieldPercorsoImgFtp.setName(""); // NOI18N
+        jTextFieldPercorsoImgFtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPercorsoImgFtpActionPerformed(evt);
+            }
+        });
+
+        jTextFieldNomeImgFtp.setText(Config.getString("IMMAGINE_FTP")
+        );
+        jTextFieldNomeImgFtp.setName(""); // NOI18N
+        jTextFieldNomeImgFtp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNomeImgFtpActionPerformed(evt);
+            }
+        });
+
+        jLabel12.setText("Nome File");
+
+        jTextFieldUrlCheckImg.setText(Config.getString("URL_CHECK_IMMAGINI")
+        );
+        jTextFieldUrlCheckImg.setName(""); // NOI18N
+        jTextFieldUrlCheckImg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUrlCheckImgActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Url Check Immagini");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -358,7 +445,7 @@ public class Configurazione extends javax.swing.JFrame {
                                             .addComponent(jTextFieldStat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -371,33 +458,26 @@ public class Configurazione extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelDb)
-                            .addComponent(jLabelServer)
-                            .addComponent(jLabelUser))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelPwd)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextFieldDb, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                                .addComponent(jTextFieldSer)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(13, 13, 13)
-                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabelUrlMag, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabelFtp))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextFieldUsernameFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel9)
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jTextFieldPwdFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addContainerGap(43, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -408,8 +488,45 @@ public class Configurazione extends javax.swing.JFrame {
                                 .addComponent(jTextFieldMag, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelCatPs)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelDb)
+                                    .addComponent(jLabelServer)
+                                    .addComponent(jLabelUser))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabelPwd)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldDb, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldSer))))
+                            .addComponent(jLabelCatPs)
+                            .addComponent(jLabelUrlMag, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(jLabel10))
+                                .addGap(10, 10, 10)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldCartellaFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldUrlCheckImg, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldNomeImgFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldPercorsoImgFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -479,7 +596,37 @@ public class Configurazione extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelCatPs)
                     .addComponent(chkCatPs))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(22, 22, 22)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelFtp)
+                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextFieldFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextFieldUsernameFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldPwdFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTextFieldCartellaFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldUrlCheckImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldPercorsoImgFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNomeImgFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -527,6 +674,7 @@ public class Configurazione extends javax.swing.JFrame {
         );
 
         jLabel4.getAccessibleContext().setAccessibleDescription("info");
+        jLabelFtp.getAccessibleContext().setAccessibleName("Ftp Immagini");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -558,7 +706,14 @@ public class Configurazione extends javax.swing.JFrame {
         Config.setProperty("CODICEMAGAZZINO", jTextFieldCodMag.getText());
         Config.setProperty("MAGAZZINO", jTextFieldMag.getText());
         Config.setProperty("LISTINI", jTextFieldLis.getText());
-        Config.setProperty("CODICI_RIFERIMENTO", jTextFieldCodRif.getText());        
+        Config.setProperty("CODICI_RIFERIMENTO", jTextFieldCodRif.getText());
+        Config.setProperty("FTP", jTextFieldFtp.getText());
+        Config.setProperty("USERNAME_FTP", jTextFieldUsernameFtp.getText());
+        Config.setProperty("PASSWORD_FTP", jTextFieldPwdFtp.getText());
+        Config.setProperty("SCAMBIO_FTP", jTextFieldCartellaFtp.getText());
+        Config.setProperty("URL_CHECK_IMMAGINI", jTextFieldUrlCheckImg.getText());
+        Config.setProperty("PERCORSO_IMMAGINE_FTP", jTextFieldPercorsoImgFtp.getText());
+        Config.setProperty("IMMAGINE_FTP", jTextFieldNomeImgFtp.getText());
         String catPs = new String();
         if (chkCatPs.isSelected()) {
             catPs = "1";
@@ -612,6 +767,30 @@ public class Configurazione extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCodRifActionPerformed
 
+    private void jTextFieldFtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFtpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFtpActionPerformed
+
+    private void jTextFieldPwdFtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPwdFtpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPwdFtpActionPerformed
+
+    private void jTextFieldCartellaFtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCartellaFtpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCartellaFtpActionPerformed
+
+    private void jTextFieldPercorsoImgFtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPercorsoImgFtpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldPercorsoImgFtpActionPerformed
+
+    private void jTextFieldNomeImgFtpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNomeImgFtpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNomeImgFtpActionPerformed
+
+    private void jTextFieldUrlCheckImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUrlCheckImgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUrlCheckImgActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -652,11 +831,18 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JButton Salva;
     private javax.swing.JCheckBox chkCatPs;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelAll;
     private javax.swing.JLabel jLabelArt;
     private javax.swing.JLabel jLabelCatPs;
@@ -664,6 +850,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDb;
     private javax.swing.JLabel jLabelFor;
     private javax.swing.JLabel jLabelFreqMag;
+    private javax.swing.JLabel jLabelFtp;
     private javax.swing.JLabel jLabelGiac;
     private javax.swing.JLabel jLabelImm;
     private javax.swing.JLabel jLabelLin;
@@ -680,27 +867,35 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUser;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JTextField jTextFieldAll;
     private javax.swing.JTextField jTextFieldArt;
+    private javax.swing.JTextField jTextFieldCartellaFtp;
     private javax.swing.JTextField jTextFieldClean;
     private javax.swing.JTextField jTextFieldCli;
     private javax.swing.JTextField jTextFieldCodMag;
     private javax.swing.JTextField jTextFieldCodRif;
     private javax.swing.JTextField jTextFieldDb;
     private javax.swing.JTextField jTextFieldFor;
+    private javax.swing.JTextField jTextFieldFtp;
     private javax.swing.JTextField jTextFieldGiac;
     private javax.swing.JTextField jTextFieldImm;
     private javax.swing.JTextField jTextFieldLin;
     private javax.swing.JTextField jTextFieldLis;
     private javax.swing.JTextField jTextFieldMag;
     private javax.swing.JTextField jTextFieldMar;
+    private javax.swing.JTextField jTextFieldNomeImgFtp;
     private javax.swing.JTextField jTextFieldOrd;
+    private javax.swing.JTextField jTextFieldPercorsoImgFtp;
     private javax.swing.JTextField jTextFieldPwd;
+    private javax.swing.JTextField jTextFieldPwdFtp;
     private javax.swing.JTextField jTextFieldSca;
     private javax.swing.JTextField jTextFieldSer;
     private javax.swing.JTextField jTextFieldStat;
     private javax.swing.JTextField jTextFieldUrl;
+    private javax.swing.JTextField jTextFieldUrlCheckImg;
     private javax.swing.JTextField jTextFieldUrlMag;
     private javax.swing.JTextField jTextFieldUser;
+    private javax.swing.JTextField jTextFieldUsernameFtp;
     // End of variables declaration//GEN-END:variables
 }
