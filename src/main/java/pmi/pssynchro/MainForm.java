@@ -665,11 +665,8 @@ public class MainForm extends javax.swing.JFrame {
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arscadenzario"), 10);
     }//GEN-LAST:event_runOnceScaActionPerformed
-
 //GEN-FIRST:event_sysTrayActionPerformed
- 
 //GEN-LAST:event_sysTrayActionPerformed
-
     private void runOnceOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceOrdActionPerformed
         timer = new Timer();
         timer.schedule(new TaskSchedulato("arordini"), 10);
@@ -794,14 +791,13 @@ public class MainForm extends javax.swing.JFrame {
             server = server + ";mydb=" + database;
             String username = Config.getString("USERNAME");
             String password = Config.getString("PASSWORD");
-            String ftp = Config.getString("FTP");            
+            String ftp = Config.getString("FTP");
             String userFtp = Config.getString("USERNAME_FTP");
             String pwdFtp = Config.getString("PASSWORD_FTP");
             String percorsoRemotoFtp = Config.getString("SCAMBIO_FTP");
             String checkImg = Config.getString("URL_CHECK_IMMAGINI");
             String percorsoImgFtp = Config.getString("PERCORSO_IMMAGINE_FTP");
             String nomeImgFtp = Config.getString("IMMAGINE_FTP");
-            
 
             //Aggiorno le categorie web            
             if (stringa.equals("ararticoli") && catPs.equals("1")) {
@@ -817,7 +813,7 @@ public class MainForm extends javax.swing.JFrame {
                 return;
             }
             //
-            
+
             // Upload delle immagini 
             if (stringa.equals("arimmagini")) {
                 try {
@@ -826,11 +822,12 @@ public class MainForm extends javax.swing.JFrame {
                     buttons.enable(); //riabilito i buttons
                     return;
                 } catch (NoSuchAlgorithmException ex) {
-                    Logger.getLogger(MainForm.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println(ex);
+                } catch (InterruptedException ex) {
+                    System.out.println(ex);
                 }
             }
             //
-            
 
             try {
                 sito = new URL(sUrl + "?aggiornamento=" + stringa + all + resLis + cPs);
