@@ -141,9 +141,28 @@ public class UploadImmagini {
                 } catch (IOException f) {
                     // do nothing
                 }
+                
             }
         }
-        //System.exit(error ? 1 : 0);
+         try {
+            sito = new URL(sUrl + "?aggiornamento=arimmagini2" + all);
+        } catch (MalformedURLException ex) {
+            System.out.println("Indirizzo del sito mal formato o inesistente");
+        }
+        try {
+            yc = sito.openConnection();
+            System.out.println(sito + " - Apertura connessione");/*test*/
+        } catch (IOException ex) {
+            System.out.println("Errore di connessione _ ");
+        }
+        try {
+            in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+            System.out.println(sito + " - Comunicazione");/*test*/
+        } catch (IOException ex) {
+            System.out.println(": Errore in ricezione dati: verificare che il "
+                    + "server sia avviato o che l'indirizzo sia corretto");
+            return;
+        }       //System.exit(error ? 1 : 0);
         /*Fine procedura upload vera e propria*/
     } // end main    
 
