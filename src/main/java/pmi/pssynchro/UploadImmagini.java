@@ -31,6 +31,7 @@ public class UploadImmagini {
         URL sito = null;
         String sUrl = Config.getString("URL");
         local = percorsoLocale.concat(fileImmagine);
+        
         remote = fileImmagine;
 
         ftps = new FTPSClient(protocol);
@@ -41,11 +42,11 @@ public class UploadImmagini {
             /*Stampe di test*/
             System.out.println("Percorso locale: " + percorsoLocale);
             System.out.println("File di check: " + check + " - Esiste? " + Varie.esiste(check));
-            System.out.println("File immagine locale: "+ local);
+            System.out.println("File immagine locale: " + local + " - Esiste? " + Varie.esisteFile(local));
             System.out.println(all);
             /*Fine stampe di test*/
             
-        if (!(Varie.esiste(check)) && !(Varie.esiste(local))) {  /* Procedo solo se non esiste il file ok.txt e il file imageFTP*/
+        if (!(Varie.esiste(check)) && !(Varie.esisteFile(local))) {  /* Procedo solo se non esiste il file ok.txt e il file imageFTP*/
             /* Prima richiesta di generazione immagini da caricare */
 
             try {
@@ -78,6 +79,7 @@ public class UploadImmagini {
 
         }
         /*Procedura di upload vera e propria*/
+        
         try {
             int reply;
 
@@ -132,6 +134,7 @@ public class UploadImmagini {
                 input = new FileInputStream(local);
                 ftps.storeFile(remote, input);
                 input.close();
+                System.out.println("Upload terminato");
             } else {
                 /*download*/
 //                OutputStream output;
@@ -150,6 +153,7 @@ public class UploadImmagini {
             if (ftps.isConnected()) {
                 try {
                     ftps.disconnect();
+                    System.out.println("Disconnessione effettuata");
                 } catch (IOException f) {
                     // do nothing
                 }
@@ -175,6 +179,8 @@ public class UploadImmagini {
                     + "server sia avviato o che l'indirizzo sia corretto");
         }       //System.exit(error ? 1 : 0);
         /*Fine procedura upload vera e propria*/
+        
+        
     } // end main    
 
 }
