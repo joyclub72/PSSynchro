@@ -70,62 +70,47 @@ public class MainForm extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0));
         jScrollPane1 = new javax.swing.JScrollPane();
         esito = new javax.swing.JTextArea();
-        clearArea = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        runOnceOrd = new javax.swing.JButton();
         sysTray = new javax.swing.JButton();
-        runOnceSca = new javax.swing.JButton();
         mostraStream = new javax.swing.JRadioButton();
-        runOnceSta = new javax.swing.JButton();
-        runOnceGiac = new javax.swing.JButton();
-        runOnceArt = new javax.swing.JButton();
         stop = new javax.swing.JButton();
-        runOnceImm = new javax.swing.JButton();
-        runOnceFor = new javax.swing.JButton();
         start = new javax.swing.JButton();
-        runOnceCli = new javax.swing.JButton();
-        runOnceMar = new javax.swing.JButton();
         config = new javax.swing.JButton();
-        runOnceLin = new javax.swing.JButton();
-        runOnceAll = new javax.swing.JButton();
         esci = new javax.swing.JButton();
-        runOnceMagEst = new javax.swing.JButton();
-        runOnceLis = new javax.swing.JButton();
         soloArticoliNuovi = new javax.swing.JRadioButton();
         resetListini = new javax.swing.JRadioButton();
-        runOnceCodRif = new javax.swing.JButton();
+        clearArea = new javax.swing.JButton();
         stato = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        runOnceArt = new javax.swing.JButton();
+        runOnceMar = new javax.swing.JButton();
+        runOnceSta = new javax.swing.JButton();
+        runOnceFor = new javax.swing.JButton();
+        runOnceCli = new javax.swing.JButton();
+        runOnceAll = new javax.swing.JButton();
+        runOnceLis = new javax.swing.JButton();
+        runOnceImm = new javax.swing.JButton();
+        runOnceOrd = new javax.swing.JButton();
+        runOnceLin = new javax.swing.JButton();
+        runOnceSca = new javax.swing.JButton();
+        runOnceGiac = new javax.swing.JButton();
+        runOnceMagEst = new javax.swing.JButton();
+        runOnceCodRif = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PrestaShopSync");
-        setMinimumSize(new java.awt.Dimension(730, 421));
+        setMinimumSize(new java.awt.Dimension(730, 480));
+        setPreferredSize(new java.awt.Dimension(700, 480));
 
         esito.setColumns(20);
+        esito.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         esito.setLineWrap(true);
         esito.setRows(5);
         esito.setMargin(new java.awt.Insets(2, 4, 2, 4));
         jScrollPane1.setViewportView(esito);
         esito.getAccessibleContext().setAccessibleParent(esito);
 
-        clearArea.setBackground(java.awt.Color.white);
-        clearArea.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        clearArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clean.png"))); // NOI18N
-        clearArea.setToolTipText("Pulisci Text Area");
-        clearArea.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearAreaActionPerformed(evt);
-            }
-        });
-
         jPanel1.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
-
-        runOnceOrd.setBackground(java.awt.Color.white);
-        runOnceOrd.setText("Ordini");
-        runOnceOrd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceOrdActionPerformed(evt);
-            }
-        });
 
         sysTray.setBackground(java.awt.Color.white);
         sysTray.setIcon(new javax.swing.ImageIcon(getClass().getResource("/to_tray.png"))); // NOI18N
@@ -139,47 +124,9 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        runOnceSca.setBackground(java.awt.Color.white);
-        runOnceSca.setText("Scadenze");
-        runOnceSca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceScaActionPerformed(evt);
-            }
-        });
-
         mostraStream.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         mostraStream.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         mostraStream.setText("Mostra Stream");
-
-        runOnceSta.setBackground(java.awt.Color.white);
-        runOnceSta.setText("Statistiche");
-        runOnceSta.setMargin(new java.awt.Insets(2, 8, 2, 8));
-        runOnceSta.setMaximumSize(new java.awt.Dimension(84, 24));
-        runOnceSta.setMinimumSize(new java.awt.Dimension(84, 24));
-        runOnceSta.setPreferredSize(new java.awt.Dimension(84, 24));
-        runOnceSta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceStaActionPerformed(evt);
-            }
-        });
-
-        runOnceGiac.setBackground(java.awt.Color.white);
-        runOnceGiac.setText("Giacenze");
-        runOnceGiac.setMaximumSize(new java.awt.Dimension(79, 23));
-        runOnceGiac.setMinimumSize(new java.awt.Dimension(79, 23));
-        runOnceGiac.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceGiacActionPerformed(evt);
-            }
-        });
-
-        runOnceArt.setBackground(java.awt.Color.white);
-        runOnceArt.setText("Articoli");
-        runOnceArt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceArtActionPerformed(evt);
-            }
-        });
 
         stop.setBackground(java.awt.Color.white);
         stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/stop.png"))); // NOI18N
@@ -190,22 +137,6 @@ public class MainForm extends javax.swing.JFrame {
         stop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stopActionPerformed(evt);
-            }
-        });
-
-        runOnceImm.setBackground(java.awt.Color.white);
-        runOnceImm.setText("Immagini");
-        runOnceImm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceImmActionPerformed(evt);
-            }
-        });
-
-        runOnceFor.setBackground(java.awt.Color.white);
-        runOnceFor.setText("Fornitori");
-        runOnceFor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceForActionPerformed(evt);
             }
         });
 
@@ -221,24 +152,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        runOnceCli.setBackground(java.awt.Color.white);
-        runOnceCli.setText("Clienti");
-        runOnceCli.setMaximumSize(new java.awt.Dimension(79, 23));
-        runOnceCli.setMinimumSize(new java.awt.Dimension(79, 23));
-        runOnceCli.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceCliActionPerformed(evt);
-            }
-        });
-
-        runOnceMar.setBackground(java.awt.Color.white);
-        runOnceMar.setText("Marche");
-        runOnceMar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceMarActionPerformed(evt);
-            }
-        });
-
         config.setBackground(java.awt.Color.white);
         config.setIcon(new javax.swing.ImageIcon(getClass().getResource("/config.png"))); // NOI18N
         config.setToolTipText("Configura");
@@ -251,22 +164,6 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        runOnceLin.setBackground(java.awt.Color.white);
-        runOnceLin.setText("Lingue");
-        runOnceLin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceLinActionPerformed(evt);
-            }
-        });
-
-        runOnceAll.setBackground(java.awt.Color.white);
-        runOnceAll.setText("Allegati");
-        runOnceAll.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceAllActionPerformed(evt);
-            }
-        });
-
         esci.setBackground(java.awt.Color.white);
         esci.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exit.png"))); // NOI18N
         esci.setToolTipText("Esci");
@@ -276,22 +173,6 @@ public class MainForm extends javax.swing.JFrame {
         esci.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 esciActionPerformed(evt);
-            }
-        });
-
-        runOnceMagEst.setBackground(java.awt.Color.white);
-        runOnceMagEst.setText("Mag. Est.");
-        runOnceMagEst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceMagEstActionPerformed(evt);
-            }
-        });
-
-        runOnceLis.setBackground(java.awt.Color.white);
-        runOnceLis.setText("Listini");
-        runOnceLis.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceLisActionPerformed(evt);
             }
         });
 
@@ -314,142 +195,323 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
-        runOnceCodRif.setBackground(java.awt.Color.white);
-        runOnceCodRif.setText("Cod. Rif.");
-        runOnceCodRif.addActionListener(new java.awt.event.ActionListener() {
+        clearArea.setBackground(java.awt.Color.white);
+        clearArea.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        clearArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clean.png"))); // NOI18N
+        clearArea.setToolTipText("Pulisci Text Area");
+        clearArea.setMaximumSize(new java.awt.Dimension(62, 48));
+        clearArea.setMinimumSize(new java.awt.Dimension(62, 48));
+        clearArea.setPreferredSize(new java.awt.Dimension(62, 48));
+        clearArea.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                runOnceCodRifActionPerformed(evt);
+                clearAreaActionPerformed(evt);
             }
         });
+
+        stato.setMaximumSize(new java.awt.Dimension(45, 16));
+        stato.setMinimumSize(new java.awt.Dimension(45, 16));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(3, 3, 3)
+                .addGap(9, 9, 9)
+                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(stop, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sysTray, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(esci, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceLin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(runOnceCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(runOnceArt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceMar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)
-                                .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stop, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(sysTray, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(esci, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(mostraStream, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(soloArticoliNuovi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(resetListini, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(config, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(4, 4, 4)
-                                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(runOnceLis, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(mostraStream, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(soloArticoliNuovi, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resetListini, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(stato, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(clearArea, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(config, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(soloArticoliNuovi)
-                        .addComponent(resetListini))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(mostraStream)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(stop)
-                            .addComponent(sysTray)
-                            .addComponent(esci)
-                            .addComponent(start)))
-                    .addComponent(config))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(runOnceMar)
-                    .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(runOnceFor)
-                    .addComponent(runOnceAll)
-                    .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(runOnceArt)
-                    .addComponent(runOnceLis))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(runOnceLin)
-                    .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(runOnceImm)
-                    .addComponent(runOnceOrd)
-                    .addComponent(runOnceSca)
-                    .addComponent(runOnceMagEst)
-                    .addComponent(runOnceCodRif))
-                .addContainerGap())
+                        .addComponent(resetListini)
+                        .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mostraStream, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sysTray, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(esci, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(config, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(clearArea, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        stato.setToolTipText("");
+        jLayeredPane1.setAutoscrolls(true);
+
+        runOnceArt.setBackground(java.awt.Color.white);
+        runOnceArt.setText("Articoli");
+        runOnceArt.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceArt.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceArt.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceArt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceArtActionPerformed(evt);
+            }
+        });
+
+        runOnceMar.setBackground(java.awt.Color.white);
+        runOnceMar.setText("Marche");
+        runOnceMar.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceMar.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceMar.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceMar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceMarActionPerformed(evt);
+            }
+        });
+
+        runOnceSta.setBackground(java.awt.Color.white);
+        runOnceSta.setText("Statistiche");
+        runOnceSta.setMargin(new java.awt.Insets(2, 8, 2, 8));
+        runOnceSta.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceSta.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceSta.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceSta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceStaActionPerformed(evt);
+            }
+        });
+
+        runOnceFor.setBackground(java.awt.Color.white);
+        runOnceFor.setText("Fornitori");
+        runOnceFor.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceFor.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceFor.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceFor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceForActionPerformed(evt);
+            }
+        });
+
+        runOnceCli.setBackground(java.awt.Color.white);
+        runOnceCli.setText("Clienti");
+        runOnceCli.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceCli.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceCli.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceCliActionPerformed(evt);
+            }
+        });
+
+        runOnceAll.setBackground(java.awt.Color.white);
+        runOnceAll.setText("Allegati");
+        runOnceAll.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceAll.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceAll.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceAllActionPerformed(evt);
+            }
+        });
+
+        runOnceLis.setBackground(java.awt.Color.white);
+        runOnceLis.setText("Listini");
+        runOnceLis.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceLis.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceLis.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceLis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceLisActionPerformed(evt);
+            }
+        });
+
+        runOnceImm.setBackground(java.awt.Color.white);
+        runOnceImm.setText("Immagini");
+        runOnceImm.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceImm.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceImm.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceImm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceImmActionPerformed(evt);
+            }
+        });
+
+        runOnceOrd.setBackground(java.awt.Color.white);
+        runOnceOrd.setText("Ordini");
+        runOnceOrd.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceOrd.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceOrd.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceOrd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceOrdActionPerformed(evt);
+            }
+        });
+
+        runOnceLin.setBackground(java.awt.Color.white);
+        runOnceLin.setText("Lingue");
+        runOnceLin.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceLin.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceLin.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceLin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceLinActionPerformed(evt);
+            }
+        });
+
+        runOnceSca.setBackground(java.awt.Color.white);
+        runOnceSca.setText("Scadenze");
+        runOnceSca.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceSca.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceSca.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceSca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceScaActionPerformed(evt);
+            }
+        });
+
+        runOnceGiac.setBackground(java.awt.Color.white);
+        runOnceGiac.setText("Giacenze");
+        runOnceGiac.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceGiac.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceGiac.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceGiac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceGiacActionPerformed(evt);
+            }
+        });
+
+        runOnceMagEst.setBackground(java.awt.Color.white);
+        runOnceMagEst.setText("Mag. Est.");
+        runOnceMagEst.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceMagEst.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceMagEst.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceMagEst.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceMagEstActionPerformed(evt);
+            }
+        });
+
+        runOnceCodRif.setBackground(java.awt.Color.white);
+        runOnceCodRif.setText("Cod. Rif.");
+        runOnceCodRif.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceCodRif.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceCodRif.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceCodRif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceCodRifActionPerformed(evt);
+            }
+        });
+
+        jLayeredPane1.setLayer(runOnceArt, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceMar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceSta, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceFor, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceCli, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceAll, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceLis, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceImm, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceOrd, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceLin, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceSca, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceGiac, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceMagEst, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceCodRif, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(runOnceMar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceLis, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceLin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(runOnceArt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceFor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceCli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceAll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceGiac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceCodRif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addComponent(runOnceArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceMar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceSta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceOrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceLin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceGiac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 3, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(clearArea)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clearArea)
-                    .addComponent(stato, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5))
+                    .addComponent(jLayeredPane1)
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
 
         pack();
@@ -721,6 +783,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton esci;
     private javax.swing.JTextArea esito;
     private javax.swing.Box.Filler filler1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JRadioButton mostraStream;
