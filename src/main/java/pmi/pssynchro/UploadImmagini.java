@@ -35,36 +35,47 @@ public class UploadImmagini {
 
         ftps = new FTPSClient(protocol);
         ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
-        try {
-            sito = new URL(sUrl + "?aggiornamento=arimmagini1" + all);
-        } catch (MalformedURLException ex) {
-            System.out.println("Indirizzo del sito mal formato o inesistente");
-        }
         URLConnection yc = null;
-        try {
-            yc = sito.openConnection();
-            System.out.println(sito + " - Apertura connessione");/*test*/
-        } catch (IOException ex) {
-            System.out.println("Errore di connessione _ ");
-        }
         BufferedReader in;
-        try {
-            in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
-            System.out.println(sito + " - Comunicazione");/*test*/
-        } catch (IOException ex) {
-            System.out.println(": Errore in ricezione dati: verificare che il "
-                    + "server sia avviato o che l'indirizzo sia corretto");
-            return;
-        }
-        /*Stampe di test*/
-        System.out.println(percorsoLocale);
-        System.out.println(check);
-        System.out.println(Varie.esiste(check));
-        System.out.println(all);
-        /*Fine stampe di test*/
+        
+            /*Stampe di test*/
+            System.out.println("Percorso locale: " + percorsoLocale);
+            System.out.println("File di check: " + check + " - Esiste? " + Varie.esiste(check));
+            System.out.println("File immagine locale: "+ local);
+            System.out.println(all);
+            /*Fine stampe di test*/
+            
+        if (!(Varie.esiste(check)) && !(Varie.esiste(local))) {  /* Procedo solo se non esiste il file ok.txt e il file imageFTP*/
+            /* Prima richiesta di generazione immagini da caricare */
 
-        while (!(Varie.esiste(check))) {
-            TimeUnit.SECONDS.sleep(5);
+            try {
+                sito = new URL(sUrl + "?aggiornamento=arimmagini1" + all);
+            } catch (MalformedURLException ex) {
+                System.out.println("Indirizzo del sito mal formato o inesistente");
+            }
+
+            try {
+                yc = sito.openConnection();
+                System.out.println(sito + " - Apertura connessione");/*test*/
+            } catch (IOException ex) {
+                System.out.println("Errore di connessione _ ");
+            }
+
+            try {
+                in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+                System.out.println(sito + " - Comunicazione");/*test*/
+            } catch (IOException ex) {
+                System.out.println(": Errore in ricezione dati: verificare che il "
+                        + "server sia avviato o che l'indirizzo sia corretto");
+                return;
+            }
+
+            /*Verifico l'esistenza del file di check che mi informa che posso proseguire*/
+            while (!(Varie.esiste(check))) {
+                System.out.print(".");
+                TimeUnit.SECONDS.sleep(5);
+            }
+
         }
         /*Procedura di upload vera e propria*/
         try {
@@ -116,16 +127,17 @@ public class UploadImmagini {
 
             if (storeFile) {
                 /*upload*/
+                System.out.println("Il file esiste");
                 InputStream input;
                 input = new FileInputStream(local);
                 ftps.storeFile(remote, input);
                 input.close();
             } else {
                 /*download*/
-                OutputStream output;
-                output = new FileOutputStream(local);
-                ftps.retrieveFile(remote, output);
-                output.close();
+//                OutputStream output;
+//                output = new FileOutputStream(local);
+//                ftps.retrieveFile(remote, output);
+//                output.close();
             }
 
             ftps.logout();
@@ -141,10 +153,10 @@ public class UploadImmagini {
                 } catch (IOException f) {
                     // do nothing
                 }
-                
+
             }
         }
-         try {
+        try {
             sito = new URL(sUrl + "?aggiornamento=arimmagini2" + all);
         } catch (MalformedURLException ex) {
             System.out.println("Indirizzo del sito mal formato o inesistente");
@@ -161,7 +173,6 @@ public class UploadImmagini {
         } catch (IOException ex) {
             System.out.println(": Errore in ricezione dati: verificare che il "
                     + "server sia avviato o che l'indirizzo sia corretto");
-            return;
         }       //System.exit(error ? 1 : 0);
         /*Fine procedura upload vera e propria*/
     } // end main    
