@@ -43,7 +43,6 @@ public class UploadImmagini {
             System.out.println("Percorso locale: " + percorsoLocale);
             System.out.println("File di check: " + check + " - Esiste? " + Varie.esiste(check));
             System.out.println("File immagine locale: " + local + " - Esiste? " + Varie.esisteFile(local));
-            System.out.println(all);
             /*Fine stampe di test*/
             
         if (!(Varie.esiste(check)) && !(Varie.esisteFile(local))) {  /* Procedo solo se non esiste il file ok.txt e il file imageFTP*/

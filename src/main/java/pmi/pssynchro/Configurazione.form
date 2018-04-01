@@ -3,6 +3,7 @@
 <Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="undecorated" type="boolean" value="true"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -24,182 +25,33 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jLabelUrl" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jLabelGiac" alignment="0" pref="73" max="32767" attributes="0"/>
-                                      <Component id="jLabelCli" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabelFor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelArt" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelMar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelImm" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldGiac" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldCli" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldFor" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldArt" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldMar" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldImm" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldUrl" min="-2" pref="309" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldLis" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="chkCatPs" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Component id="Salva" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="Chiudi" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelAll" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelSca" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelSta" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelOrd" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelLin" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelLin1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextFieldClean" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldAll" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldSca" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldStat" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldOrd" min="-2" pref="80" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldLin" min="-2" pref="80" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jTextFieldCodRif" min="-2" pref="80" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabelMag" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldCodMag" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldUrlMag" min="-2" pref="309" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                              <Component id="jSeparator4" min="-2" pref="285" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelFtp" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator5" min="-2" pref="285" max="-2" attributes="0"/>
-                                  <Component id="jSeparator3" min="-2" pref="285" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldFtp" min="-2" pref="309" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextFieldUsernameFtp" min="-2" pref="102" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldPwdFtp" min="-2" pref="88" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="43" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="215" max="-2" attributes="0"/>
-                              <Component id="jLabelFreqMag" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
-                              <Component id="jTextFieldMag" min="-2" pref="80" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelDb" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelServer" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelUser" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jTextFieldUser" min="-2" pref="108" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabelPwd" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldPwd" min="-2" pref="88" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextFieldDb" pref="280" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldSer" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Component id="jLabelCatPs" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelUrlMag" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
-                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldCartellaFtp" min="-2" pref="309" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldUrlCheckImg" min="-2" pref="309" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="Salva" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Chiudi" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="jIFFtpImmagini" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jIFConfGenerale" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jIFMagazzinoEsterno" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jIFDatiSql" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldNomeImgFtp" min="-2" pref="309" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPercorsoImgFtp" min="-2" pref="309" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -207,178 +59,16 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldUrl" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUrl" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+              <Component id="jIFConfGenerale" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldGiac" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelGiac" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCli" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCli" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldFor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelFor" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldArt" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelArt" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldMar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelMar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldAll" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAll" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldSca" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelSca" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldStat" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelSta" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldOrd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelOrd" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldLin" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelLin" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
+              <Component id="jIFFtpImmagini" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabelImm" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldImm" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldClean" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelLin1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <Component id="jIFMagazzinoEsterno" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFieldLis" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextFieldCodRif" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jIFDatiSql" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabelCatPs" min="-2" max="-2" attributes="0"/>
-                  <Component id="chkCatPs" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabelFtp" min="-2" max="-2" attributes="0"/>
-                  <Component id="jSeparator5" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldFtp" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUsernameFtp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldPwdFtp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCartellaFtp" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="7" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldUrlCheckImg" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldPercorsoImgFtp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldNomeImgFtp" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelUrlMag" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUrlMag" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldMag" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelFreqMag" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldCodMag" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelMag" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jSeparator4" min="-2" pref="9" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelDb" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldDb" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabelServer" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldSer" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelPwd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPwd" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="jLabelUser" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="Salva" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -393,178 +83,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextFieldUrl">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;URL&quot;)&#xd;&#xa;" type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUrl">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Url: "/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelGiac">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Giacenze"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldGiac">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;GIACENZA&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelCli">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Clienti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCli">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;CLIENTI&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelFor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fornitori"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldFor">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;FORNITORI&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelArt">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Articoli"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldArt">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;ARTICOLI&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelMar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Marche"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldMar">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;MARCHE&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelImm">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Immagini"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAll">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;ALLEGATI&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAllActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelAll">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Allegati"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldImm">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;IMMAGINI&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldImmActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelSca">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Scadenzario"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldSca">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;SCADENZARIO&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelSta">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Statistiche"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldStat">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;STATISTICHE&quot;)&#xd;&#xa;" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelOrd">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Ordini"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldOrd">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;ORDINI&quot;)&#xd;&#xa;" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldOrdActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelLin">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Lingue"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldLin">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;LINGUE&quot;)&#xd;&#xa;" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLinActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Configurazione_jTextFieldLin"/>
-      </AuxValues>
-    </Component>
     <Component class="javax.swing.JButton" name="Salva">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -587,151 +105,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChiudiActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelDb">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Database"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelServer">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Server"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Username"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelPwd">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Password"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldDb">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;DATABASE&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="es: adb_demo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldSer">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;SERVER&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="es: nomeserver\u005cnomeistanzasql" containsInvalidXMLChars="true"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUser">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;USERNAME&quot;)" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldPwd">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;PASSWORD&quot;)" type="code"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPwdActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldClean">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;PULIZIAAREA&quot;)&#xd;&#xa;" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Inserire ogni quanti minuti va ripulita l&apos;area di visualizzazione dei dati"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCleanActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Configurazione_jTextFieldClean"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelLin1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pulizia Area"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelMag">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cod. Mag."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCodMag">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;CODICEMAGAZZINO&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Codice del magazzino in Arca"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodMagActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelFreqMag">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Frequenza"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldMag">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;MAGAZZINO&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldMagActionPerformed"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Configurazione_jTextFieldMag"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUrlMag">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;URLMAGAZZINO&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Indirizzo da cui prelevare il csv con le giacenze"/>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUrlMagActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelUrlMag">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Url: "/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Magazzino esterno"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Dati accesso SQL"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator3">
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator4">
-    </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
@@ -753,170 +126,826 @@
         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value="info"/>
       </AccessibilityProperties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Container class="javax.swing.JInternalFrame" name="jIFConfGenerale">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Listini"/>
+        <Property name="title" type="java.lang.String" value="Configurazione generale"/>
+        <Property name="visible" type="boolean" value="true"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldLis">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelUrl" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelGiac" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelCli" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelImm" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelFor" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCatPs" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelArt" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelMar" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jTextFieldUrl" alignment="0" max="32767" attributes="0"/>
+                      <Component id="chkCatPs" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldGiac" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCli" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldFor" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldArt" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldMar" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldLis" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldImm" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelAll" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSca" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSta" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelOrd" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelLin" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelLin1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldClean" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAll" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldSca" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldStat" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldOrd" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldLin" min="-2" pref="80" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCodRif" min="-2" pref="80" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldUrl" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelUrl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldGiac" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelGiac" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldFor" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelFor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldArt" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelArt" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldMar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelMar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabelImm" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldImm" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldLis" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldAll" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAll" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldSca" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldStat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldOrd" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelOrd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldLin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelLin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldClean" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelLin1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldCodRif" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelCatPs" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkCatPs" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextFieldStat">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;STATISTICHE&quot;)&#xd;&#xa;" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldGiac">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;GIACENZA&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldUrl">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;URL&quot;)&#xd;&#xa;" type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelImm">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Immagini"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCli">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Clienti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldCli">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;CLIENTI&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldOrd">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;ORDINI&quot;)&#xd;&#xa;" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldOrdActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelMar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Marche"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldSca">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;SCADENZARIO&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelCatPs">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Categorie PS"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelOrd">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ordini"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUrl">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Url: "/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldCodRif">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;CODICI_RIFERIMENTO&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodRifActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelLin1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pulizia Area"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelArt">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Articoli"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cod. Rif."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldAll">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;ALLEGATI&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAllActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldMar">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;MARCHE&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldClean">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;PULIZIAAREA&quot;)&#xd;&#xa;" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Inserire ogni quanti minuti va ripulita l&apos;area di visualizzazione dei dati"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCleanActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Configurazione_jTextFieldClean"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldArt">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;ARTICOLI&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelFor">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fornitori"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelSca">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Scadenzario"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldImm">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;IMMAGINI&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldImmActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldFor">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;FORNITORI&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelLin">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Lingue"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelAll">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Allegati"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldLis">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;LISTINI&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLisActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldLin">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;LINGUE&quot;)&#xd;&#xa;" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLinActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Configurazione_jTextFieldLin"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chkCatPs">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="chkCatPs.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));&#xa;if (Config.getString(&quot;CATEGORIEPS&quot;).equals(&quot;1&quot;))&#xa;    chkCatPs.setSelected(true);&#xa;else&#xa;    chkCatPs.setSelected(false);"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelGiac">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Giacenze"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelSta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Statistiche"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Listini"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JInternalFrame" name="jIFFtpImmagini">
       <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;LISTINI&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+        <Property name="title" type="java.lang.String" value="Ftp  Immagini"/>
+        <Property name="visible" type="boolean" value="true"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldLisActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelCatPs">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTextFieldUsernameFtp" min="-2" pref="141" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPwdFtp" max="32767" attributes="0"/>
+                      </Group>
+                      <Component id="jTextFieldCartellaFtp" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldUrlCheckImg" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldPercorsoImgFtp" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldNomeImgFtp" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jTextFieldFtp" alignment="0" min="-2" pref="337" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldFtp" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldUsernameFtp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldPwdFtp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldCartellaFtp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldUrlCheckImg" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldPercorsoImgFtp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldNomeImgFtp" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextFieldPwdFtp">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;PASSWORD_FTP&quot;)" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPwdFtpActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel7">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Indirizzo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel13">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Url Check Immagini"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldCartellaFtp">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;SCAMBIO_FTP&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCartellaFtpActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel12">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Nome File"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel10">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cartella remota"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldUrlCheckImg">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;URL_CHECK_IMMAGINI&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUrlCheckImgActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldNomeImgFtp">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;IMMAGINE_FTP&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeImgFtpActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldUsernameFtp">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;USERNAME_FTP&quot;)" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldFtp">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;FTP&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFtpActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel8">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Username"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPercorsoImgFtp">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;PERCORSO_IMMAGINE_FTP&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPercorsoImgFtpActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel9">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Password"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Percorso Immagini"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JInternalFrame" name="jIFMagazzinoEsterno">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Categorie PS"/>
+        <Property name="title" type="java.lang.String" value="Magazzino Esterno"/>
+        <Property name="visible" type="boolean" value="true"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="chkCatPs">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelMag" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelUrlMag" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jTextFieldUrlMag" min="-2" pref="335" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTextFieldCodMag" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelFreqMag" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldMag" min="-2" pref="80" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelUrlMag" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldUrlMag" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextFieldMag" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelFreqMag" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextFieldCodMag" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelMag" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextFieldUrlMag">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;URLMAGAZZINO&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Indirizzo da cui prelevare il csv con le giacenze"/>
+            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUrlMagActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUrlMag">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Url: "/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldCodMag">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;CODICEMAGAZZINO&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Codice del magazzino in Arca"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodMagActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldMag">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;MAGAZZINO&quot;)&#xa;    " type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldMagActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Configurazione_jTextFieldMag"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelMag">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cod. Mag."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelFreqMag">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Frequenza"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JInternalFrame" name="jIFDatiSql">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
+        <Property name="title" type="java.lang.String" value="Dati Acceso SQL"/>
+        <Property name="visible" type="boolean" value="true"/>
       </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="chkCatPs.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));&#xa;if (Config.getString(&quot;CATEGORIEPS&quot;).equals(&quot;1&quot;))&#xa;    chkCatPs.setSelected(true);&#xa;else&#xa;    chkCatPs.setSelected(false);"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCodRif">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;CODICI_RIFERIMENTO&quot;)" type="code"/>
-        </Property>
-        <Property name="toolTipText" type="java.lang.String" value="Frequenza aggiornamento in minuti"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodRifActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel6">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cod. Rif."/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabelFtp">
-      <Properties>
-        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="80" green="80" id="gray" palette="1" red="80" type="palette"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ftp Immagini"/>
-      </Properties>
-      <AccessibilityProperties>
-        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Ftp Immagini"/>
-      </AccessibilityProperties>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator5">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel7">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Indirizzo"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Username"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel9">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Password"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cartella remota"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel11">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Percorso Immagini"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldFtp">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;FTP&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFtpActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUsernameFtp">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;USERNAME_FTP&quot;)" type="code"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldPwdFtp">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;PASSWORD_FTP&quot;)" type="code"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPwdFtpActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCartellaFtp">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;SCAMBIO_FTP&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCartellaFtpActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldPercorsoImgFtp">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;PERCORSO_IMMAGINE_FTP&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPercorsoImgFtpActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldNomeImgFtp">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;IMMAGINE_FTP&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNomeImgFtpActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nome File"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldUrlCheckImg">
-      <Properties>
-        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="Config.getString(&quot;URL_CHECK_IMMAGINI&quot;)&#xa;    " type="code"/>
-        </Property>
-        <Property name="name" type="java.lang.String" value="" noResource="true"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUrlCheckImgActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Url Check Immagini"/>
-      </Properties>
-    </Component>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jLabelDb" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelServer" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelUser" alignment="0" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jTextFieldDb" max="32767" attributes="0"/>
+                          <Component id="jTextFieldSer" min="-2" pref="280" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jTextFieldUser" min="-2" pref="132" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabelPwd" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jTextFieldPwd" min="-2" pref="114" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Component id="jLabelDb" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jLabelServer" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabelUser" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jTextFieldDb" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jTextFieldSer" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTextFieldUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelPwd" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldPwd" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JTextField" name="jTextFieldSer">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;SERVER&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="es: nomeserver\u005cnomeistanzasql" containsInvalidXMLChars="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldDb">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;DATABASE&quot;)" type="code"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="es: adb_demo"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelServer">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Server"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelPwd">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Password"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldPwd">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;PASSWORD&quot;)" type="code"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldPwdActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Username"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextFieldUser">
+          <Properties>
+            <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="Config.getString(&quot;USERNAME&quot;)" type="code"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelDb">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Database"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
   </SubComponents>
 </Form>

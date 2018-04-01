@@ -16,8 +16,6 @@ import java.awt.event.*;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.security.NoSuchAlgorithmException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 public class MainForm extends javax.swing.JFrame {
@@ -567,6 +565,7 @@ public class MainForm extends javax.swing.JFrame {
     // Redirect dei messaggi di sistema su jtextarea
     private void updateTextArea(final String text) {
         SwingUtilities.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 esito.append(text);
             }
@@ -771,6 +770,7 @@ public class MainForm extends javax.swing.JFrame {
         //</editor-fold>
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainForm().setVisible(true);
             }
