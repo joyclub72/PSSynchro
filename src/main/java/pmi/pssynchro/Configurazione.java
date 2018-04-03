@@ -34,6 +34,7 @@ public class Configurazione extends javax.swing.JFrame {
         Chiudi = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jIFConfGenerale = new javax.swing.JInternalFrame();
         jTextFieldStat = new javax.swing.JTextField();
         jTextFieldGiac = new javax.swing.JTextField();
@@ -82,13 +83,6 @@ public class Configurazione extends javax.swing.JFrame {
         jTextFieldPercorsoImgFtp = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jIFMagazzinoEsterno = new javax.swing.JInternalFrame();
-        jTextFieldUrlMag = new javax.swing.JTextField();
-        jLabelUrlMag = new javax.swing.JLabel();
-        jTextFieldCodMag = new javax.swing.JTextField();
-        jTextFieldMag = new javax.swing.JTextField();
-        jLabelMag = new javax.swing.JLabel();
-        jLabelFreqMag = new javax.swing.JLabel();
         jIFDatiSql = new javax.swing.JInternalFrame();
         jTextFieldSer = new javax.swing.JTextField();
         jTextFieldDb = new javax.swing.JTextField();
@@ -98,10 +92,20 @@ public class Configurazione extends javax.swing.JFrame {
         jLabelUser = new javax.swing.JLabel();
         jTextFieldUser = new javax.swing.JTextField();
         jLabelDb = new javax.swing.JLabel();
+        jIFMagazzinoEsterno = new javax.swing.JInternalFrame();
+        jTextFieldUrlMag = new javax.swing.JTextField();
+        jLabelUrlMag = new javax.swing.JLabel();
+        jTextFieldCodMag = new javax.swing.JTextField();
+        jTextFieldMag = new javax.swing.JTextField();
+        jLabelMag = new javax.swing.JLabel();
+        jLabelFreqMag = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Configurazione");
         setUndecorated(true);
         setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Salva.setBackground(java.awt.Color.lightGray);
         Salva.setText("Salva");
@@ -110,6 +114,7 @@ public class Configurazione extends javax.swing.JFrame {
                 SalvaActionPerformed(evt);
             }
         });
+        getContentPane().add(Salva, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 418, -1, -1));
 
         Chiudi.setBackground(java.awt.Color.lightGray);
         Chiudi.setText("Chiudi");
@@ -118,14 +123,19 @@ public class Configurazione extends javax.swing.JFrame {
                 ChiudiActionPerformed(evt);
             }
         });
+        getContentPane().add(Chiudi, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 418, -1, -1));
 
         jLabel3.setMaximumSize(new java.awt.Dimension(128, 128));
         jLabel3.setMinimumSize(new java.awt.Dimension(128, 128));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 418, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/info.png"))); // NOI18N
         jLabel4.setToolTipText("<html>\n<b>Conversione in minuti:</b><br>\n1 ora = <b>60</b><br>\n1 giorno = <b>1440</b><br>\n1 settimana = <b>10080</b><br>\n1 mese = <b>43800</b><br>\n");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 418, -1, -1));
+        jLabel4.getAccessibleContext().setAccessibleDescription("info");
 
         jIFConfGenerale.setTitle("Configurazione generale");
+        jIFConfGenerale.setAutoscrolls(true);
         jIFConfGenerale.setVisible(true);
 
         jTextFieldStat.setText(Config.getString("STATISTICHE")
@@ -274,7 +284,7 @@ public class Configurazione extends javax.swing.JFrame {
                             .addComponent(jLabelCatPs)
                             .addComponent(jLabelArt)
                             .addComponent(jLabelMar))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 38, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldUrl)
@@ -306,81 +316,86 @@ public class Configurazione extends javax.swing.JFrame {
                             .addComponent(jTextFieldOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                .addGap(59, 59, 59))
         );
         jIFConfGeneraleLayout.setVerticalGroup(
             jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jIFConfGeneraleLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelUrl))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jIFConfGeneraleLayout.createSequentialGroup()
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelGiac))
+                        .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCli)
-                            .addComponent(jTextFieldCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jIFConfGeneraleLayout.createSequentialGroup()
+                                .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldFor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jIFConfGeneraleLayout.createSequentialGroup()
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelAll))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldSca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelSca))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelSta))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldOrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelOrd))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelLin))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelLin1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldFor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelFor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelArt))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelMar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelImm)
-                            .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5)))
+                        .addComponent(chkCatPs))
                     .addGroup(jIFConfGeneraleLayout.createSequentialGroup()
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldAll, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelAll))
+                        .addComponent(jLabelUrl)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldSca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSca))
+                        .addComponent(jLabelGiac)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSta))
+                        .addComponent(jLabelCli)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldOrd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelOrd))
+                        .addComponent(jLabelFor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelLin))
+                        .addComponent(jLabelArt)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldClean, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelLin1))
+                        .addComponent(jLabelMar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jIFConfGeneraleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCatPs)
-                    .addComponent(chkCatPs))
+                        .addComponent(jLabelImm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelCatPs)))
                 .addContainerGap())
         );
 
+        jTabbedPane1.addTab("Configurazione generale", jIFConfGenerale);
+
         jIFFtpImmagini.setTitle("Ftp  Immagini");
+        jIFFtpImmagini.setMinimumSize(new java.awt.Dimension(520, 201));
         jIFFtpImmagini.setVisible(true);
 
         jTextFieldPwdFtp.setText(Config.getString("PASSWORD_FTP"));
@@ -464,7 +479,7 @@ public class Configurazione extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jLabel13)
                     .addComponent(jLabel12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(jIFFtpImmaginiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jIFFtpImmaginiLayout.createSequentialGroup()
                         .addComponent(jTextFieldUsernameFtp, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -511,7 +526,84 @@ public class Configurazione extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jTabbedPane1.addTab("Ftp Immagini", jIFFtpImmagini);
+
+        jIFDatiSql.setTitle("Dati Acceso SQL");
+        jIFDatiSql.setAutoscrolls(true);
+        jIFDatiSql.setVisible(true);
+
+        jTextFieldSer.setText(Config.getString("SERVER"));
+        jTextFieldSer.setToolTipText("es: nomeserver\\nomeistanzasql");
+
+        jTextFieldDb.setText(Config.getString("DATABASE"));
+        jTextFieldDb.setToolTipText("es: adb_demo");
+
+        jLabelServer.setText("Server");
+
+        jLabelPwd.setText("Password");
+
+        jTextFieldPwd.setText(Config.getString("PASSWORD"));
+        jTextFieldPwd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPwdActionPerformed(evt);
+            }
+        });
+
+        jLabelUser.setText("Username");
+
+        jTextFieldUser.setText(Config.getString("USERNAME"));
+
+        jLabelDb.setText("Database");
+
+        javax.swing.GroupLayout jIFDatiSqlLayout = new javax.swing.GroupLayout(jIFDatiSql.getContentPane());
+        jIFDatiSql.getContentPane().setLayout(jIFDatiSqlLayout);
+        jIFDatiSqlLayout.setHorizontalGroup(
+            jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jIFDatiSqlLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelDb)
+                    .addComponent(jLabelServer)
+                    .addComponent(jLabelUser))
+                .addGap(53, 53, 53)
+                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jIFDatiSqlLayout.createSequentialGroup()
+                        .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelPwd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldSer)
+                    .addComponent(jTextFieldDb))
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
+        jIFDatiSqlLayout.setVerticalGroup(
+            jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jIFDatiSqlLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDb)
+                    .addComponent(jTextFieldDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jIFDatiSqlLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabelServer))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jIFDatiSqlLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUser)
+                    .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPwd)
+                    .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(268, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Dati SQL", jIFDatiSql);
+
         jIFMagazzinoEsterno.setTitle("Magazzino Esterno");
+        jIFMagazzinoEsterno.setAutoscrolls(true);
         jIFMagazzinoEsterno.setVisible(true);
 
         jTextFieldUrlMag.setText(Config.getString("URLMAGAZZINO")
@@ -557,7 +649,7 @@ public class Configurazione extends javax.swing.JFrame {
                 .addGroup(jIFMagazzinoEsternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelMag)
                     .addComponent(jLabelUrlMag, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(jIFMagazzinoEsternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldUrlMag, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jIFMagazzinoEsternoLayout.createSequentialGroup()
@@ -586,130 +678,9 @@ public class Configurazione extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jIFDatiSql.setTitle("Dati Acceso SQL");
-        jIFDatiSql.setVisible(true);
+        jTabbedPane1.addTab("Mag. Esterno", jIFMagazzinoEsterno);
 
-        jTextFieldSer.setText(Config.getString("SERVER"));
-        jTextFieldSer.setToolTipText("es: nomeserver\\nomeistanzasql");
-
-        jTextFieldDb.setText(Config.getString("DATABASE"));
-        jTextFieldDb.setToolTipText("es: adb_demo");
-
-        jLabelServer.setText("Server");
-
-        jLabelPwd.setText("Password");
-
-        jTextFieldPwd.setText(Config.getString("PASSWORD"));
-        jTextFieldPwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldPwdActionPerformed(evt);
-            }
-        });
-
-        jLabelUser.setText("Username");
-
-        jTextFieldUser.setText(Config.getString("USERNAME"));
-
-        jLabelDb.setText("Database");
-
-        javax.swing.GroupLayout jIFDatiSqlLayout = new javax.swing.GroupLayout(jIFDatiSql.getContentPane());
-        jIFDatiSql.getContentPane().setLayout(jIFDatiSqlLayout);
-        jIFDatiSqlLayout.setHorizontalGroup(
-            jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jIFDatiSqlLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDb)
-                    .addComponent(jLabelServer)
-                    .addComponent(jLabelUser))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextFieldDb)
-                        .addComponent(jTextFieldSer, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jIFDatiSqlLayout.createSequentialGroup()
-                        .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelPwd)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jIFDatiSqlLayout.setVerticalGroup(
-            jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jIFDatiSqlLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jIFDatiSqlLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabelDb)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabelServer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelUser)
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jIFDatiSqlLayout.createSequentialGroup()
-                        .addComponent(jTextFieldDb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jIFDatiSqlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPwd)
-                            .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4)
-                        .addGap(14, 14, 14)
-                        .addComponent(Salva)
-                        .addGap(18, 18, 18)
-                        .addComponent(Chiudi)
-                        .addGap(52, 52, 52))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jIFFtpImmagini, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jIFConfGenerale, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jIFMagazzinoEsterno, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jIFDatiSql))
-                        .addContainerGap())))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jIFConfGenerale)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jIFFtpImmagini)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jIFMagazzinoEsterno)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jIFDatiSql, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Salva)
-                        .addComponent(Chiudi)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4))
-                .addContainerGap())
-        );
-
-        jLabel4.getAccessibleContext().setAccessibleDescription("info");
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 12, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -901,6 +872,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUrl;
     private javax.swing.JLabel jLabelUrlMag;
     private javax.swing.JLabel jLabelUser;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextFieldAll;
     private javax.swing.JTextField jTextFieldArt;
     private javax.swing.JTextField jTextFieldCartellaFtp;
