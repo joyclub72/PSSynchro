@@ -120,7 +120,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="resetListini" min="-2" pref="100" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="stato" pref="51" max="32767" attributes="0"/>
+                  <Component id="stato" pref="45" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="clearArea" min="-2" pref="54" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -387,7 +387,7 @@
                   <Component id="runOnceMagEst" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="runOnceCodRif" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="56" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

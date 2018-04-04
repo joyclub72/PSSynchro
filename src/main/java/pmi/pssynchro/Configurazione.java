@@ -125,6 +125,8 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/info.png"))); // NOI18N
         jLabel4.setToolTipText("<html>\n<b>Conversione in minuti:</b><br>\n1 ora = <b>60</b><br>\n1 giorno = <b>1440</b><br>\n1 settimana = <b>10080</b><br>\n1 mese = <b>43800</b><br>\n");
 
+        jPanel1.setBackground(Color.getHSBColor(Costanti.TAB_HUE,Costanti.TAB_SAT,Costanti.TAB_BRI));
+
         jTextFieldUrl.setText(Config.getString("URL")
         );
         jTextFieldUrl.setName(""); // NOI18N
@@ -360,6 +362,8 @@ public class Configurazione extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Frequenze", jPanel1);
 
+        jPanel2.setBackground(Color.getHSBColor(Costanti.TAB_HUE,Costanti.TAB_SAT,Costanti.TAB_BRI));
+
         jTextFieldPwdFtp.setText(Config.getString("PASSWORD_FTP"));
         jTextFieldPwdFtp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,6 +502,8 @@ public class Configurazione extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Ftp Immagini", jPanel2);
 
+        jPanel4.setBackground(Color.getHSBColor(Costanti.TAB_HUE,Costanti.TAB_SAT,Costanti.TAB_BRI));
+
         jLabelServer.setText("Server");
 
         jTextFieldSer.setText(Config.getString("SERVER"));
@@ -566,6 +572,8 @@ public class Configurazione extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Dati SQL", jPanel4);
+
+        jPanel3.setBackground(Color.getHSBColor(Costanti.TAB_HUE,Costanti.TAB_SAT,Costanti.TAB_BRI));
 
         jTextFieldCodMag.setText(Config.getString("CODICEMAGAZZINO"));
         jTextFieldCodMag.setToolTipText("Codice del magazzino in Arca");
