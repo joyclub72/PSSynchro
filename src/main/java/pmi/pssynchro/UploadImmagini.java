@@ -18,12 +18,14 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPConnectionClosedException;
 import org.apache.commons.net.ftp.FTPReply;
 import org.apache.commons.net.ftp.FTPSClient;
+import org.apache.commons.net.io.CopyStreamAdapter;
 
 public class UploadImmagini {
 
     public void FtpUpload(String server, String username, String password, String percorsoRemoto, String percorsoLocale, String fileImmagine, String all, String check) throws NoSuchAlgorithmException, InterruptedException {
         boolean storeFile = false, binaryTransfer = false, error = false;
-        String remote, local;
+        final String remote;
+        String local;
         String protocol = "TLS";    // SSL/TLS
         FTPSClient ftps;
         storeFile = true;
@@ -31,13 +33,14 @@ public class UploadImmagini {
         URL sito = null;
         String sUrl = Config.getString("URL");
         local = percorsoLocale.concat(fileImmagine);
-        
         remote = fileImmagine;
 
         ftps = new FTPSClient(protocol);
         ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
         URLConnection yc = null;
         BufferedReader in;
+
+
         
             /*Stampe di test*/
             System.out.println("Percorso locale: " + percorsoLocale);
@@ -72,13 +75,13 @@ public class UploadImmagini {
 
             /*Verifico l'esistenza del file di check che mi informa che posso proseguire*/
             while (!(Varie.esiste(check))) {
-                System.out.print(".");
+                System.out.print("-");
                 TimeUnit.SECONDS.sleep(5);
             }
 
         }
         /*Procedura di upload vera e propria*/
-        
+   
         try {
             int reply;
 
@@ -91,7 +94,7 @@ public class UploadImmagini {
 
             if (!FTPReply.isPositiveCompletion(reply)) {
                 ftps.disconnect();
-                System.err.println("FTP server refused connection.");
+                System.err.println("Il server FTP ha rifiutato la connessione.");
                 //System.exit(1);
             }
         } catch (IOException e) {
@@ -102,7 +105,7 @@ public class UploadImmagini {
                     // do nothing
                 }
             }
-            System.err.println("Could not connect to server.");
+            System.err.println("Non riesco a collegarmi al server FTP.");
         }
 
         __main:
@@ -125,22 +128,17 @@ public class UploadImmagini {
             // Use passive mode as default because most of us are
             // behind firewalls these days.
             ftps.enterLocalPassiveMode();
-
+            
             if (storeFile) {
                 /*upload*/
                 System.out.println("Il file esiste");
                 InputStream input;
                 input = new FileInputStream(local);
+                ftps.setControlKeepAliveTimeout(180); // set timeout to 3 minutes
                 ftps.storeFile(remote, input);
                 input.close();
                 System.out.println("Upload terminato");
-            } else {
-                /*download*/
-//                OutputStream output;
-//                output = new FileOutputStream(local);
-//                ftps.retrieveFile(remote, output);
-//                output.close();
-            }
+            } 
 
             ftps.logout();
         } catch (FTPConnectionClosedException e) {
@@ -178,7 +176,7 @@ public class UploadImmagini {
                     + "server sia avviato o che l'indirizzo sia corretto");
         }       //System.exit(error ? 1 : 0);
         /*Fine procedura upload vera e propria*/
-        
+
         
     } // end main    
 
