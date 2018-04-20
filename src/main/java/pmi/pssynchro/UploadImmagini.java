@@ -2,26 +2,24 @@ package pmi.pssynchro;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
+
 import org.apache.commons.net.PrintCommandListener;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPConnectionClosedException;
 import org.apache.commons.net.ftp.FTPReply;
 import org.apache.commons.net.ftp.FTPSClient;
-import org.apache.commons.net.io.CopyStreamAdapter;
+
 
 public class UploadImmagini {
-
     public void FtpUpload(String server, String username, String password, String percorsoRemoto, String percorsoLocale, String fileImmagine, String all, String check) throws NoSuchAlgorithmException, InterruptedException {
         boolean storeFile = false, binaryTransfer = false, error = false;
         final String remote;
@@ -34,13 +32,10 @@ public class UploadImmagini {
         String sUrl = Config.getString("URL");
         local = percorsoLocale.concat(fileImmagine);
         remote = fileImmagine;
-
         ftps = new FTPSClient(protocol);
         ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
         URLConnection yc = null;
         BufferedReader in;
-
-
         
             /*Stampe di test*/
             System.out.println("Percorso locale: " + percorsoLocale);
@@ -95,7 +90,6 @@ public class UploadImmagini {
             if (!FTPReply.isPositiveCompletion(reply)) {
                 ftps.disconnect();
                 System.err.println("Il server FTP ha rifiutato la connessione.");
-                //System.exit(1);
             }
         } catch (IOException e) {
             if (ftps.isConnected()) {
@@ -128,7 +122,7 @@ public class UploadImmagini {
             // Use passive mode as default because most of us are
             // behind firewalls these days.
             ftps.enterLocalPassiveMode();
-            
+          
             if (storeFile) {
                 /*upload*/
                 System.out.println("Il file esiste");

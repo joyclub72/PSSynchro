@@ -26,3 +26,28 @@ Launcher:	C:\Program Files (x86)\Java\jre1.8.0_121\bin\javaw.exe
 Launcher args:	-jar "F:\esercizi java\PSSynchro\PSSynchro.exe"
 Args length:	47/32768 chars
 Exit code:	0
+
+
+Version:	3.9
+CmdLine:	C:\Users\Nicola.PMISOFTWARE\Documents\progetti\PSSynchro\PSSynchro_2_0.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\Nicola.PMISOFTWARE\Documents\progetti\PSSynchro\.
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_161
+Check launcher:	C:\Program Files\Java\jre1.8.0_161\bin\javaw.exe (OK)
+Match:		1.8.0_161
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8
+Ignore:		1.8
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_121
+Ignore:		1.8.0_121
+Check:		SOFTWARE\JavaSoft\Java Development Kit\1.8.0_91
+Ignore:		1.8.0_091
+Runtime used:	1.8.0_161 (64-bit)
+Set var:	JAVA_HOME = C:\\Program Files\\Java\\jdk1.8.0_91
+Launcher:	C:\Program Files\Java\jre1.8.0_161\bin\javaw.exe
+Launcher args:	-jar "C:\Users\Nicola.PMISOFTWARE\Documents\progetti\PSSynchro\PSSynchro_2_0.exe"
+Args length:	81/32768 chars
+Exit code:	0

@@ -30,5 +30,5 @@ public class Varie {
         File esisteFile;
         esisteFile = new File(percorsoFile);
         return esisteFile.isFile();
-    }
+    }  
 }

@@ -144,7 +144,7 @@
                               <Component id="resetListini" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="stato" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="ftpProgressBar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="mostraStream" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -153,7 +153,7 @@
                       <Component id="esci" alignment="0" max="32767" attributes="0"/>
                       <Component id="start" alignment="0" max="32767" attributes="0"/>
                       <Component id="config" alignment="0" max="32767" attributes="0"/>
-                      <Component id="clearArea" alignment="0" max="32767" attributes="0"/>
+                      <Component id="clearArea" alignment="0" pref="49" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -325,9 +325,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="ftpProgressBar">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -401,7 +398,7 @@
                   <Component id="runOnceMagEst" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="runOnceCodRif" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="56" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
