@@ -65,6 +65,8 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.getContentPane().setBackground(Color.getHSBColor(Costanti.HUE, Costanti.SATURATION, Costanti.BRIGHTNESS));
+        ScheduleAllTasks schedulatasks = new ScheduleAllTasks();
+        schedulatasks.start();
     }
 
     /**
@@ -662,50 +664,8 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_runOnceCliActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
-        this.start.setBackground(Color.green);
-        this.stop.setBackground(Color.lightGray);
-        if (stopped) {
-            timer.cancel();
-        }
-        stopped = false;
-        stato.setText("Avviato");
-        timer = new Timer();
-        if (giacRitardo > 0) {
-            timer.schedule(new TaskSchedulato("argiacenze"), giacRitardo, giacRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (cliRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arclienti"), cliRitardo, cliRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (artRitardo > 0) {
-            timer.schedule(new TaskSchedulato("ararticoli"), artRitardo, artRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (forRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arfornitori"), forRitardo, forRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (scaRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arscadenze"), scaRitardo, scaRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (staRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arstatistiche"), staRitardo, staRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (ordRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arordini"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (marRitardo > 0) {
-            timer.schedule(new TaskSchedulato("armarche"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (linRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arlingue"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (lisRitardo > 0) {
-            timer.schedule(new TaskSchedulato("arlistini"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (magRitardo > 0) {
-            timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi
-        }
-        if (clearEvery > 0) {
-            timer.schedule(new TaskClear(), clearEvery, clearEvery);//parti dopo x secondi e itera ogni x secondi
-        }
+        ScheduleAllTasks schedulatasks = new ScheduleAllTasks();
+        schedulatasks.start();
     }//GEN-LAST:event_startActionPerformed
 
     private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
@@ -829,7 +789,6 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JButton sysTray;
     // End of variables declaration//GEN-END:variables
 
-    
     class TaskSchedulato extends TimerTask {
 
         String stringa;
@@ -900,7 +859,7 @@ public class MainForm extends javax.swing.JFrame {
 
             // Upload delle immagini 
             if (stringa.equals("arimmagini")) {
-               
+
                 try {
                     UploadImmagini updImg = new UploadImmagini();
                     updImg.FtpUpload(ftp, userFtp, pwdFtp, percorsoRemotoFtp, percorsoImgFtp, nomeImgFtp, all, checkImg);
@@ -1019,17 +978,17 @@ public class MainForm extends javax.swing.JFrame {
             BufferedReader in;
 
             // Upload delle immagini 
-CopyStreamAdapter streamListener = new CopyStreamAdapter() {
+            CopyStreamAdapter streamListener = new CopyStreamAdapter() {
 
-    @Override
-    public void bytesTransferred(long totalBytesTransferred, int bytesTransferred, long streamSize) {
-       //this method will be called everytime some bytes are transferred
-       int percent = (int)(totalBytesTransferred*100/file.length());
-       // update your progress bar with this percentage
-       ftpProgressBar.setValue(percent);
-    }
+                @Override
+                public void bytesTransferred(long totalBytesTransferred, int bytesTransferred, long streamSize) {
+                    //this method will be called everytime some bytes are transferred
+                    int percent = (int) (totalBytesTransferred * 100 / file.length());
+                    // update your progress bar with this percentage
+                    ftpProgressBar.setValue(percent);
+                }
 
- };
+            };
             /*Stampe di test*/
             System.out.println("Percorso locale: " + percorsoImgFtp);
             System.out.println("File di check: " + checkImg + " - Esiste? " + Varie.esiste(checkImg));
@@ -1038,7 +997,7 @@ CopyStreamAdapter streamListener = new CopyStreamAdapter() {
 
             if (!(Varie.esiste(checkImg)) && !(Varie.esisteFile(local))) {
                 /* Procedo solo se non esiste il file ok.txt e il file imageFTP*/
-                /* Prima richiesta di generazione immagini da caricare */
+ /* Prima richiesta di generazione immagini da caricare */
 
                 try {
                     sito = new URL(sUrl + "?aggiornamento=arimmagini1" + all);
@@ -1173,8 +1132,8 @@ CopyStreamAdapter streamListener = new CopyStreamAdapter() {
             buttons.enable(); //riabilito i buttons
         } // end main    
 
-    }    
-    
+    }
+
     class Buttons {
 
         public void disable() {
@@ -1213,5 +1172,55 @@ CopyStreamAdapter streamListener = new CopyStreamAdapter() {
 
     }
 
+    class ScheduleAllTasks {
+
+        public void start() {
+            start.setBackground(Color.green);
+            stop.setBackground(Color.lightGray);
+            if (stopped) {
+                timer.cancel();
+            }
+            stopped = false;
+            stato.setText("Avviato");
+            timer = new Timer();
+            if (giacRitardo > 0) {
+                timer.schedule(new TaskSchedulato("argiacenze"), giacRitardo, giacRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (cliRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arclienti"), cliRitardo, cliRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (artRitardo > 0) {
+                timer.schedule(new TaskSchedulato("ararticoli"), artRitardo, artRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (forRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arfornitori"), forRitardo, forRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (scaRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arscadenze"), scaRitardo, scaRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (staRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arstatistiche"), staRitardo, staRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (ordRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arordini"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (marRitardo > 0) {
+                timer.schedule(new TaskSchedulato("armarche"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (linRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arlingue"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (lisRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arlistini"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (magRitardo > 0) {
+                timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi
+            }
+            if (clearEvery > 0) {
+                timer.schedule(new TaskClear(), clearEvery, clearEvery);//parti dopo x secondi e itera ogni x secondi
+            }
+
+        }
+    }
 
 }
