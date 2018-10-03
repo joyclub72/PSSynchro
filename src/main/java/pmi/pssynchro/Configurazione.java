@@ -68,6 +68,8 @@ public class Configurazione extends javax.swing.JFrame {
         chkCatPs = new javax.swing.JCheckBox();
         jLabelSca = new javax.swing.JLabel();
         jTextFieldFor = new javax.swing.JTextField();
+        jLabelStream = new javax.swing.JLabel();
+        chkStream = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jTextFieldPwdFtp = new javax.swing.JTextField();
         jTextFieldNomeImgFtp = new javax.swing.JTextField();
@@ -252,6 +254,15 @@ public class Configurazione extends javax.swing.JFrame {
         jTextFieldFor.setText(Config.getString("FORNITORI"));
         jTextFieldFor.setToolTipText("Frequenza aggiornamento in minuti");
 
+        jLabelStream.setText("Mostra Stream");
+
+        chkStream.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
+        if (Config.getString("MOSTRASTREAM").equals("1"))
+        chkStream.setSelected(true);
+        else
+        chkStream.setSelected(false);
+        chkStream.setToolTipText("");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -272,17 +283,18 @@ public class Configurazione extends javax.swing.JFrame {
                             .addComponent(jLabelCatPs))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkCatPs)
                             .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldFor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldFor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldCli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(chkCatPs))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelAll)
@@ -291,9 +303,11 @@ public class Configurazione extends javax.swing.JFrame {
                                     .addComponent(jLabelOrd)
                                     .addComponent(jLabelLin)
                                     .addComponent(jLabelLin1)
-                                    .addComponent(jLabel6))
-                                .addGap(37, 37, 37)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabelStream))
+                                .addGap(32, 32, 32)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(chkStream)
                                     .addComponent(jTextFieldClean, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldAll, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldSca, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -356,8 +370,10 @@ public class Configurazione extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelCatPs)
-                    .addComponent(chkCatPs))
-                .addContainerGap())
+                    .addComponent(chkCatPs)
+                    .addComponent(jLabelStream)
+                    .addComponent(chkStream))
+                .addGap(30, 30, 30))
         );
 
         jTabbedPane1.addTab("Frequenze", jPanel1);
@@ -497,7 +513,7 @@ public class Configurazione extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNomeImgFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ftp Immagini", jPanel2);
@@ -678,8 +694,8 @@ public class Configurazione extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(Salva)
@@ -736,6 +752,15 @@ public class Configurazione extends javax.swing.JFrame {
             catPs = "0";
         }
         Config.setProperty("CATEGORIEPS", catPs);
+        
+        String stream = new String();
+        if (chkStream.isSelected()) {
+            stream = "1";
+        } else {
+            stream = "0";
+        }
+        Config.setProperty("MOSTRASTREAM", stream);        
+        
     }//GEN-LAST:event_SalvaActionPerformed
 
     private void ChiudiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChiudiActionPerformed
@@ -845,6 +870,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JButton Chiudi;
     private javax.swing.JButton Salva;
     private javax.swing.JCheckBox chkCatPs;
+    private javax.swing.JCheckBox chkStream;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -874,6 +900,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelSca;
     private javax.swing.JLabel jLabelServer;
     private javax.swing.JLabel jLabelSta;
+    private javax.swing.JLabel jLabelStream;
     private javax.swing.JLabel jLabelUrl;
     private javax.swing.JLabel jLabelUrlMag;
     private javax.swing.JLabel jLabelUser;

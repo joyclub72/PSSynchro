@@ -13,14 +13,19 @@ import java.net.URL;
 import java.net.MalformedURLException;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 import javax.swing.SwingUtilities;
 import org.apache.commons.net.PrintCommandListener;
 import org.apache.commons.net.ftp.FTP;
@@ -57,6 +62,7 @@ public class MainForm extends javax.swing.JFrame {
     int lisRitardo = tryParse((Config.getString("LISTINI") + "000")) * 60;
     int clearEvery = tryParse((Config.getString("PULIZIAAREA") + "000")) * 60;
     String catPs = Config.getString("CATEGORIEPS");
+    String checkStream = Config.getString("MOSTRASTREAM");
     Date dataErrore;
 
     /**
@@ -65,8 +71,15 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.getContentPane().setBackground(Color.getHSBColor(Costanti.HUE, Costanti.SATURATION, Costanti.BRIGHTNESS));
+        if (checkStream.equals("1")){
+            mostraStream.setSelected(true);
+        }
+        else {
+            mostraStream.setSelected(false);
+        }
         ScheduleAllTasks schedulatasks = new ScheduleAllTasks();
         schedulatasks.start();
+
     }
 
     /**
@@ -137,6 +150,7 @@ public class MainForm extends javax.swing.JFrame {
 
         mostraStream.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
         mostraStream.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        mostraStream.setSelected(true);
         mostraStream.setText("Mostra Stream");
 
         stop.setBackground(java.awt.Color.white);
@@ -538,50 +552,9 @@ public class MainForm extends javax.swing.JFrame {
 // Gestione della riduzione a System tray
 
     private void sysTrayActionPerformed(java.awt.event.ActionEvent evt) {
-        if (!SystemTray.isSupported()) {
-            System.out.println("System tray non supportato ");
-            return;
-        }
-        //get the systemTray of the system
-        ClassLoader.getSystemResource("pssynchro.png");
-        ClassLoader.getSystemResourceAsStream("pssynchro.png");
-        SystemTray systemTray = SystemTray.getSystemTray();
-        Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/pssynchro.png"));
-
-        //popupmenu
-        PopupMenu trayPopupMenu = new PopupMenu();
-        //1o menuitem del popupmenu
-        MenuItem action = new MenuItem("Apri");
-        action.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                setVisible(true);
-            }
-        });
-        trayPopupMenu.add(action);
-
-        //2o menuitem del popupmenu
-        MenuItem close = new MenuItem("Esci");
-        close.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-        trayPopupMenu.add(close);
-
-        //setting tray icon
-        TrayIcon trayIcon = new TrayIcon(image, "PSSynchro", trayPopupMenu);
-        //adjust to default size as per system recommendation 
-        trayIcon.setImageAutoSize(true);
-
-        try {
-            systemTray.add(trayIcon);
-        } catch (AWTException awtException) {
-        }
-        this.setVisible(false);
+        Systray systray = new Systray();
+        systray.systrayit();
     }
-    //____________fine Gestione SystemTray
 
     // Redirect dei messaggi di sistema su jtextarea
     private void updateTextArea(final String text) {
@@ -589,6 +562,14 @@ public class MainForm extends javax.swing.JFrame {
             @Override
             public void run() {
                 esito.append(text);
+                // Replico il testo anche in un file di log
+                try (FileWriter fw = new FileWriter("log.txt", true);
+                        BufferedWriter bw = new BufferedWriter(fw);
+                        PrintWriter out = new PrintWriter(bw)) {
+                    out.println(text);
+                } catch (IOException e) {
+                }
+                //
             }
         });
     }
@@ -679,11 +660,8 @@ public class MainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_runOnceImmActionPerformed
 
     private void stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopActionPerformed
-        this.stop.setBackground(Color.green);
-        this.start.setBackground(Color.lightGray);
-        stopped = true;
-        stato.setText("Stoppato");
-        timer.cancel();
+        ScheduleAllTasks schedulatasks = new ScheduleAllTasks();
+        schedulatasks.stop();
     }//GEN-LAST:event_stopActionPerformed
 
     private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
@@ -926,6 +904,12 @@ public class MainForm extends javax.swing.JFrame {
         @Override
         public void run() {
             esito.setText("");
+            try (FileWriter fw = new FileWriter("log.txt", false);
+                    BufferedWriter bw = new BufferedWriter(fw);
+                    PrintWriter out = new PrintWriter(bw)) {
+                out.println("");
+            } catch (IOException e) {
+            }
         }
     }
 
@@ -1176,7 +1160,7 @@ public class MainForm extends javax.swing.JFrame {
 
         public void start() {
             start.setBackground(Color.green);
-            stop.setBackground(Color.lightGray);
+            stop.setBackground(Color.white);
             if (stopped) {
                 timer.cancel();
             }
@@ -1221,6 +1205,61 @@ public class MainForm extends javax.swing.JFrame {
             }
 
         }
+
+        public void stop() {
+            stop.setBackground(Color.green);
+            start.setBackground(Color.white);
+            stopped = true;
+            stato.setText("Stoppato");
+            timer.cancel();
+        }
     }
 
+    class Systray {
+
+        public void systrayit() {
+            if (!SystemTray.isSupported()) {
+                System.out.println("System tray non supportato ");
+                return;
+            }
+            //get the systemTray of the system
+            ClassLoader.getSystemResource("pssynchro.png");
+            ClassLoader.getSystemResourceAsStream("pssynchro.png");
+            SystemTray systemTray = SystemTray.getSystemTray();
+            Image image = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/pssynchro.png"));
+
+            //popupmenu
+            PopupMenu trayPopupMenu = new PopupMenu();
+            //1o menuitem del popupmenu
+            MenuItem action = new MenuItem("Apri");
+            action.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(true);
+                }
+            });
+            trayPopupMenu.add(action);
+
+            //2o menuitem del popupmenu
+            MenuItem close = new MenuItem("Esci");
+            close.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
+            trayPopupMenu.add(close);
+
+            //setting tray icon
+            TrayIcon trayIcon = new TrayIcon(image, "PSSynchro", trayPopupMenu);
+            //adjust to default size as per system recommendation 
+            trayIcon.setImageAutoSize(true);
+
+            try {
+                systemTray.add(trayIcon);
+            } catch (AWTException awtException) {
+            }
+            MainForm.this.setVisible(false);
+        }
+    }
 }
