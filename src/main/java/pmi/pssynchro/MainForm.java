@@ -863,9 +863,9 @@ public class MainForm extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println("Errore di connessione _ ");
             }
-            BufferedReader in;
-            try {
-                in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+            //BufferedReader in;
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))){
+                
                 System.out.println(sito + " - Comunicazione");/*test*/
             } catch (IOException ex) {
                 dataErrore = new Date();
@@ -877,7 +877,7 @@ public class MainForm extends javax.swing.JFrame {
             //potrebbe bloccare la form
             if (mostraStream.isSelected()) {
                 String inputLine;
-                try {
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))){
                     System.out.println(sito + " - Mostra stream");/*test*/
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
@@ -889,7 +889,7 @@ public class MainForm extends javax.swing.JFrame {
                 }
             }
             //potrebbe bloccare la form - Fine
-            try {
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))){
                 System.out.println(sito + " - Chiusura");/*test*/
                 in.close();
             } catch (IOException ex) {
