@@ -32,6 +32,7 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPConnectionClosedException;
 import org.apache.commons.net.ftp.FTPReply;
 import org.apache.commons.net.ftp.FTPSClient;
+import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.io.CopyStreamAdapter;
 
 public class MainForm extends javax.swing.JFrame {
@@ -63,6 +64,7 @@ public class MainForm extends javax.swing.JFrame {
     int clearEvery = tryParse((Config.getString("PULIZIAAREA") + "000")) * 60;
     String catPs = Config.getString("CATEGORIEPS");
     String checkStream = Config.getString("MOSTRASTREAM");
+    String checkFtpPlain = Config.getString("FTPPLAIN");
     Date dataErrore;
 
     /**
@@ -71,10 +73,9 @@ public class MainForm extends javax.swing.JFrame {
     public MainForm() {
         initComponents();
         this.getContentPane().setBackground(Color.getHSBColor(Costanti.HUE, Costanti.SATURATION, Costanti.BRIGHTNESS));
-        if (checkStream.equals("1")){
+        if (checkStream.equals("1")) {
             mostraStream.setSelected(true);
-        }
-        else {
+        } else {
             mostraStream.setSelected(false);
         }
         ScheduleAllTasks schedulatasks = new ScheduleAllTasks();
@@ -656,7 +657,11 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
         timer = new Timer();
-        timer.schedule(new FtpImmagini("arimmagini"), 10);
+        if (checkFtpPlain.equals("1")) {
+            timer.schedule(new FtpImmagini("arimmagini"), 10);
+        } else {
+            timer.schedule(new FtpsImmagini("arimmagini"), 10);
+        }
     }//GEN-LAST:event_runOnceImmActionPerformed
 
     private void stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopActionPerformed
@@ -864,8 +869,8 @@ public class MainForm extends javax.swing.JFrame {
                 System.out.println("Errore di connessione _ ");
             }
             //BufferedReader in;
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))){
-                
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))) {
+
                 System.out.println(sito + " - Comunicazione");/*test*/
             } catch (IOException ex) {
                 dataErrore = new Date();
@@ -877,7 +882,7 @@ public class MainForm extends javax.swing.JFrame {
             //potrebbe bloccare la form
             if (mostraStream.isSelected()) {
                 String inputLine;
-                try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))){
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))) {
                     System.out.println(sito + " - Mostra stream");/*test*/
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
@@ -889,7 +894,7 @@ public class MainForm extends javax.swing.JFrame {
                 }
             }
             //potrebbe bloccare la form - Fine
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))){
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))) {
                 System.out.println(sito + " - Chiusura");/*test*/
                 in.close();
             } catch (IOException ex) {
@@ -949,14 +954,18 @@ public class MainForm extends javax.swing.JFrame {
             final String remote;
             final String local;
             String protocol = "TLS";    // SSL/TLS
-            FTPSClient ftps;
+            FTPClient ftps;
+            /* se ftp plain (sudpesca) */
+            //FTPSClient ftps; /* se ftps */
             storeFile = true;
             binaryTransfer = true;
             String sUrl = Config.getString("URL");
             local = percorsoImgFtp.concat(nomeImgFtp);
             final File file = new File(local);
             remote = nomeImgFtp;
-            ftps = new FTPSClient(protocol);
+            ftps = new FTPClient();
+            /*se ftp plain (sudpesca)*/
+            //ftps = new FTPSClient(protocol); /* se ftps*/
             ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
             URLConnection yc = null;
             BufferedReader in;
@@ -1094,6 +1103,216 @@ public class MainForm extends javax.swing.JFrame {
 
                 }
             }
+            //fine 
+            try {
+                sito = new URL(sUrl + "?aggiornamento=arimmagini2" + all);
+            } catch (MalformedURLException ex) {
+                System.out.println("Indirizzo del sito mal formato o inesistente");
+            }
+            try {
+                yc = sito.openConnection();
+                System.out.println(sito + " - Apertura connessione");/*test*/
+            } catch (IOException ex) {
+                System.out.println("Errore di connessione _ ");
+            }
+            try {
+                in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+                System.out.println(sito + " - Comunicazione");/*test*/
+            } catch (IOException ex) {
+                System.out.println(": Errore in ricezione dati: verificare che il "
+                        + "server sia avviato o che l'indirizzo sia corretto");
+            }       //System.exit(error ? 1 : 0);
+            /*Fine procedura upload vera e propria*/
+            buttons.enable(); //riabilito i buttons
+        } // end main    
+
+    }
+
+    class FtpsImmagini extends TimerTask {
+
+        String stringa;
+        String all;
+
+        public FtpsImmagini(String stringa) {
+            this.stringa = stringa;
+            // verifica flag aggiornamento Articoli, se tutti o solo  i nuovi
+            if (soloArticoliNuovi.isSelected()) {
+                all = "&all=1";
+            } else {
+                all = "&all=0";
+            }
+        }
+
+        @Override
+        public synchronized void run() {
+            Buttons buttons = new Buttons();
+            buttons.disable(); //disabilito i buttons
+            redirectSystemStreams();
+            DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+            URL sito = null;
+            System.out.println("Procedura: " + stringa);
+
+            String ftp = Config.getString("FTP");
+            String userFtp = Config.getString("USERNAME_FTP");
+            String pwdFtp = Config.getString("PASSWORD_FTP");
+            String percorsoRemotoFtp = Config.getString("SCAMBIO_FTP");
+            String checkImg = Config.getString("URL_CHECK_IMMAGINI");
+            final String percorsoImgFtp = Config.getString("PERCORSO_IMMAGINE_FTP");
+            final String nomeImgFtp = Config.getString("IMMAGINE_FTP");
+            boolean storeFile = false, binaryTransfer = false, error = false;
+            final String remote;
+            final String local;
+            String protocol = "TLS";    // SSL/TLS
+            //FTPClient ftps; /* se ftp plain (sudpesca) */
+            FTPSClient ftps;
+            /* se ftps */
+            storeFile = true;
+            binaryTransfer = true;
+            String sUrl = Config.getString("URL");
+            local = percorsoImgFtp.concat(nomeImgFtp);
+            final File file = new File(local);
+            remote = nomeImgFtp;
+            //ftps = new FTPClient(); /*se ftp plain (sudpesca)*/
+            ftps = new FTPSClient(protocol);
+            /* se ftps*/
+            ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
+            URLConnection yc = null;
+            BufferedReader in;
+
+            // Upload delle immagini 
+            CopyStreamAdapter streamListener = new CopyStreamAdapter() {
+
+                @Override
+                public void bytesTransferred(long totalBytesTransferred, int bytesTransferred, long streamSize) {
+                    //this method will be called everytime some bytes are transferred
+                    int percent = (int) (totalBytesTransferred * 100 / file.length());
+                    // update your progress bar with this percentage
+                    ftpProgressBar.setValue(percent);
+                }
+
+            };
+            /*Stampe di test*/
+            System.out.println("Percorso locale: " + percorsoImgFtp);
+            System.out.println("File di check: " + checkImg + " - Esiste? " + Varie.esiste(checkImg));
+            System.out.println("File immagine locale: " + local + " - Esiste? " + Varie.esisteFile(local));
+            /*Fine stampe di test*/
+
+            if (!(Varie.esiste(checkImg)) && !(Varie.esisteFile(local))) {
+                /* Procedo solo se non esiste il file ok.txt e il file imageFTP*/
+ /* Prima richiesta di generazione immagini da caricare */
+
+                try {
+                    sito = new URL(sUrl + "?aggiornamento=arimmagini1" + all);
+                } catch (MalformedURLException ex) {
+                    System.out.println("Indirizzo del sito mal formato o inesistente");
+                }
+
+                try {
+                    yc = sito.openConnection();
+                    System.out.println(sito + " - Apertura connessione");/*test*/
+                } catch (IOException ex) {
+                    System.out.println("Errore di connessione _ ");
+                }
+
+                try {
+                    in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
+                    System.out.println(sito + " - Comunicazione");/*test*/
+                } catch (IOException ex) {
+                    System.out.println(": Errore in ricezione dati: verificare che il "
+                            + "server sia avviato o che l'indirizzo sia corretto");
+                    return;
+                }
+
+                /*Verifico l'esistenza del file di check che mi informa che posso proseguire*/
+                while (!(Varie.esiste(checkImg))) {
+                    System.out.print("-");
+                    try {
+                        TimeUnit.SECONDS.sleep(5);
+                    } catch (InterruptedException ex) {
+
+                    }
+                }
+
+            }
+            /*Procedura di upload vera e propria*/
+
+            try {
+                int reply;
+
+                ftps.connect(ftp);
+                System.out.println("Connesso a " + ftp + ".");
+
+                // After connection attempt, you should check the reply code to verify
+                // success.
+                reply = ftps.getReplyCode();
+
+                if (!FTPReply.isPositiveCompletion(reply)) {
+                    ftps.disconnect();
+                    System.err.println("Il server FTP ha rifiutato la connessione.");
+                }
+            } catch (IOException e) {
+                if (ftps.isConnected()) {
+                    try {
+                        ftps.disconnect();
+                    } catch (IOException f) {
+                        // do nothing
+                    }
+                }
+                System.err.println("Non riesco a collegarmi al server FTP.");
+            }
+
+            __main:
+            try {
+                ftps.setBufferSize(1000);
+
+                if (!ftps.login(userFtp, pwdFtp)) {
+                    ftps.logout();
+                    error = true;
+                    break __main;
+                }
+
+                ftps.changeWorkingDirectory(percorsoRemotoFtp);
+                System.out.println("Remote system is " + ftps.getSystemName());
+
+                if (binaryTransfer) {
+                    ftps.setFileType(FTP.BINARY_FILE_TYPE);
+                }
+
+                // Use passive mode as default because most of us are
+                // behind firewalls these days.
+                ftps.enterLocalPassiveMode();
+
+                if (storeFile) {
+                    /*upload*/
+                    System.out.println("Il file esiste");
+                    InputStream input;
+                    input = new FileInputStream(local);
+                    ftps.setControlKeepAliveTimeout(180); // set timeout to 3 minutes
+                    ftps.setCopyStreamListener(streamListener);
+                    ftps.storeFile(remote, input);
+                    input.close();
+                    System.out.println("Upload terminato");
+
+                }
+
+                ftps.logout();
+            } catch (FTPConnectionClosedException e) {
+                error = true;
+                System.err.println("Server closed connection.");
+            } catch (IOException e) {
+                error = true;
+            } finally {
+                if (ftps.isConnected()) {
+                    try {
+                        ftps.disconnect();
+                        System.out.println("Disconnessione effettuata");
+                    } catch (IOException f) {
+                        // do nothing
+                    }
+
+                }
+            }
+            //fine 
             try {
                 sito = new URL(sUrl + "?aggiornamento=arimmagini2" + all);
             } catch (MalformedURLException ex) {

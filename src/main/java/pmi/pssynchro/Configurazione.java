@@ -85,6 +85,8 @@ public class Configurazione extends javax.swing.JFrame {
         jTextFieldCartellaFtp = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabelFtpPlain = new javax.swing.JLabel();
+        chkFtpPlain = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabelServer = new javax.swing.JLabel();
         jTextFieldSer = new javax.swing.JTextField();
@@ -397,6 +399,7 @@ public class Configurazione extends javax.swing.JFrame {
         });
 
         jLabel13.setText("Url Check Immagini");
+        jLabel13.setToolTipText("<html>\nIndicare il percorso (di tipo url) in cui si trova il file che conferma l'esistenza del file di immagini da caricare,<br>\ncompleto di nome file<br>\nEs: <b>http://192.168.0.1:8088/SERVICE_ARCA/img/ok.txt</b>");
 
         jTextFieldFtp.setText(Config.getString("FTP")
         );
@@ -434,6 +437,7 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel12.setText("Nome File");
 
         jLabel11.setText("Percorso Immagini");
+        jLabel11.setToolTipText("<html>\nIndicare il percorso (locale o di rete, non di tipo url), in cui si trova il file da caricare,<br>\nsenza indicare il nome del file<br>\nEs:<b>\\\\\\\\pmiserver\\htdocs\\SERVICE_ARCA\\img\\</b><br>\noppure <b>c:\\xampp\\htdocs\\service_ARCA\\img</b>");
 
         jTextFieldCartellaFtp.setText(Config.getString("SCAMBIO_FTP")
         );
@@ -448,6 +452,16 @@ public class Configurazione extends javax.swing.JFrame {
 
         jLabel7.setText("Indirizzo");
 
+        jLabelFtpPlain.setText("FTP Plain");
+        jLabelFtpPlain.setToolTipText("Selezionare se l'ftp è di tipo plain (ad esempio Sudpesca.com).Per gli Sftp lasciare vuoto");
+
+        chkFtpPlain.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
+        if (Config.getString("FTPPLAIN").equals("1"))
+        chkFtpPlain.setSelected(true);
+        else
+        chkFtpPlain.setSelected(false);
+        chkFtpPlain.setToolTipText("");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -455,6 +469,10 @@ public class Configurazione extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabelFtpPlain)
+                        .addGap(38, 38, 38)
+                        .addComponent(chkFtpPlain))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(10, 10, 10)
@@ -513,7 +531,11 @@ public class Configurazione extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNomeImgFtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelFtpPlain)
+                    .addComponent(chkFtpPlain))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ftp Immagini", jPanel2);
@@ -759,7 +781,15 @@ public class Configurazione extends javax.swing.JFrame {
         } else {
             stream = "0";
         }
-        Config.setProperty("MOSTRASTREAM", stream);        
+        Config.setProperty("MOSTRASTREAM", stream); 
+        
+        String ftpPlain = new String();
+        if (chkFtpPlain.isSelected()) {
+            ftpPlain = "1";
+        } else {
+            ftpPlain = "0";
+        }
+        Config.setProperty("FTPPLAIN", ftpPlain);        
         
     }//GEN-LAST:event_SalvaActionPerformed
 
@@ -870,6 +900,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JButton Chiudi;
     private javax.swing.JButton Salva;
     private javax.swing.JCheckBox chkCatPs;
+    private javax.swing.JCheckBox chkFtpPlain;
     private javax.swing.JCheckBox chkStream;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -889,6 +920,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDb;
     private javax.swing.JLabel jLabelFor;
     private javax.swing.JLabel jLabelFreqMag;
+    private javax.swing.JLabel jLabelFtpPlain;
     private javax.swing.JLabel jLabelGiac;
     private javax.swing.JLabel jLabelImm;
     private javax.swing.JLabel jLabelLin;
