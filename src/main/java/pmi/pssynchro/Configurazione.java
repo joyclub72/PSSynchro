@@ -437,7 +437,7 @@ public class Configurazione extends javax.swing.JFrame {
         jLabel12.setText("Nome File");
 
         jLabel11.setText("Percorso Immagini");
-        jLabel11.setToolTipText("<html>\nIndicare il percorso (locale o di rete, non di tipo url), in cui si trova il file da caricare,<br>\nsenza indicare il nome del file<br>\nEs:<b>\\\\\\\\pmiserver\\htdocs\\SERVICE_ARCA\\img\\</b><br>\noppure <b>c:\\xampp\\htdocs\\service_ARCA\\img</b>");
+        jLabel11.setToolTipText("<html>\nIndicare il percorso (locale o di rete, non di tipo url), in cui si trova il file da caricare,<br>\nsenza indicare il nome del file<br>\nEs:<b>\\\\\\\\pmiserver\\htdocs\\SERVICE_ARCA\\img\\</b><br>\noppure <b>c:\\xampp\\htdocs\\service_ARCA\\img\\</b>");
 
         jTextFieldCartellaFtp.setText(Config.getString("SCAMBIO_FTP")
         );

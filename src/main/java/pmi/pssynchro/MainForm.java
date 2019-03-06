@@ -600,6 +600,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void clearAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAreaActionPerformed
         esito.setText("");
+        System.gc();
     }//GEN-LAST:event_clearAreaActionPerformed
 
     private void soloArticoliNuoviActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soloArticoliNuoviActionPerformed
@@ -608,12 +609,12 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceLisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLisActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arlistini"), 10);
+        timer.schedule(new TaskSchedulato("arlistini", "1"), 10);
     }//GEN-LAST:event_runOnceLisActionPerformed
 
     private void runOnceMagEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMagEstActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("magazzinoesterno"), 10);
+        timer.schedule(new TaskSchedulato("magazzinoesterno", "1"), 10);
     }//GEN-LAST:event_runOnceMagEstActionPerformed
 
     private void esciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciActionPerformed
@@ -622,12 +623,12 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceAllActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arallegati"), 10);
+        timer.schedule(new TaskSchedulato("arallegati", "1"), 10);
     }//GEN-LAST:event_runOnceAllActionPerformed
 
     private void runOnceLinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceLinActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arlingue"), 10);
+        timer.schedule(new TaskSchedulato("arlingue", "1"), 10);
     }//GEN-LAST:event_runOnceLinActionPerformed
 
     private void configActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configActionPerformed
@@ -637,12 +638,12 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceMarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceMarActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("armarche"), 10);
+        timer.schedule(new TaskSchedulato("armarche", "1"), 10);
     }//GEN-LAST:event_runOnceMarActionPerformed
 
     private void runOnceCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCliActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arclienti"), 10);
+        timer.schedule(new TaskSchedulato("arclienti", "1"), 10);
     }//GEN-LAST:event_runOnceCliActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
@@ -652,7 +653,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceForActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceForActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arfornitori"), 10);
+        timer.schedule(new TaskSchedulato("arfornitori", "1"), 10);
     }//GEN-LAST:event_runOnceForActionPerformed
 
     private void runOnceImmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceImmActionPerformed
@@ -671,28 +672,28 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceArtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceArtActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("ararticoli"), 10);
+        timer.schedule(new TaskSchedulato("ararticoli", "1"), 10);
     }//GEN-LAST:event_runOnceArtActionPerformed
 
     private void runOnceGiacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceGiacActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("argiacenze"), 10);
+        timer.schedule(new TaskSchedulato("argiacenze", "1"), 10);
     }//GEN-LAST:event_runOnceGiacActionPerformed
 
     private void runOnceStaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceStaActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arstatistiche"), 10);
+        timer.schedule(new TaskSchedulato("arstatistiche", "1"), 10);
     }//GEN-LAST:event_runOnceStaActionPerformed
 
     private void runOnceScaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceScaActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arscadenzario"), 10);
+        timer.schedule(new TaskSchedulato("arscadenzario", "1"), 10);
     }//GEN-LAST:event_runOnceScaActionPerformed
 //GEN-FIRST:event_sysTrayActionPerformed
 //GEN-LAST:event_sysTrayActionPerformed
     private void runOnceOrdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceOrdActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arordini"), 10);
+        timer.schedule(new TaskSchedulato("arordini", "1"), 10);
     }//GEN-LAST:event_runOnceOrdActionPerformed
 
     private void resetListiniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetListiniActionPerformed
@@ -701,7 +702,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void runOnceCodRifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCodRifActionPerformed
         timer = new Timer();
-        timer.schedule(new TaskSchedulato("arCodRif"), 10);
+        timer.schedule(new TaskSchedulato("arCodRif", "1"), 10);
     }//GEN-LAST:event_runOnceCodRifActionPerformed
 
     /**
@@ -775,12 +776,14 @@ public class MainForm extends javax.swing.JFrame {
     class TaskSchedulato extends TimerTask {
 
         String stringa;
+        String manuale;
         String all;
         String resLis;
         String cPs;
 
-        public TaskSchedulato(String stringa) {
+        public TaskSchedulato(String stringa, String manuale) {
             this.stringa = stringa;
+            this.manuale = manuale;
             // verifica flag aggiornamento Articoli, se tutti o solo  i nuovi
             if (soloArticoliNuovi.isSelected()) {
                 all = "&all=1";
@@ -842,7 +845,6 @@ public class MainForm extends javax.swing.JFrame {
 
             // Upload delle immagini 
             if (stringa.equals("arimmagini")) {
-
                 try {
                     UploadImmagini updImg = new UploadImmagini();
                     updImg.FtpUpload(ftp, userFtp, pwdFtp, percorsoRemotoFtp, percorsoImgFtp, nomeImgFtp, all, checkImg);
@@ -868,9 +870,10 @@ public class MainForm extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println("Errore di connessione _ ");
             }
-            //BufferedReader in;
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))) {
 
+            BufferedReader in;
+            try {
+                in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
                 System.out.println(sito + " - Comunicazione");/*test*/
             } catch (IOException ex) {
                 dataErrore = new Date();
@@ -882,7 +885,7 @@ public class MainForm extends javax.swing.JFrame {
             //potrebbe bloccare la form
             if (mostraStream.isSelected()) {
                 String inputLine;
-                try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))) {
+                try {
                     System.out.println(sito + " - Mostra stream");/*test*/
                     while ((inputLine = in.readLine()) != null) {
                         System.out.println(inputLine);
@@ -894,11 +897,24 @@ public class MainForm extends javax.swing.JFrame {
                 }
             }
             //potrebbe bloccare la form - Fine
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()))) {
+            try {
                 System.out.println(sito + " - Chiusura");/*test*/
                 in.close();
             } catch (IOException ex) {
                 System.out.println("errore in chiusura");
+            } finally {
+                try {
+                    if (in != null) {
+                        in.close();
+                        in = null;
+                    }
+                    yc = null;
+                    if (manuale.equals("1")) {
+                        timer.cancel();
+                    }
+
+                } catch (IOException ex) {//Nulla}
+                }
             }
             buttons.enable(); //riabilito i buttons
         }
@@ -909,6 +925,7 @@ public class MainForm extends javax.swing.JFrame {
         @Override
         public void run() {
             esito.setText("");
+            System.gc();
             try (FileWriter fw = new FileWriter("log.txt", false);
                     BufferedWriter bw = new BufferedWriter(fw);
                     PrintWriter out = new PrintWriter(bw)) {
@@ -954,18 +971,14 @@ public class MainForm extends javax.swing.JFrame {
             final String remote;
             final String local;
             String protocol = "TLS";    // SSL/TLS
-            FTPClient ftps;
-            /* se ftp plain (sudpesca) */
-            //FTPSClient ftps; /* se ftps */
+            FTPClient ftps; /* se ftp plain (sudpesca) */
             storeFile = true;
             binaryTransfer = true;
             String sUrl = Config.getString("URL");
             local = percorsoImgFtp.concat(nomeImgFtp);
             final File file = new File(local);
             remote = nomeImgFtp;
-            ftps = new FTPClient();
-            /*se ftp plain (sudpesca)*/
-            //ftps = new FTPSClient(protocol); /* se ftps*/
+            ftps = new FTPClient(); /*se ftp plain (sudpesca)*/
             ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
             URLConnection yc = null;
             BufferedReader in;
@@ -1055,16 +1068,13 @@ public class MainForm extends javax.swing.JFrame {
             __main:
             try {
                 ftps.setBufferSize(1000);
-
                 if (!ftps.login(userFtp, pwdFtp)) {
                     ftps.logout();
                     error = true;
                     break __main;
                 }
-
                 ftps.changeWorkingDirectory(percorsoRemotoFtp);
                 System.out.println("Remote system is " + ftps.getSystemName());
-
                 if (binaryTransfer) {
                     ftps.setFileType(FTP.BINARY_FILE_TYPE);
                 }
@@ -1083,7 +1093,6 @@ public class MainForm extends javax.swing.JFrame {
                     ftps.storeFile(remote, input);
                     input.close();
                     System.out.println("Upload terminato");
-
                 }
 
                 ftps.logout();
@@ -1100,7 +1109,6 @@ public class MainForm extends javax.swing.JFrame {
                     } catch (IOException f) {
                         // do nothing
                     }
-
                 }
             }
             //fine 
@@ -1124,10 +1132,12 @@ public class MainForm extends javax.swing.JFrame {
             }       //System.exit(error ? 1 : 0);
             /*Fine procedura upload vera e propria*/
             buttons.enable(); //riabilito i buttons
-        } // end main    
-
+            timer.cancel(); //timer sempre di tipo manuale, lo cancello al termine            
+        }     
     }
 
+    
+ /*classe per la gestione del collegamento in FTPS*/   
     class FtpsImmagini extends TimerTask {
 
         String stringa;
@@ -1151,7 +1161,6 @@ public class MainForm extends javax.swing.JFrame {
             DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
             URL sito = null;
             System.out.println("Procedura: " + stringa);
-
             String ftp = Config.getString("FTP");
             String userFtp = Config.getString("USERNAME_FTP");
             String pwdFtp = Config.getString("PASSWORD_FTP");
@@ -1163,25 +1172,20 @@ public class MainForm extends javax.swing.JFrame {
             final String remote;
             final String local;
             String protocol = "TLS";    // SSL/TLS
-            //FTPClient ftps; /* se ftp plain (sudpesca) */
-            FTPSClient ftps;
-            /* se ftps */
+            FTPSClient ftps;/*FTPS*/
             storeFile = true;
             binaryTransfer = true;
             String sUrl = Config.getString("URL");
             local = percorsoImgFtp.concat(nomeImgFtp);
             final File file = new File(local);
             remote = nomeImgFtp;
-            //ftps = new FTPClient(); /*se ftp plain (sudpesca)*/
-            ftps = new FTPSClient(protocol);
-            /* se ftps*/
+            ftps = new FTPSClient(protocol); /*FTPS*/
             ftps.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
             URLConnection yc = null;
             BufferedReader in;
 
             // Upload delle immagini 
             CopyStreamAdapter streamListener = new CopyStreamAdapter() {
-
                 @Override
                 public void bytesTransferred(long totalBytesTransferred, int bytesTransferred, long streamSize) {
                     //this method will be called everytime some bytes are transferred
@@ -1189,7 +1193,6 @@ public class MainForm extends javax.swing.JFrame {
                     // update your progress bar with this percentage
                     ftpProgressBar.setValue(percent);
                 }
-
             };
             /*Stampe di test*/
             System.out.println("Percorso locale: " + percorsoImgFtp);
@@ -1264,7 +1267,6 @@ public class MainForm extends javax.swing.JFrame {
             __main:
             try {
                 ftps.setBufferSize(1000);
-
                 if (!ftps.login(userFtp, pwdFtp)) {
                     ftps.logout();
                     error = true;
@@ -1292,7 +1294,6 @@ public class MainForm extends javax.swing.JFrame {
                     ftps.storeFile(remote, input);
                     input.close();
                     System.out.println("Upload terminato");
-
                 }
 
                 ftps.logout();
@@ -1309,7 +1310,6 @@ public class MainForm extends javax.swing.JFrame {
                     } catch (IOException f) {
                         // do nothing
                     }
-
                 }
             }
             //fine 
@@ -1330,13 +1330,14 @@ public class MainForm extends javax.swing.JFrame {
             } catch (IOException ex) {
                 System.out.println(": Errore in ricezione dati: verificare che il "
                         + "server sia avviato o che l'indirizzo sia corretto");
-            }       //System.exit(error ? 1 : 0);
+            }
             /*Fine procedura upload vera e propria*/
             buttons.enable(); //riabilito i buttons
+            timer.cancel(); //timer sempre di tipo manuale, lo cancello al termine
         } // end main    
-
     }
 
+    
     class Buttons {
 
         public void disable() {
@@ -1387,37 +1388,37 @@ public class MainForm extends javax.swing.JFrame {
             stato.setText("Avviato");
             timer = new Timer();
             if (giacRitardo > 0) {
-                timer.schedule(new TaskSchedulato("argiacenze"), giacRitardo, giacRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("argiacenze", "0"), giacRitardo, giacRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (cliRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arclienti"), cliRitardo, cliRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arclienti", "0"), cliRitardo, cliRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (artRitardo > 0) {
-                timer.schedule(new TaskSchedulato("ararticoli"), artRitardo, artRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("ararticoli", "0"), artRitardo, artRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (forRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arfornitori"), forRitardo, forRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arfornitori", "0"), forRitardo, forRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (scaRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arscadenze"), scaRitardo, scaRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arscadenze", "0"), scaRitardo, scaRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (staRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arstatistiche"), staRitardo, staRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arstatistiche", "0"), staRitardo, staRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (ordRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arordini"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arordini", "0"), ordRitardo, ordRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (marRitardo > 0) {
-                timer.schedule(new TaskSchedulato("armarche"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("armarche", "0"), marRitardo, marRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (linRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arlingue"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arlingue", "0"), linRitardo, linRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (lisRitardo > 0) {
-                timer.schedule(new TaskSchedulato("arlistini"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("arlistini", "0"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (magRitardo > 0) {
-                timer.schedule(new TaskSchedulato("magazzinoesterno"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi
+                timer.schedule(new TaskSchedulato("magazzinoesterno", "0"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi
             }
             if (clearEvery > 0) {
                 timer.schedule(new TaskClear(), clearEvery, clearEvery);//parti dopo x secondi e itera ogni x secondi
