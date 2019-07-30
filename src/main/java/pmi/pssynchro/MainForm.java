@@ -124,7 +124,8 @@ public class MainForm extends javax.swing.JFrame {
         runOnceCodRif = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("PrestaShopSync");
+        setTitle("PrestaShop Synchro - ".concat(Config.getString("DATABASE"))
+        );
         setMinimumSize(new java.awt.Dimension(730, 480));
 
         esito.setColumns(20);
@@ -600,6 +601,7 @@ public class MainForm extends javax.swing.JFrame {
 
     private void clearAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAreaActionPerformed
         esito.setText("");
+        esito.setText(null);
         System.gc();
     }//GEN-LAST:event_clearAreaActionPerformed
 
