@@ -65,11 +65,13 @@ public class Configurazione extends javax.swing.JFrame {
         jTextFieldCodRif = new javax.swing.JTextField();
         jLabelUrl = new javax.swing.JLabel();
         jLabelCli = new javax.swing.JLabel();
-        chkCatPs = new javax.swing.JCheckBox();
         jLabelSca = new javax.swing.JLabel();
         jTextFieldFor = new javax.swing.JTextField();
         jLabelStream = new javax.swing.JLabel();
         chkStream = new javax.swing.JCheckBox();
+        jTextFieldCat = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        chkCatPs = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jTextFieldPwdFtp = new javax.swing.JTextField();
         jTextFieldNomeImgFtp = new javax.swing.JTextField();
@@ -244,13 +246,6 @@ public class Configurazione extends javax.swing.JFrame {
 
         jLabelCli.setText("Clienti");
 
-        chkCatPs.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
-        if (Config.getString("CATEGORIEPS").equals("1"))
-        chkCatPs.setSelected(true);
-        else
-        chkCatPs.setSelected(false);
-        chkCatPs.setToolTipText("");
-
         jLabelSca.setText("Scadenzario");
 
         jTextFieldFor.setText(Config.getString("FORNITORI"));
@@ -264,6 +259,23 @@ public class Configurazione extends javax.swing.JFrame {
         else
         chkStream.setSelected(false);
         chkStream.setToolTipText("");
+
+        jTextFieldCat.setText(Config.getString("CATEGORIE"));
+        jTextFieldCat.setToolTipText("Frequenza aggiornamento in minuti");
+        jTextFieldCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCatActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setText("Categorie");
+
+        chkCatPs.setBackground(Color.getHSBColor(Costanti.HUE,Costanti.SATURATION,Costanti.BRIGHTNESS));
+        if (Config.getString("CATEGORIEPS").equals("1"))
+        chkCatPs.setSelected(true);
+        else
+        chkCatPs.setSelected(false);
+        chkCatPs.setToolTipText("");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -282,21 +294,20 @@ public class Configurazione extends javax.swing.JFrame {
                             .addComponent(jLabelFor)
                             .addComponent(jLabelCli, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCatPs))
+                            .addComponent(jLabel14))
                         .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldUrl, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldFor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldCli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(chkCatPs))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldImm, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldMar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldArt, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldFor, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldCli, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldGiac, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldCat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabelAll)
@@ -316,8 +327,12 @@ public class Configurazione extends javax.swing.JFrame {
                                     .addComponent(jTextFieldStat, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldLin, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                                    .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelCatPs)
+                        .addGap(43, 43, 43)
+                        .addComponent(chkCatPs)))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -364,18 +379,25 @@ public class Configurazione extends javax.swing.JFrame {
                     .addComponent(jLabelImm))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextFieldLis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)
-                        .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelCatPs)
-                    .addComponent(chkCatPs)
-                    .addComponent(jLabelStream)
-                    .addComponent(chkStream))
-                .addGap(30, 30, 30))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCatPs)
+                            .addComponent(chkCatPs)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkStream)
+                            .addComponent(jLabelStream)))))
         );
 
         jTabbedPane1.addTab("Frequenze", jPanel1);
@@ -535,7 +557,7 @@ public class Configurazione extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelFtpPlain)
                     .addComponent(chkFtpPlain))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ftp Immagini", jPanel2);
@@ -585,7 +607,7 @@ public class Configurazione extends javax.swing.JFrame {
                         .addComponent(jTextFieldPwd, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextFieldSer)
                     .addComponent(jTextFieldDb))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -697,11 +719,12 @@ public class Configurazione extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jTabbedPane1))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
@@ -760,6 +783,7 @@ public class Configurazione extends javax.swing.JFrame {
         Config.setProperty("MAGAZZINO", jTextFieldMag.getText());
         Config.setProperty("LISTINI", jTextFieldLis.getText());
         Config.setProperty("CODICI_RIFERIMENTO", jTextFieldCodRif.getText());
+        Config.setProperty("CATEGORIE", jTextFieldCat.getText());
         Config.setProperty("FTP", jTextFieldFtp.getText());
         Config.setProperty("USERNAME_FTP", jTextFieldUsernameFtp.getText());
         Config.setProperty("PASSWORD_FTP", jTextFieldPwdFtp.getText());
@@ -861,6 +885,10 @@ public class Configurazione extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldUrlCheckImgActionPerformed
 
+    private void jTextFieldCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCatActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -906,6 +934,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -944,6 +973,7 @@ public class Configurazione extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAll;
     private javax.swing.JTextField jTextFieldArt;
     private javax.swing.JTextField jTextFieldCartellaFtp;
+    private javax.swing.JTextField jTextFieldCat;
     private javax.swing.JTextField jTextFieldClean;
     private javax.swing.JTextField jTextFieldCli;
     private javax.swing.JTextField jTextFieldCodMag;

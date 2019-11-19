@@ -61,6 +61,7 @@ public class MainForm extends javax.swing.JFrame {
     int ordRitardo = tryParse((Config.getString("ORDINI") + "000")) * 60;
     int linRitardo = tryParse((Config.getString("LINGUE") + "000")) * 60;
     int lisRitardo = tryParse((Config.getString("LISTINI") + "000")) * 60;
+    int catRitardo = tryParse((Config.getString("CATEGORIE") + "000")) * 60;
     int clearEvery = tryParse((Config.getString("PULIZIAAREA") + "000")) * 60;
     String catPs = Config.getString("CATEGORIEPS");
     String checkStream = Config.getString("MOSTRASTREAM");
@@ -122,11 +123,13 @@ public class MainForm extends javax.swing.JFrame {
         runOnceGiac = new javax.swing.JButton();
         runOnceMagEst = new javax.swing.JButton();
         runOnceCodRif = new javax.swing.JButton();
+        runOnceCat = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("PrestaShop Synchro - ".concat(Config.getString("DATABASE"))
         );
-        setMinimumSize(new java.awt.Dimension(730, 480));
+        setMinimumSize(new java.awt.Dimension(730, 510));
+        setPreferredSize(new java.awt.Dimension(700, 510));
 
         esito.setColumns(20);
         esito.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -447,6 +450,17 @@ public class MainForm extends javax.swing.JFrame {
             }
         });
 
+        runOnceCat.setBackground(java.awt.Color.white);
+        runOnceCat.setText("Categorie");
+        runOnceCat.setMaximumSize(new java.awt.Dimension(70, 20));
+        runOnceCat.setMinimumSize(new java.awt.Dimension(70, 20));
+        runOnceCat.setPreferredSize(new java.awt.Dimension(70, 20));
+        runOnceCat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                runOnceCatActionPerformed(evt);
+            }
+        });
+
         jLayeredPane1.setLayer(runOnceArt, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(runOnceMar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(runOnceSta, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -461,6 +475,7 @@ public class MainForm extends javax.swing.JFrame {
         jLayeredPane1.setLayer(runOnceGiac, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(runOnceMagEst, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(runOnceCodRif, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(runOnceCat, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -477,17 +492,18 @@ public class MainForm extends javax.swing.JFrame {
                             .addComponent(runOnceOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(runOnceLin, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(runOnceSca, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(runOnceImm, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceCat, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceAll, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceCli, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceFor, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceArt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(runOnceArt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(runOnceFor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(runOnceCli, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(runOnceAll, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(runOnceGiac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(runOnceMagEst, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(runOnceCodRif, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
         );
@@ -521,7 +537,9 @@ public class MainForm extends javax.swing.JFrame {
                 .addComponent(runOnceMagEst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(runOnceCodRif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(runOnceCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -707,6 +725,11 @@ public class MainForm extends javax.swing.JFrame {
         timer.schedule(new TaskSchedulato("arCodRif", "1"), 10);
     }//GEN-LAST:event_runOnceCodRifActionPerformed
 
+    private void runOnceCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_runOnceCatActionPerformed
+        timer = new Timer();
+        timer.schedule(new TaskSchedulato("arassocat", "1"), 10);
+    }//GEN-LAST:event_runOnceCatActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -756,6 +779,7 @@ public class MainForm extends javax.swing.JFrame {
     private javax.swing.JRadioButton resetListini;
     private javax.swing.JButton runOnceAll;
     private javax.swing.JButton runOnceArt;
+    private javax.swing.JButton runOnceCat;
     private javax.swing.JButton runOnceCli;
     private javax.swing.JButton runOnceCodRif;
     private javax.swing.JButton runOnceFor;
@@ -834,7 +858,7 @@ public class MainForm extends javax.swing.JFrame {
             if (stringa.equals("ararticoli") && catPs.equals("1")) {
                 UpdateCategoriePs connServer = new UpdateCategoriePs();
                 connServer.dbConnect(server, username, password, database);
-            }
+            }    
             //
             // Carico i dati del magazzino esterno 
             if (stringa.equals("magazzinoesterno")) {
@@ -1285,7 +1309,8 @@ public class MainForm extends javax.swing.JFrame {
                 // Use passive mode as default because most of us are
                 // behind firewalls these days.
                 ftps.enterLocalPassiveMode();
-
+                //ftps.execPBSZ(0);// Set protection buffer size 
+                //ftps.execPROT("P");// Set data channel protection to private--
                 if (storeFile) {
                     /*upload*/
                     System.out.println("Il file esiste");
@@ -1357,6 +1382,7 @@ public class MainForm extends javax.swing.JFrame {
             runOnceSca.setEnabled(false);
             runOnceSta.setEnabled(false);
             runOnceCodRif.setEnabled(false);
+            runOnceCat.setEnabled(false);
         }
 
         public void enable() {
@@ -1374,6 +1400,7 @@ public class MainForm extends javax.swing.JFrame {
             runOnceSca.setEnabled(true);
             runOnceSta.setEnabled(true);
             runOnceCodRif.setEnabled(true);
+            runOnceCat.setEnabled(true);
         }
 
     }
@@ -1419,6 +1446,9 @@ public class MainForm extends javax.swing.JFrame {
             if (lisRitardo > 0) {
                 timer.schedule(new TaskSchedulato("arlistini", "0"), lisRitardo, lisRitardo);//parti dopo x secondi e itera ogni x secondi
             }
+            if (catRitardo > 0) {
+                timer.schedule(new TaskSchedulato("arassocat", "0"), catRitardo, catRitardo);//parti dopo x secondi e itera ogni x secondi
+            }            
             if (magRitardo > 0) {
                 timer.schedule(new TaskSchedulato("magazzinoesterno", "0"), magRitardo, magRitardo);//parti dopo x secondi e itera ogni x secondi
             }

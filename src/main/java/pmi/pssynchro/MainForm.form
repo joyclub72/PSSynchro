@@ -14,7 +14,10 @@
       <Connection code="&quot;PrestaShop Synchro - &quot;.concat(Config.getString(&quot;DATABASE&quot;))&#xd;&#xa;" type="code"/>
     </Property>
     <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[730, 480]"/>
+      <Dimension value="[730, 510]"/>
+    </Property>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[700, 510]"/>
     </Property>
   </Properties>
   <SyntheticProperties>
@@ -350,19 +353,20 @@
                               <Component id="runOnceOrd" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="runOnceLin" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="runOnceSca" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="runOnceMagEst" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="runOnceImm" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="runOnceCat" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="runOnceAll" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="runOnceCli" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="runOnceFor" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="runOnceArt" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="runOnceArt" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="runOnceFor" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="runOnceCli" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
-                              <Component id="runOnceAll" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="runOnceGiac" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
+                              <Component id="runOnceMagEst" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
                               <Component id="runOnceCodRif" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -401,7 +405,9 @@
                   <Component id="runOnceMagEst" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="runOnceCodRif" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="runOnceCat" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="14" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -688,6 +694,26 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="runOnceCodRifActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="runOnceCat">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Categorie"/>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[70, 20]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[70, 20]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[70, 20]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="runOnceCatActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
